@@ -1635,11 +1635,11 @@ export default {
       return () => popper.destroy();
     },
     setStreak(result) {
+      let streak = JSON.parse(localStorage.getItem('streak') || '{}');
       if ((result.kq == 'lose' && result.money < 10) || (result.kq == 'win' && result.money < 19.5)) {
         localStorage.setItem('streak', JSON.stringify(streak));
         return;
       }
-      let streak = JSON.parse(localStorage.getItem('streak') || '{}');
       if (streak.last == result.kq) {
         if (this.streak < 9) {
           this.streak += 1;
@@ -1890,7 +1890,7 @@ export default {
         minimumFractionDigits: minimum
       });
       let val = Number(value).toFixed(0)
-      return formatter.format(val);
+      return formatter.format(value);
     },
 
     tinhloinhuan(m) {
@@ -2010,7 +2010,7 @@ export default {
           listData.push(boPrice);
           let begin = 0;
           //console.log(listData);
-          const { dataMax } = chartInstance.xAxis[0].getExtremes();
+          const { dataMax } = chartInstance?.xAxis[0].getExtremes();
           begin = this.setSizeStock(listData);
           chartGet.xAxis[0]?.setExtremes(listData[begin]?.date, dataMax, false);
           chartGet.redraw();
@@ -2427,7 +2427,7 @@ export default {
         if (getData.isAccount) {
           this.setStreak(dl);
         }
-        if (this.$store.state.forceWin || dl.kq == 'win') {
+        if (this.$store.state.forceWin || dl.kq === 'win') {
           let mn = dl.money;
 
           this.playAudio('win');
