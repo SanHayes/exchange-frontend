@@ -649,7 +649,7 @@
       </div>
       <div :class="['c-body trans his-bet-wrapper']" :style="`${isOpenSideBar && !isTablet ? 'width: 230px' : ''}`"></div>
     </div>
-
+<!--    结算弹窗-->
     <div class="popupCongratulation" :class="{ block: isWinPop }">
       <div class="mask"></div>
       <div class="popupCongratulationContent">
@@ -663,7 +663,7 @@
                   <!---->
                 </div>
                 <p class="titleWin">Xin chúc mừng!</p>
-                <span class="message_money text-4xl font-bold">+{{ moneyWin }}VND</span>
+                <span class="message_money text-4xl font-bold">+{{ moneyWin }}USDT</span>
               </div>
               <span class="cursor-pointer pointer"><i class="iconClose" data-feather="x"></i></span>
             </div>
