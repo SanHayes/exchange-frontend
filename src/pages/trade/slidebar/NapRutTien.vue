@@ -755,8 +755,8 @@ export default {
       bank: `${getData.displayName}_${makeid(4)}`,
       isMobile,
 
-      DISABLE_2FA: false,
-      // DISABLE_2FA: true,
+      // DISABLE_2FA: false,
+      DISABLE_2FA: true,
       bankInfo: "",
 
       disableCheckWallet: false,
