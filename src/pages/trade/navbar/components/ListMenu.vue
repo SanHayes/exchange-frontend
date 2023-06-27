@@ -74,7 +74,7 @@
           </router-link>
         </div>
 
-<!--        <div class="nav-item">
+        <div class="nav-item">
           <router-link
             to="/user/affiliate/general"
             class="nav-link cursor-pointer"
@@ -173,7 +173,7 @@
             ></span>
             <span class="textLink">{{ $t("Vip") || "Vip" }}</span>
           </router-link>
-        </div>-->
+        </div>
         <div class="nav-item">
           <router-link to="/user/balance" class="nav-link cursor-pointer">
             <span

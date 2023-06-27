@@ -2200,7 +2200,7 @@ export default {
     loginForm() {
       this.ldFrom = true;
       AuthenticationService.loginUser({
-        email: this.email,
+        email: this.phone,
         password: this.password,
       }).then((res) => {
         this.ldFrom = false;
