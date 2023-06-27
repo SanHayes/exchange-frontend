@@ -77,7 +77,7 @@
               <h2 class="lg:mb-5">Đăng nhập vào Tài khoản của bạn</h2>
               <div class="centerx labelx">
                 <div class="mb-3">
-                  <label class="label_custom">Địa chỉ Phone *</label>
+                  <label class="label_custom">Số Điện Thoại *</label>
                   <input
                     type="number"
                     class="w-full input-bvxi30l9g"
@@ -455,7 +455,7 @@
                   class="mb-5 relative"
                   :class="{ 'md-invalid': msgEm3rd != '' }"
                 >
-                  <label class="label_custom">Địa chỉ Phone *</label>
+                  <label class="label_custom">Số Điện Thoại *</label>
                   <input
                     type="number"
                     minlength="10"
@@ -736,7 +736,7 @@
                   class="mb-5 relative"
                   :class="{ 'md-invalid': msgEmReg != '' }"
                 >
-                  <label class="label_custom"> Địa chỉ Phone *</label>
+                  <label class="label_custom"> Số Điện Thoại *</label>
                   <input
                     type="number"
                     prop="input-bvxi30l9g"
@@ -1096,7 +1096,7 @@
                   class="mb-5 relative"
                   :class="{ 'md-invalid': msgEmailResend != '' }"
                 >
-                  <label class="label_custom">Địa chỉ Phone *</label>
+                  <label class="label_custom">Số Điện Thoại *</label>
                   <input
                     type="number"
                     class="w-full input-bvxi30l9g"
@@ -1233,7 +1233,7 @@
                   class="mb-5 relative"
                   :class="{ 'md-invalid': msgEmailForgot != '' }"
                 >
-                  <label class="label_custom">Địa chỉ Phone *</label>
+                  <label class="label_custom">Số Điện Thoại *</label>
                   <input
                     type="number"
                     class="w-full input-bvxi30l9g"
@@ -1374,7 +1374,7 @@
                     type="number"
                     disabled="disabled"
                     class="w-full"
-                    label="Địa chỉ Phone *"
+                    label="Số Điện Thoại *"
                     minlength="10"
                     maxlength="11"
                     v-model="phoneReset"
@@ -1584,7 +1584,7 @@ export default {
   computed: {
     disabledLogin() {
       if (
-        this.email !== "" &&
+        this.phone !== "" &&
         // this.checkReg(this.email) &&
         this.password !== ""
       ) {
