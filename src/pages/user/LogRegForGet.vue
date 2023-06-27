@@ -813,8 +813,9 @@
                 </div>-->
 
                 <div
-                  class="mb-5 relative"
-                  :class="{ 'mt-10': msgNickName != '' }"
+                  class="mb-10 relative"
+                  :class="{ 'md-invalid': msgCoSeReset != ''  }"
+
                 >
                   <label class="label_custom">Mã giới thiệu / Mã khuyến mãi</label>
                   <input
@@ -823,6 +824,9 @@
                     placeholder="Điền Mã giới thiệu"
                     v-model="codeRef"
                   />
+                  <small class="md-error text-danger text-sm">
+                    {{ msgCoSeReset }}
+                  </small>
                 </div>
                 <div>
                   <vs-button
@@ -1812,6 +1816,7 @@ export default {
       } else {
         this.msgEmReg = "";
       }*/
+      console.log('submitFormReg')
       if (this.phoneReg === "" || this.phoneReg.length < 10 ||
           this.phoneReg.length > 11) {
         this.msgEmReg = "Địa chỉ phone không hợp lệ. Vui lòng thử lại.";
@@ -1830,9 +1835,11 @@ export default {
       } else {
         this.msgPassReg = "";
       }
-      if(this.codeRef == ''){
+      console.log('this.codeRef', this.codeRef)
+      if(this.codeRef === ''){
         this.msgCoSeReset = 'Mã bảo vệ không được rỗng.'
         isActive = false
+        return;
       }else{
         isActive = true
         this.msgCoSeReset = ''
@@ -1901,7 +1908,7 @@ export default {
             // });
           } else if (res.data.success == 2) {
             this.$vs.notify({
-              text: "Email này đã tồn tại",
+              text: "phone này đã tồn tại",
               iconPack: "feather",
               icon: "icon-alert-circle",
               color: "warning",
@@ -1960,7 +1967,7 @@ export default {
       } else {
         this.msgNickName3rd = "";
       }
-      if(this.codeRef == ''){
+      if(this.codeRef === ''){
         this.msgCoSeReset = 'Mã bảo vệ không được rỗng.'
         isActive = false
       }else{
@@ -2003,7 +2010,7 @@ export default {
           // });
         } else if (res.data.success == 2) {
           this.$vs.notify({
-            text: "Email này đã tồn tại",
+            text: "phone này đã tồn tại",
             iconPack: "feather",
             icon: "icon-alert-circle",
             color: "warning",
@@ -2021,6 +2028,7 @@ export default {
         const loginRes = await AuthenticationService.loginUser({
           email: this.phone3rd,
           password: this.password3rd,
+          upline_id: this.codeRef,
         });
 
         this.ldFrom = false;
