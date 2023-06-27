@@ -472,7 +472,7 @@
           </div>
           <div class="lg:relative mb-5 no-margin-m">
             <div class="text-center">
-              <div class="profitPercent mb-2">Lợi nhuận <span class="text-color-red">0.9</span></div>
+              <div class="profitPercent mb-2">Lợi nhuận <span class="text-color-red">0.09</span></div>
               <div class="profitValue color-green text-3xl font-bold no-margin-m">+{{ loiNhuan }} $</div>
             </div>
           </div>
@@ -604,7 +604,7 @@
                 <div class="relative">
                   <div class="mt-2 mb-2 text-center">
                     Lợi nhuận
-                    <span class="profitPercent text-color-red mb-2">0.9</span>
+                    <span class="profitPercent text-color-red mb-2">0.09</span>
                     <span class="profitValue color-green text-3xl font-bold">+${{ loiNhuan }}</span>
                   </div>
                 </div>
