@@ -1712,15 +1712,15 @@ export default {
           icon: 'icon-x'
         });
       }
-     /* if (+gAmount < 20000) {
+      if (+gAmount < 1) {
         return this.$vs.notify({
-          text: `Số tiền tối thiểu là 20k.`,
+          text: `Số tiền tối thiểu là $1.`,
           iconPack: "feather",
           icon: "icon-check",
           position: "top-right",
           color: "danger",
         });
-      }*/
+      }
       let email = getData.email;
       let typeAccount = getData.isAccount;
       let uidLive = getData.uidLive;
