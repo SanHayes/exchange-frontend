@@ -2228,7 +2228,7 @@ export default {
           //window.location.href = window.location.origin + '/user/affiliate/general';
         } else if (res.data.success == 0) {
           this.$vs.notify({
-            text: "Email hoặc mật khẩu không đúng. Vui lòng nhập lại",
+            text: "phone hoặc mật khẩu không đúng. Vui lòng nhập lại",
             iconPack: "feather",
             icon: "icon-alert-circle",
             color: "danger",
