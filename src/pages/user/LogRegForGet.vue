@@ -77,11 +77,13 @@
               <h2 class="lg:mb-5">Đăng nhập vào Tài khoản của bạn</h2>
               <div class="centerx labelx">
                 <div class="mb-3">
-                  <label class="label_custom">Địa chỉ Phone2 *</label>
+                  <label class="label_custom">Địa chỉ Phone *</label>
                   <input
                     type="number"
                     class="w-full input-bvxi30l9g"
                     placeholder="Điền Phone"
+                    minlength="10"
+                    maxlength="11"
                     v-model="phone"
                   />
                 </div>
@@ -453,11 +455,13 @@
                   class="mb-5 relative"
                   :class="{ 'md-invalid': msgEm3rd != '' }"
                 >
-                  <label class="label_custom">Địa chỉ Phone1 *</label>
+                  <label class="label_custom">Địa chỉ Phone *</label>
                   <input
-                    type="email"
+                    type="number"
+                    minlength="10"
+                    maxlength="11"
                     class="w-full input-bvxi30l9g"
-                    placeholder="Điền Email"
+                    placeholder="Điền Phone"
                     v-model="phone3rd"
                   />
                   <small class="md-error text-danger text-sm">
@@ -732,7 +736,7 @@
                   class="mb-5 relative"
                   :class="{ 'md-invalid': msgEmReg != '' }"
                 >
-                  <label class="label_custom"> Địa chỉ Phone3 *</label>
+                  <label class="label_custom"> Địa chỉ Phone *</label>
                   <input
                     type="number"
                     prop="input-bvxi30l9g"
@@ -1088,11 +1092,13 @@
                   class="mb-5 relative"
                   :class="{ 'md-invalid': msgEmailResend != '' }"
                 >
-                  <label class="label_custom">Địa chỉ Phone4 *</label>
+                  <label class="label_custom">Địa chỉ Phone *</label>
                   <input
                     type="number"
                     class="w-full input-bvxi30l9g"
                     placeholder="Điền Phone"
+                    minlength="10"
+                    maxlength="11"
                     v-model="phoneResend"
                   />
 
@@ -1223,11 +1229,13 @@
                   class="mb-5 relative"
                   :class="{ 'md-invalid': msgEmailForgot != '' }"
                 >
-                  <label class="label_custom">Địa chỉ Phone3 *</label>
+                  <label class="label_custom">Địa chỉ Phone *</label>
                   <input
                     type="number"
                     class="w-full input-bvxi30l9g"
                     placeholder="Điền Phone"
+                    minlength="10"
+                    maxlength="11"
                     v-model="phoneForgot"
                   />
                   <small class="md-error text-danger text-sm">
@@ -1363,6 +1371,8 @@
                     disabled="disabled"
                     class="w-full"
                     label="Địa chỉ Phone *"
+                    minlength="10"
+                    maxlength="11"
                     v-model="phoneReset"
                   />
                   <small class="md-error text-danger text-sm">
@@ -1820,7 +1830,13 @@ export default {
       } else {
         this.msgPassReg = "";
       }
-
+      if(this.codeRef == ''){
+        this.msgCoSeReset = 'Mã bảo vệ không được rỗng.'
+        isActive = false
+      }else{
+        isActive = true
+        this.msgCoSeReset = ''
+      }
       // const regex = /^[a-zA-Z0-9-_]+$/;
 
       // if (
@@ -1910,7 +1926,9 @@ export default {
       } else {
         this.msgEm3rd = "";
       }*/
-     if (this.phone3rd === "") {
+     if (this.phone3rd === "" ||
+         this.phone3rd.length < 10 ||
+         this.phone3rd.length > 11) {
         this.msgEm3rd = "Địa chỉ phone không hợp lệ. Vui lòng thử lại.";
         return;
       } else {
@@ -1942,7 +1960,13 @@ export default {
       } else {
         this.msgNickName3rd = "";
       }
-
+      if(this.codeRef == ''){
+        this.msgCoSeReset = 'Mã bảo vệ không được rỗng.'
+        isActive = false
+      }else{
+        isActive = true
+        this.msgCoSeReset = ''
+      }
       if (isActive) {
         this.ldFrom = true;
         let obj = {
@@ -2075,7 +2099,8 @@ export default {
       /**
        * 忘记密码
        */
-      if (this.phoneForgot === "") {
+      if (this.phoneForgot === "" || this.phoneForgot.length < 10 ||
+          this.phoneForgot.length > 11) {
         this.msgEmailForgot = "Địa chỉ phone không hợp lệ. Vui lòng thử lại.";
         isActive = false;
       } else {
