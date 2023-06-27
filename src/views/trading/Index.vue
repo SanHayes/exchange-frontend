@@ -508,7 +508,7 @@
           <div class="relative">
             <div class="mt-1 text-center c-loinhuan">
               Lợi nhuận
-              <span class="profitPercent text-color-red mb-2">0.9</span>
+              <span class="profitPercent text-color-red mb-2">0.09</span>
               <span class="profitValue color-green text-2xl font-bold">+{{ loiNhuan }}$</span>
             </div>
           </div>
@@ -1895,7 +1895,7 @@ export default {
 
     tinhloinhuan(m) {
       let lb = Number(m);
-      lb = lb + (lb * 90) / 100;
+      lb = lb + (lb * 9) / 100;
       // tính lợi nhuận 95%
       console.log('tinhloinhuan', lb)
       // this.loiNhuan = this.formatPrice(lb, 0);
