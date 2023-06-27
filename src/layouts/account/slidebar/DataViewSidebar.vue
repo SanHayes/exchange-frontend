@@ -28,8 +28,8 @@
         </template>
 
         <!-- EMAIL -->
-        <vs-input label="Hộp thư" v-model="dataEmail" class="mt-5 w-full" type="email" name="item-email" v-validate="'required|email|min:6|max:200'" />
-        <span class="text-danger text-sm" v-show="errors.has('item-email')">{{ errors.first('item-email') }}</span>
+        <vs-input label="Số Điện Thoại" v-model="dataEmail" class="mt-5 w-full" type="number" name="phone" v-validate="'required|min:10|max:12'" />
+        <span class="text-danger text-sm" v-show="errors.has('phone')">{{ errors.first('phone') }}</span>
 
         <!-- NICKNAME -->
         <vs-input label="Biệt danh" v-model="dataNick" class="mt-5 w-full" name="item-nick" v-validate="'required|min:6|max:50'" />

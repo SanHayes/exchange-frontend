@@ -108,6 +108,7 @@
 
                   <vs-td>
                       <p class="user-name font-medium truncate">{{ tr.email }}</p>
+                      <p class="agency-name font-medium truncate">Mã mời： {{ tr.ref_code }}</p>
                       <p>
                           <!--Địa chỉ BTC: <span style="color: #f8a037" @click="clickGetAddress(tr.address_BTC, tr.privateKey_BTC, tr.wif_BTC)">{{ tr.address_BTC }}</span><br>
                           Địa chỉ ETH: <span style="color: #627eea" @click="clickGetAddress(tr.address_ETH, tr.privateKey_ETH, '')">{{ tr.address_ETH }}</span><br>-->
@@ -400,7 +401,7 @@ export default {
                   position: 'top-right',
                   icon:'icon-x'});
         }
-         
+
       }).catch((error) => {
         console.log(error);
       });
