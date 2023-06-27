@@ -295,13 +295,13 @@
                       Để thanh toán bạn vui lòng chuyển tiền theo nội dung
                       {{ bank }}
                     </div>
-                   <!-- <div>
+                    <div>
                       Với số tiền
                       <b>{{
                         formatPrice(getSetSys.quotePriceVND * amount, 0)
                       }}</b>
                       VNĐ
-                    </div>-->
+                    </div>
                     <pre v-html="bankInfo"></pre>
                   </div>
                   <div>
@@ -314,10 +314,10 @@
                     >* Lưu ý: Hệ thống sẽ không chịu trách nhiệm nếu bạn gửi sai
                     nội dung!</i
                   >
-                 <!-- <span class="noted"
+                  <span class="noted"
                     >1 USD =
                     {{ formatPrice(getSetSys.quotePriceVND, 0) }} VNĐ</span
-                  >-->
+                  >
                   <vs-button
                     class="buttonCommon greenButton mt-5"
                     :class="{ hidden: isNap }"
@@ -329,7 +329,7 @@
               </div>
 
               <div v-else class="deposit_widthdraw_box">
-                <!--<div class="colorSecondary2">
+                <div class="colorSecondary2">
                   USD trong ví:
                   <span class="price mr-2"> {{ getAmount }}$ </span>
                 </div>
@@ -338,7 +338,7 @@
                   <span class="price mr-2">
                     {{ formatPrice(amount * getSetSys.quotePriceVND, 0) }} VNĐ
                   </span>
-                </div>-->
+                </div>
                 <div class="form-group relative mt-4">
                   <input
                     v-model="amount"
@@ -755,8 +755,8 @@ export default {
       bank: `${getData.displayName}_${makeid(4)}`,
       isMobile,
 
-      // DISABLE_2FA: false,
-      DISABLE_2FA: true,
+      DISABLE_2FA: false,
+      // DISABLE_2FA: true,
       bankInfo: "",
 
       disableCheckWallet: false,

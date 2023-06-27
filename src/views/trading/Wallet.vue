@@ -452,7 +452,7 @@
                   </div>
                   <vs-tabs>
                     <vs-tab
-                      label="VND"
+                      label="USDT"
                       @click="
                         getListHisTrade(),
                           (showHisUSD = true),
