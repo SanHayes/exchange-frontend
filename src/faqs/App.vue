@@ -53,7 +53,7 @@
               <p>
                 TeLeGram:
 <!--                <a :href="`mailto:${mail}`" class="emailLink">{{ mail }}</a>-->
-                <a :href="`https://t.me/${mail}`" class="emailLink">@{{ mail }}</a>
+                <a :href="`https://t.me/${mail}`" class="emailLink" target="_blank">@{{ mail }}</a>
               </p>
             </div>
             <div class="block md:pl-6">
