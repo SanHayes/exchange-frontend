@@ -1712,7 +1712,7 @@ export default {
           icon: 'icon-x'
         });
       }
-      if (+gAmount < 20000) {
+     /* if (+gAmount < 20000) {
         return this.$vs.notify({
           text: `Số tiền tối thiểu là 20k.`,
           iconPack: "feather",
@@ -1720,7 +1720,7 @@ export default {
           position: "top-right",
           color: "danger",
         });
-      }
+      }*/
       let email = getData.email;
       let typeAccount = getData.isAccount;
       let uidLive = getData.uidLive;

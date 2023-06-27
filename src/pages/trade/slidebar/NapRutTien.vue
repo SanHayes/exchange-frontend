@@ -281,13 +281,19 @@
               <div class="deposit_widthdraw_box" v-if="activeNRT">
                 <div class="form-group relative mt-4">
                   <!--<h4 class="colorSecondary2">Giá trị USD</h4>-->
-                  <input
+                 <!-- <input
                     type="number"
                     v-model="amount"
                     decimal="true"
                     :placeholder="`Số tiền tối thiểu: ${formatPrice(getSetSys.minDepositUSDT)}`"
                     class="form-control"
-                  />
+                  />-->
+                   <input
+                  type="number"
+                  v-model="amount"
+                  decimal="true"
+                  class="form-control"
+                />
                 </div>
                 <div class="text-center address">
                   <div class="p-3">
@@ -782,7 +788,7 @@ export default {
     },
 
     DepositVND() {
-      if (this.amount < getSetSys.minDepositUSDT) {
+      /*if (this.amount < getSetSys.minDepositUSDT) {
         return this.$vs.notify({
           text: `Số tiền nạp tối thiểu là ${getSetSys.minDepositUSDT}.`,
           iconPack: "feather",
@@ -790,7 +796,7 @@ export default {
           position: "top-right",
           color: "danger",
         });
-      }
+      }*/
 
       let obj = {
         a: Number(this.amount),
