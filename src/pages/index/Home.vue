@@ -263,8 +263,9 @@
                 All rights reserved.
               </div>
               <p>
-                Email:
-                <a :href="`mailto:${mail}`" class="emailLink">{{ mail }}</a>
+                TeLeGram:
+<!--                <a :href="`mailto:${mail}`" class="emailLink">{{ mail }}</a>-->
+                <a :href="`https://t.me/${mail}`" class="emailLink">@{{ mail }}</a>
               </p>
             </div>
             <div class="block md:pl-6">
