@@ -265,7 +265,7 @@
               <p>
                 TeLeGram:
 <!--                <a :href="`mailto:${mail}`" class="emailLink">{{ mail }}</a>-->
-                <a :href="`https://t.me/${mail}`" class="emailLink" target="_blank">@{{ mail }}</a>
+                <a :href="`https://t.me/${telegram}`" class="emailLink" target="_blank">@{{ telegram }}</a>
               </p>
             </div>
             <div class="block md:pl-6">
@@ -1146,6 +1146,7 @@ import "swiper/dist/css/swiper.min.css";
 import { swiper, swiperSlide } from "vue-awesome-swiper";
 import config from "@/config";
 import LogRegForGet from "@/pages/user/LogRegForGet";
+import AuthenticationService from "@/services/AuthenticationService";
 
 export default {
   data() {
@@ -1205,6 +1206,7 @@ export default {
       },
       domain: config.domainRealName,
       mail: config.support.mail,
+      telegram: config.support.telegram,
     };
   },
   methods: {
@@ -1236,6 +1238,14 @@ export default {
     });
   },
   created() {
+    AuthenticationService.getSupport().then((res) => {
+      // config.support = res.data.data;
+      if (res.data.data.telegram) {
+        this.telegram =  res.data.data.telegram
+      }else {
+        this.telegram = config.support.telegram
+      }
+    });
     window.addEventListener("load", this.onWindowLoad);
     window.addEventListener("scroll", function () {
       if ($(this).scrollTop() !== 0) {

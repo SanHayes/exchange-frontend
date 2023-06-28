@@ -173,15 +173,15 @@
       </vs-button>
       <!-- <vs-button type="line" icon-pack="feather" :color="colorNT" icon="icon-dollar-sign" @click.stop="viewNapTien()">Nạp nhanh</vs-button> -->
     </div>
-
-    <!-- <div class="tele-support">
-      <a :href="config.support.telegram" target="_blank" title="Hỗ trợ khách hàng">
+<!--    客服-->
+     <div class="tele-support">
+      <a :href="`https://t.me/${config.support.telegram}`" target="_blank" title="Hỗ trợ khách hàng">
         <img :src="require('@/assets/images/sky/bot.svg')" alt="">
       </a>
-    </div> -->
-    <!--<div class="con-img ml-3">
+    </div>
+<!--    <div class="con-img ml-3">
       <vs-button type="line" icon-pack="feather" :color="colorRT" icon="icon-dollar-sign" @click.stop="viewRutTien()">Rút tiền</vs-button>
-    </div> -->
+    </div>-->
     <!--设置-->
     <div
       class="con-img ml-3 mr-3 cursor-pointer msetting"
@@ -404,6 +404,7 @@
     <div class="con-img ml-3 mr-3 text-center relative cursor-pointer mTT">
       <notification-drop-down />
     </div>
+<!--    页面客服-->
     <!-- <div class="con-img ml-3 mr-3 cursor-pointer mhelper" @click.stop="viewHelp()">
       <svg class="block text-center h-5" width="18" height="20" viewBox="0 0 18 20" fill="none" xmlns="http://www.w3.org/2000/svg">
         <g clip-path="url(#clip0_17_2)">
@@ -1421,6 +1422,9 @@ export default {
       if (resp.data.success) {
         this.prize = resp.data.data.sum;
       }
+    });
+    AuthenticationService.getSupport().then((res) => {
+      config.support = res.data.data;
     });
     this.getSysWallet()
   },

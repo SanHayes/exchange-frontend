@@ -2,7 +2,7 @@ export default {
     "domain": process.env.VUE_APP_BASE_URL,
     "domainRealName": process.env.VUE_APP_DOMAIN_REAL_NAME,
     "support": {
-        "telegram": "https://t.me/CSKHTrader",
+        "telegram": "CSKHTrader",
         "zalo": "",
         "mail": "CSKHTrader"
     },

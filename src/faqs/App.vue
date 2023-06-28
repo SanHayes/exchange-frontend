@@ -53,7 +53,7 @@
               <p>
                 TeLeGram:
 <!--                <a :href="`mailto:${mail}`" class="emailLink">{{ mail }}</a>-->
-                <a :href="`https://t.me/${mail}`" class="emailLink" target="_blank">@{{ mail }}</a>
+                <a :href="`https://t.me/${telegram}`" class="emailLink" target="_blank">@{{ telegram }}</a>
               </p>
             </div>
             <div class="block md:pl-6">
@@ -132,13 +132,25 @@
 <script>
 import config from "@/config";
 import LogRegForGet from "@/pages/user/LogRegForGet";
+import AuthenticationService from "@/services/AuthenticationService";
 export default {
   data() {
     return {
       vueAppClasses: [],
       domain: config.domainRealName,
       mail: config.support.mail,
+      telegram: '',
     };
+  },
+  created() {
+    AuthenticationService.getSupport().then((res) => {
+      // config.support = res.data.data;
+      if (res.data.data.telegram) {
+        this.telegram =  res.data.data.telegram
+      }else {
+        this.telegram = config.support.telegram
+      }
+    });
   },
   components: { LogRegForGet },
   methods: {
@@ -160,6 +172,7 @@ export default {
       }
     },
   },
+
 };
 </script>
 
