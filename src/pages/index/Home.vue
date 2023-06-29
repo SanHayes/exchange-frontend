@@ -425,7 +425,7 @@
       width: 561px;
       height: 381px;
       content: "";
-      background: url("~@/assets/images/landing_v2/Mockup-1.png");
+      background: url("~@/assets/images/landing_v2/WechatIMG92.png");
       background-position: 50%;
       background-size: cover;
       margin-top: 50px;
