@@ -19,7 +19,7 @@
     "minDepositPaypal": 0,
     "minWithdrawalBTC": 0,
     "minWithdrawalETH": 0,
-    "minWithdrawalUSDT": 100000,
+    "minWithdrawalUSDT": 100,
     "minWithdrawalPaypal": 0,
     "isActiveWalletPaypal": false,
     "isActiveWalletVND": false,

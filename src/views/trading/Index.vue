@@ -281,11 +281,11 @@
             <div class="historyBox" :class="{ active: !activeGau, hidden: activeHis }" style="transform: translateX(0px)">
               <div class="overviewInfo flex items-center">
                 <span class="badgeItem">
-                  <span class="color-green uppercase font-bold">Mua</span>
+                  <span class="color-green uppercase font-bold">Mua Tăng</span>
                   <span> {{ totalBuyStatic }}</span>
                 </span>
                 <span class="badgeItem ml-2">
-                  <span class="color-red uppercase font-bold">Bán</span>
+                  <span class="color-red uppercase font-bold">Mua Giảm</span>
                   <span> {{ totalSellStatic }}</span>
                 </span>
               </div>
