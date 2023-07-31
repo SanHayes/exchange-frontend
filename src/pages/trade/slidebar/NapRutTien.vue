@@ -432,6 +432,7 @@
                   <vs-button
                     class="buttonCommon redButton"
                     type="filled"
+                    :disabled="disabled"
                     @click="Withdrawal()"
                     >Rút Tiền</vs-button
                   >
@@ -442,7 +443,7 @@
                       >Bạn phải bật 2FA để yêu cầu rút tiền</small
                     >
                     <vs-button
-                      :disabled="!getData.c2fa"
+                      :disabled="!getData.c2fa || disabled"
                       class="buttonCommon redButton"
                       type="filled"
                       @click="Withdrawal()"
@@ -463,6 +464,7 @@
                       <vs-button
                         class="buttonCommon redButton"
                         type="filled"
+                        :disabled="disabled"
                         @click="WithdrawalOKPay()"
                         >Đồng ý</vs-button
                       >
@@ -766,6 +768,7 @@ export default {
       bankInfo: "",
 
       disableCheckWallet: false,
+      disabled: false
     };
   },
   methods: {
@@ -1090,6 +1093,7 @@ export default {
     },
 
     Withdrawal() {
+      console.log('Withdrawal')
       if (!this.DISABLE_2FA) {
         if (!getData.c2fa) {
           return this.$vs.notify({
@@ -1179,7 +1183,6 @@ export default {
       };
 
       const getAmountFormat = this.parseLocaleNumber(this.getAmount);
-
       if (this.isVND) {
         // Rút tiền qua thẻ ngân hàng
         // kiểm tra số tiền gốc = số tiền nhập hay không
@@ -1209,7 +1212,7 @@ export default {
         }
 
         obj.nw = "vnd";
-
+        this.disabled = true
         AuthenticationService.withdrawalUsdtVND(obj).then((res) => {
           let d = res.data;
 
@@ -1260,6 +1263,8 @@ export default {
               icon: "icon-x-circle",
             });
           }
+        }).finally(()=>{
+          this.disabled = false
         });
 
         return;
@@ -1283,7 +1288,7 @@ export default {
         }
 
         obj.nw = "nb";
-
+        this.disabled = true
         AuthenticationService.withdrawalUserNoiBo(obj).then((res) => {
           let d = res.data;
 
@@ -1341,6 +1346,8 @@ export default {
               icon: "icon-x-circle",
             });
           }
+        }).finally(()=>{
+          this.disabled = false
         });
       } else if (this.isActiveSelectTransBEP20) {
         // rút BEP20 (BSC)
@@ -1361,7 +1368,7 @@ export default {
         }
 
         obj.nw = "bep20";
-
+        this.disabled = true
         AuthenticationService.withdrawalUsdtBSC(obj).then((res) => {
           let d = res.data;
 
@@ -1415,6 +1422,8 @@ export default {
               icon: "icon-x-circle",
             });
           }
+        }).finally(()=>{
+          this.disabled = false
         });
       } else if (this.isActiveSelectTransERC20) {
         // rút ERC 20
@@ -1434,7 +1443,7 @@ export default {
         }
 
         obj.nw = "erc20";
-
+        this.disabled = true
         AuthenticationService.withdrawalUsdtERC(obj).then((res) => {
           let d = res.data;
 
@@ -1472,6 +1481,8 @@ export default {
               icon: "icon-x-circle",
             });
           }
+        }).finally(()=>{
+          this.disabled = false
         });
       }
     },
