@@ -569,7 +569,7 @@
             <!--            </div>-->
             <div class="session-mobile">
               <div>Phiên</div>
-              <div>{{ session }}</div>
+              <div>{{ session + 1 }}</div>
             </div>
           </div>
           <div class="relative mb-5 mt-3">
