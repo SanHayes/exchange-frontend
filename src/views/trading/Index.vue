@@ -414,7 +414,7 @@
               <div class="session">
                 <!--交易号-->
                 <div class="title">Giao dịch</div>
-                <div class="ss">{{ session }}</div>
+                <div class="ss">{{ session + 1}}</div>
               </div>
               <div class="wrapper-time">
                 <div class="text">{{ textTimeDown }}</div>
