@@ -50,7 +50,7 @@
                     <span @click="activePrompt=true">In</span>
                   </span>
                 </vs-dropdown-item>
-                
+
 
                 <!-- <vs-dropdown-item>
                   <span class="flex items-center">
@@ -110,6 +110,7 @@
 
                   <vs-td>
                       <p class="agency-name font-medium truncate">{{ tr.email }}</p>
+                      <p class="agency-name font-medium truncate">Mã mời： {{ tr.ref_code }}</p>
                       <p>
                           <!--Địa chỉ BTC: <span style="color: #f8a037" @click="clickGetAddress(tr.address_BTC, tr.privateKey_BTC, tr.wif_BTC)">{{ tr.address_BTC }}</span><br>
                           Địa chỉ ETH: <span style="color: #627eea" @click="clickGetAddress(tr.address_ETH, tr.privateKey_ETH, '')">{{ tr.address_ETH }}</span><br>-->
@@ -145,7 +146,7 @@
                       {{ tr.sponsor | k_formatter }}
                   </p>
                 </vs-td>
-                  
+
                 <vs-td>
                   <p class="agency-commission">{{ formatPrice(tr.pending_commission, 2) }}</p>
                 </vs-td>
@@ -164,11 +165,11 @@
                       <vx-tooltip style="float: left" :title="tr.nick_name" color="danger" text="Xóa tài khoản">
                           <vs-button color="dark" type="line" icon-pack="feather" icon="icon-trash" @click="openPopDelete({id: tr.id, email: tr.email, index: indextr})"></vs-button>
                       </vx-tooltip>
-                      
-                      
-                      
 
-                    <!-- <feather-icon icon="DollarSignIcon" svgClasses="w-5 h-5 hover:text-success stroke-current" @click.stop="addMoneyUser({id: tr.id, type: 'addMoney'})" />  
+
+
+
+                    <!-- <feather-icon icon="DollarSignIcon" svgClasses="w-5 h-5 hover:text-success stroke-current" @click.stop="addMoneyUser({id: tr.id, type: 'addMoney'})" />
                     <feather-icon icon="EditIcon" svgClasses="w-5 h-5 hover:text-primary stroke-current" @click.stop="editUser(tr)" />
                     <feather-icon icon="TrashIcon" svgClasses="w-5 h-5 hover:text-danger stroke-current" class="ml-2" @click.stop="deleteUser(tr.id)" /> -->
                 </vs-td>
@@ -185,9 +186,9 @@
     </vs-popup>
     <vs-popup title="Address Wallet" :active.sync="popupAdressWallet">
       <p>
-          Address: {{ getAdress }} <feather-icon icon="CopyIcon" v-clipboard:copy="getAdress" v-clipboard:success="onCopy" class="cursor-pointer"></feather-icon><br> 
+          Address: {{ getAdress }} <feather-icon icon="CopyIcon" v-clipboard:copy="getAdress" v-clipboard:success="onCopy" class="cursor-pointer"></feather-icon><br>
           Private Key: {{ getPrivateKey }} <feather-icon icon="CopyIcon" v-clipboard:copy="getPrivateKey" v-clipboard:success="onCopy" class="cursor-pointer"></feather-icon><br>
-          WFI BTC Address: {{ getWfiKey }} <feather-icon icon="CopyIcon" v-clipboard:copy="getWfiKey" v-clipboard:success="onCopy" class="cursor-pointer"></feather-icon> 
+          WFI BTC Address: {{ getWfiKey }} <feather-icon icon="CopyIcon" v-clipboard:copy="getWfiKey" v-clipboard:success="onCopy" class="cursor-pointer"></feather-icon>
       </p>
     </vs-popup>
   </div>
@@ -286,8 +287,8 @@ export default {
         }else{
           this.getWfiKey = 'N/A'
         }
-        this.getAdress = a 
-        this.getPrivateKey = p 
+        this.getAdress = a
+        this.getPrivateKey = p
     },
 
     onCopy() {
@@ -310,7 +311,7 @@ export default {
           }else{
             this.productsFake[index].sponsor = this.formatPrice(num ,0)
           }
-          
+
         }
       })
     },
@@ -336,7 +337,7 @@ export default {
       this.popupDeleteActive = true
     },
     deleteUser(id, index) {
-      
+
       AuthenticationService.deleteMember(id)
         .then((resp) => {
           if(resp.data.success){
@@ -364,7 +365,7 @@ export default {
         return;
       };
       data["type"] = 'addMoney'
-      this.sidebarData = data      
+      this.sidebarData = data
       this.toggleDataSidebar(true)
     },
     addNewAccount(){
@@ -380,7 +381,7 @@ export default {
       // this.sidebarData = JSON.parse(JSON.stringify(this.blankData))
       this.sidebarData = data
       this.toggleDataSidebar(true)
-      
+
     },
     getOrderStatusColor(status) {
       if(status == 0) return "warning"
@@ -408,7 +409,7 @@ export default {
             color:'danger',
             iconPack: 'feather',
             icon:'icon-heart'});
-      } 
+      }
       import('@/vendor/Export2Excel').then(excel => {
         const list = this.selectedUser
         const data = this.formatJson(this.headerVal, list)
@@ -456,7 +457,7 @@ export default {
     // }
 
     //this.$store.registerModule('dataList', this.productsFake);
-    
+
     //this.$store.dispatch("dataList/fetchDataListItems")
     //console.log(this.productsFake);
     //console.log(this.$store.state.dataList);

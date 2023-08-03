@@ -4,7 +4,7 @@
         Nhập mã xác thực 2 FA để truy cập trang
         <vs-input class="mt-5" placeholder="Nhập mã 2FA" v-model="code_2fa" />
         <vs-button class="mt-5 vs-con-loading__container loading-btn" @click="openPage">Xác nhận </vs-button>
-        
+
   </div>
   <div v-else id="list-edit-result" class="data-list-container">
 <template>
@@ -112,8 +112,8 @@
                     </span>
                     <ul class="centerx mb-4 mr-4" style="margin-left: 30px; line-height: 35px;">
                         <li>
-                            <vs-radio v-model="radioBC" class="ml-4" vs-value="buy" @change="changeMode('buy')">MUA</vs-radio>
-                            <vs-radio v-model="radioBC" class="ml-4" vs-value="sell" @change="changeMode('sell')">BÁN</vs-radio>
+                            <vs-radio v-model="radioBC" class="ml-4" vs-value="buy" @change="changeMode('buy')">MUA TĂNG</vs-radio>
+                            <vs-radio v-model="radioBC" class="ml-4" vs-value="sell" @change="changeMode('sell')">MUA GIẢM</vs-radio>
                             <vs-radio v-model="radioBC" class="ml-4" vs-value="off" @change="changeMode('off')">Tắt</vs-radio>
                             <br>
                             <span class="mb-4">
@@ -146,11 +146,11 @@
                     <td><p class="bet-type">{{ tr.sv }}</p></td>
                     <td>
                       <p class="bet-buy_sell" v-if="tr.bet == 'buy'">
-                          <span class="text-success mr-2">MUA</span>
+                          <span class="text-success mr-2">MUA TĂNG</span>
                           <feather-icon icon="TrendingUpIcon" svgClasses="w-5 h-5"/>
                       </p>
                       <p class="bet-buy_sell" v-else>
-                        <span class="text-danger mr-2">BÁN</span>
+                        <span class="text-danger mr-2">MUA GIẢM</span>
                         <feather-icon icon="TrendingDownIcon" svgClasses="w-5 h-5"/>
                       </p>
                     </td>
@@ -185,11 +185,11 @@
                     <td><p class="bet-type">{{ tr.sv }}</p></td>
                     <td>
                       <p class="bet-buy_sell" v-if="tr.bet == 'buy'">
-                          <span class="text-success mr-2">MUA</span>
+                          <span class="text-success mr-2">MUA TĂNG</span>
                           <feather-icon icon="TrendingUpIcon" svgClasses="w-5 h-5"/>
                       </p>
                       <p class="bet-buy_sell" v-else>
-                        <span class="text-danger mr-2">BÁN</span>
+                        <span class="text-danger mr-2">MUA GIẢM</span>
                         <feather-icon icon="TrendingDownIcon" svgClasses="w-5 h-5"/>
                       </p>
                     </td>
@@ -399,11 +399,11 @@ export default {
 
       if (val == "buy") {
         this.sendMessage({ type: "editGL", data: { type: "BTC_BUY" } });
-        val = "MUA";
+        val = "MUA TĂNG";
       }
       if (val == "sell") {
         this.sendMessage({ type: "editGL", data: { type: "BTC_SELL" } });
-        val = "BÁN";
+        val = "MUA GIẢM";
       }
       if (val == "off") {
         this.sendMessage({ type: "editGL", data: { type: "BTC_OFF" } });

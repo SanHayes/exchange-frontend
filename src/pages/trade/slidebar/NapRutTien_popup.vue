@@ -53,7 +53,8 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="itemSelectUnit USDT" @click="selectTypePay('USDT')" v-if="getSetSys.isActiveWalletUSDT">
+<!--                                  v-if="getSetSys.isActiveWalletUSDT"-->
+                                    <div class="itemSelectUnit USDT" @click="selectTypePay('USDT')" v-if="false">
                                         <div class="icon USDT"></div>
                                         <div class="info">
                                             <div class="amount w-full">
@@ -142,12 +143,12 @@
                             </div>
 
                             <div v-else class="deposit_widthdraw_box">
-                                <div class="colorSecondary2">USD trong ví: 
+                                <div class="colorSecondary2">USD trong ví:
                                     <span class="price mr-2">
                                         {{ getAmount }}$
                                     </span>
                                 </div>
-                                <div class="colorSecondary2">Số tiền rút quy đổi: 
+                                <div class="colorSecondary2">Số tiền rút quy đổi:
                                     <span class="price mr-2">
                                         {{ formatPrice(amount * getSetSys.quotePriceVND, 0) }} VNĐ
                                     </span>
@@ -174,6 +175,7 @@
                                         <vs-select-item value="Eximbank" text="Eximbank" />
                                         <vs-select-item value="Lienvietpostbank" text="Lienvietpostbank" />
                                         <vs-select-item value="VIB" text="VIB" />
+                                        <vs-select-item value="Agribank" text="Agribank" />
                                     </vs-select>
                                 </div>
                                 <div class="form-group relative">
@@ -384,7 +386,7 @@ export default {
             this.isNextNapTien = true;
             this.amount = moneyVND / getSetSys.quotePriceVND;
         },
-        
+
         enterMaxAmount(){
             this.amount = this.parseLocaleNumber(this.getAmount)
         },
@@ -445,7 +447,7 @@ export default {
                 }
             })
         },
-        
+
         DepositPaypal(){
             if(this.amount < getSetSys.minDepositPaypal){
                 return this.$vs.notify({
@@ -507,7 +509,7 @@ export default {
 
             // đây là số tiền nhập
             let amount = Number(this.amount)
-            
+
             if(amount <= 0 || amount == ''){
                 return this.$vs.notify({
                     text:'Giá trị không hợp lệ',
@@ -536,13 +538,13 @@ export default {
                 // bỏ qua 2fa
                 f: this.DISABLE_2FA,
             }
-            
+
             if(this.isActiveSelectTransPaypal){  // rút Nội bộ
-                
+
 
                 let phi = getSetSys.feeRutPaypalNoiBo;
                 let tongphi = amount + Number(phi);
-                
+
                 // kiểm tra số tiền gốc = số tiền nhập hay không
                 if(this.getAmount < tongphi){
                     return this.$vs.notify({
@@ -553,7 +555,7 @@ export default {
                         icon:'icon-x-circle'
                     });
                 }
-                
+
                 AuthenticationService.withdrawalPaypalNoiBo(obj)
                 .then((res) => {
                     let d = res.data
@@ -564,7 +566,7 @@ export default {
                         window.location.href = window.location.origin + "/login";
                         return
                     }
-                    
+
                     if(res.data.success){
                         return this.$vs.notify({
                             text: 'Rút tiền thành công.',
@@ -586,11 +588,11 @@ export default {
 
             }
             else
-            { 
+            {
 
                 let phi = getSetSys.feeRutPaypalAcc
                 let tongphi = amount + phi
-                
+
                 // kiểm tra số tiền gốc = số tiền nhập hay không
                 if(this.getAmount < tongphi){
                     return this.$vs.notify({
@@ -601,7 +603,7 @@ export default {
                         icon:'icon-x-circle'
                     });
                 }
-                
+
                 AuthenticationService.withdrawalPaypalAccount(obj)
                 .then((res) => {
                     let d = res.data
@@ -612,7 +614,7 @@ export default {
                         window.location.href = window.location.origin + "/login";
                         return
                     }
-                    
+
                     if(res.data.success){
                         return this.$vs.notify({
                             text: 'Rút tiền thành công.',
@@ -632,8 +634,8 @@ export default {
                     }
                 })
             }
-            
-            
+
+
         },
 
         CopyAddress(){
@@ -676,8 +678,8 @@ export default {
                     AuthenticationService.checkGiaoDich({is: true})
                     .then((res) => {
                         let d = res.data;
-                        
-                        
+
+
                         if(d.ok == 1){
 
                             this.checkispay = false;
@@ -706,7 +708,7 @@ export default {
                             })
                         }
                     });
-                    
+
                 }
             }else{
                 return this.$vs.notify({
@@ -717,7 +719,7 @@ export default {
                     icon: 'icon-check-circle'
                 })
             }
-           
+
         },
 
         Withdrawal(){
@@ -734,7 +736,7 @@ export default {
 
             // đây là số tiền nhập
             let amount = Number(this.amount)
-            
+
             if(amount <= 0 || amount == ''){
                 return this.$vs.notify({
                     text:'Giá trị không hợp lệ',
@@ -776,7 +778,7 @@ export default {
                         iconPack: 'feather',
                         icon:'icon-x-circle'})
                 }
-    
+
                 if (!this.code2FA.trim()) {
                     return this.$vs.notify({
                         text:'Bạn phải nhập 2FA để yêu cầu rút tiền',
@@ -786,7 +788,7 @@ export default {
                         icon:'icon-x-circle'})
                 }
             }
-            
+
             // mặc định rút nội bộ
 
             let amount = Number(this.amount);
@@ -891,13 +893,13 @@ export default {
                 return;
             }
 
-            
+
             if(this.isActiveSelectTransNB){  // rút Nội bộ
-                
+
 
                 let phi = getSetSys.feeRutUSDTNoiBo;
                 let tongphi = amount + Number(phi);
-                
+
                 // kiểm tra số tiền gốc = số tiền nhập hay không
                 if(getAmountFormat < tongphi){
                     return this.$vs.notify({
@@ -910,11 +912,11 @@ export default {
                 }
 
                 obj.nw = 'nb';
-                
+
                 AuthenticationService.withdrawalUserNoiBo(obj)
                 .then((res) => {
                     let d = res.data
-                    
+
 
                     if(d.success == 3 || d.success == 4){
                         localStorage.removeItem('token')
@@ -932,7 +934,7 @@ export default {
                         });
                     }
 
-                    
+
                     if(d.success == 2){
                         return this.$vs.notify({
                             text: 'Mã 2FA không chính xác.',
@@ -942,9 +944,9 @@ export default {
                             position:'top-right',
                         });
                     }
-                    
+
                     if(res.data.success == 1){
-                        
+
                         getData.balance -= tongphi;
                         getData.balanceUSDT -= tongphi;
 
@@ -975,12 +977,12 @@ export default {
                 })
 
             }else if(this.isActiveSelectTransBEP20){ // rút BEP20 (BSC)
-            
+
 
                 let phi = getSetSys.feeRutUSDTBEP20;
                 let tongphi = amount + Number(phi);
 
-        
+
                 // kiểm tra số tiền gốc = số tiền nhập hay không
 
                 if(getAmountFormat < tongphi){
@@ -994,7 +996,7 @@ export default {
                 }
 
                 obj.nw = 'bep20';
-                
+
                 AuthenticationService.withdrawalUsdtBSC(obj)
                 .then((res) => {
                     let d = res.data;
@@ -1010,8 +1012,8 @@ export default {
                     this.balanceUSDT = this.formatPrice(Number(this.balanceUSDT) - tongphi, 2)
                     this.getAmount = this.balanceUSDT;
 
-                    
-                    
+
+
                     if(res.data.success == 1){
 
                         getData.balance -= tongphi;
@@ -1051,10 +1053,10 @@ export default {
                     }
                 })
             }else if(this.isActiveSelectTransERC20){  // rút ERC 20
-                
+
                 let phi = getSetSys.feeRutUSDTERC20
                 let tongphi = amount + Number(phi)
-                
+
                 // kiểm tra số tiền gốc = số tiền nhập hay không
                 if(getAmountFormat < tongphi){
                     return this.$vs.notify({
@@ -1067,7 +1069,7 @@ export default {
                 }
 
                 obj.nw = 'erc20';
-                
+
                 AuthenticationService.withdrawalUsdtERC(obj)
                 .then((res) => {
                     let d = res.data
@@ -1083,8 +1085,8 @@ export default {
                     this.balanceUSDT = this.formatPrice(Number(this.balanceUSDT) - tongphi, 2)
                     this.getAmount = this.balanceUSDT
 
-                    
-                    
+
+
                     if(res.data.success){
                         getData.balance -= tongphi;
                         getData.balanceUSDT -= tongphi;
@@ -1106,13 +1108,13 @@ export default {
                         });
                     }
                 })
-                
+
             }
-            
+
         },
         selectTypePay(val){
             this.isLoading = true
-            
+
             if (val === 'VND') {
                 this.isVND = true;
                 this.isLoading = false;
@@ -1167,7 +1169,7 @@ export default {
 
                 var canvas = document.querySelector('canvas')
 
-                QRCode.toCanvas(canvas, d.a, { 
+                QRCode.toCanvas(canvas, d.a, {
                     margin: 1,
                     color: {
                         dark: '#fc5f5f',
@@ -1225,10 +1227,10 @@ export default {
         },
     },
     mounted() {
-       
+
     },
     created() {
-        
+
         // lấy số tiền mặc định của ví
         this.getAmount = this.amountPaypal
 
@@ -1450,7 +1452,7 @@ export default {
     margin-bottom: 20px;
 }
 
-.boxAddress .btn.sendMax, 
+.boxAddress .btn.sendMax,
 .boxAddress .paste {
     position: absolute;
     right: 14px;

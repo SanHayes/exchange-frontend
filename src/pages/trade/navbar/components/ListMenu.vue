@@ -233,7 +233,7 @@
           </router-link>
         </div>
 
-        <div class="nav-item" v-if="activeGames.champion">
+<!--        <div class="nav-item" v-if="activeGames.champion">
           <router-link
             to="/user/affiliate/championship"
             class="nav-link cursor-pointer"
@@ -393,7 +393,7 @@
             </span>
             <span class="textLink">{{ $t("Challenge") || "Challenge" }}</span>
           </router-link>
-        </div>
+        </div>-->
 
 <!--        <div class="nav-item" v-if="activeGames.lucky">
           <router-link
@@ -1165,7 +1165,7 @@ export default {
 }
 .footer {
   position: absolute;
-  bottom: -20px;
+  bottom: -10px;
   left: 0;
   width: 100%;
   padding: 1.2rem 0;
@@ -1215,7 +1215,7 @@ export default {
   font-weight: 400 !important;
   color: #fff;
   font-size: 1rem !important;
-  margin-bottom: 1rem;
+  //margin-bottom: 1rem;
   border-radius: 4px;
   padding: 0.75rem;
   flex-direction: column;

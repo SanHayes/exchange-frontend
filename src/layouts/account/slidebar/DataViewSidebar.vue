@@ -16,7 +16,7 @@
 
           <!-- Image Container -->
           <div class="img-container w-64 mx-auto flex items-center justify-center">
-            <img :src="`${dm}api/auth/me/photo/${dataImg}`" width="100" alt="img">
+            <img :src="`${dm}/api/auth/me/photo/${dataImg}`" width="100" alt="img">
           </div>
 
           <!-- Image upload Buttons -->
@@ -28,11 +28,11 @@
         </template>
 
         <!-- EMAIL -->
-        <vs-input label="Hộp thư" v-model="dataEmail" class="mt-5 w-full" type="email" name="item-email" v-validate="'required|email|min:6|max:200'" />
-        <span class="text-danger text-sm" v-show="errors.has('item-email')">{{ errors.first('item-email') }}</span>
+        <vs-input label="Số Điện Thoại" v-model="dataEmail" class="mt-5 w-full" type="number" name="phone" v-validate="'required|min:10|max:12'" />
+        <span class="text-danger text-sm" v-show="errors.has('phone')">{{ errors.first('phone') }}</span>
 
         <!-- NICKNAME -->
-        <vs-input label="Biệt danh" v-model="dataNick" class="mt-5 w-full" name="item-nick" v-validate="'required|min:6|max:20'" />
+        <vs-input label="Biệt danh" v-model="dataNick" class="mt-5 w-full" name="item-nick" v-validate="'required|min:6|max:50'" />
         <span class="text-danger text-sm" v-show="errors.has('item-nick')">{{ errors.first('item-nick') }}</span>
 
 
@@ -53,7 +53,7 @@
             class="mt-5 w-full" />
 
         <!-- WALLET -->
-        <!-- <vs-input disabled  
+        <!-- <vs-input disabled
             label="Ví VNĐ"
             icon-pack="feather"
             icon="icon-dollar-sign"
@@ -63,7 +63,7 @@
             name="item-wallet_sys" />
         <span class="text-danger text-sm" v-show="errors.has('item-wallet_sys')">{{ errors.first('item-wallet_sys') }}</span>
 
-        <vs-input disabled 
+        <vs-input disabled
             label="Ví BTC"
             icon-pack="feather"
             icon="icon-dollar-sign"
@@ -73,7 +73,7 @@
             name="item-wallet_btc" />
         <span class="text-danger text-sm" v-show="errors.has('item-wallet_btc')">{{ errors.first('item-wallet_btc') }}</span>
 
-        <vs-input disabled 
+        <vs-input disabled
             label="Ví ETH"
             icon-pack="feather"
             icon="icon-dollar-sign"
@@ -83,7 +83,7 @@
             name="item-wallet_eth" />
         <span class="text-danger text-sm" v-show="errors.has('item-wallet_eth')">{{ errors.first('item-wallet_eth') }}</span>
 
-        <vs-input disabled 
+        <vs-input disabled
             label="Ví USDT"
             icon-pack="feather"
             icon="icon-dollar-sign"
@@ -107,7 +107,7 @@
             <vs-select v-if="dataPermission" v-model="isLevelVIP" label="Cấp" class="mt-5 w-full" name="item-category" v-validate="'required'">
             <vs-select-item :key="item.value" :value="item.value" :text="item.text" v-for="item in category_level" />
             </vs-select>
-            
+
         </template>
 
         <!-- ORDER STATUS -->
@@ -141,10 +141,10 @@
 
       </div>
 
-      
+
     </VuePerfectScrollbar>
 
-    
+
     <VuePerfectScrollbar v-else  style="height: calc(var(--vh, 1vh) * 100 - 16px - 45px - 10px);" class="scroll-area--data-list-add-new" :settings="settings" :key="$vs.rtl">
 
       <div class="p-6" >
@@ -152,7 +152,7 @@
             {{ dataEmail }}
           </span>
           <!-- WALLET -->
-          <vs-input 
+          <vs-input
               label="Ví VNĐ"
               icon-pack="feather"
               icon="icon-dollar-sign"
@@ -162,7 +162,7 @@
               name="item-wallet_vn" />
           <span class="text-danger text-sm" v-show="errors.has('item-wallet_vn')">{{ errors.first('item-wallet_vn') }}</span>
 
-          <vs-input 
+          <vs-input
               label="Ví BTC"
               icon-pack="feather"
               icon="icon-dollar-sign"
@@ -170,8 +170,8 @@
               v-model="addDataMoneyBTC"
               v-validate="{ required: true, regex: /\d+(\.\d+)?$/ }"
                />
-         
-          <vs-input 
+
+          <vs-input
               label="Ví ETH"
               icon-pack="feather"
               icon="icon-dollar-sign"
@@ -179,8 +179,8 @@
               v-model="addDataMoneyETH"
               v-validate="{ required: true, regex: /\d+(\.\d+)?$/ }"
               />
-          
-          <vs-input 
+
+          <vs-input
               label="Ví USDT"
               icon-pack="feather"
               icon="icon-dollar-sign"
@@ -188,16 +188,16 @@
               v-model="addDataMoneyUSDT"
               v-validate="{ required: true, regex: /\d+(\.\d+)?$/ }"
                />
-          
+
 
           <div class="flex flex-wrap items-center p-6" slot="footer">
             <vs-button class="mr-6" @click="submitDataUpdateMoney" :disabled="!isFormValid">Gửi</vs-button>
             <vs-button type="border" color="danger" @click="isSidebarActiveLocal = false">Hủy</vs-button>
           </div>
       </div>
-      
+
     </VuePerfectScrollbar>
-    
+
   </vs-sidebar>
 </template>
 
@@ -225,7 +225,7 @@ export default {
         this.$validator.reset()
       }else {
         let { email, id, nick_name, first_name, last_name, money_vn, money_btc, money_eth, money_usdt, profile_image, type, vip_user, super_user, level_vip } = JSON.parse(JSON.stringify(this.data))
-   
+
         this.dataId = id
         this.dataEmail = email
         this.dataNick = nick_name
@@ -237,7 +237,7 @@ export default {
         this.dataMoneyUSDT = this.formatPrice(money_usdt, 2)
         this.dataImg = profile_image
         this.dataPassword = ''
-        this.dataPermission = vip_user 
+        this.dataPermission = vip_user
         this.superUser = super_user
         this.dataType = type
         this.addDataMoneyVN = 0
@@ -381,7 +381,7 @@ export default {
             money_paypal: 0,
             money_btc: this.addDataMoneyBTC,
             money_eth: this.addDataMoneyETH,
-            money_usdt: this.addDataMoneyUSDT, 
+            money_usdt: this.addDataMoneyUSDT,
             money_vn:  this.addDataMoneyVN,
           }
         AuthenticationService.updatePriceMember(obj)
@@ -454,7 +454,7 @@ export default {
                       })
                   }
                 });
-               
+
             }else{ // cập nhật tài khoản
                 AuthenticationService.updateMember(obj)
                 .then((resp) => {
@@ -473,11 +473,11 @@ export default {
                     }
               })
             }
-            
+
         }
-          
+
       })
-      
+
     //   this.$validator.validateAll().then(result => {
     //       if (result) {
     //         const obj = {

@@ -27,24 +27,24 @@
 
       <footer>
         <div class="flex flex-col sm:flex-row wraper mx-auto">
-          <div class="item space-y-2">
+<!--          <div class="item space-y-2">
             <img :src="require('@/assets/images/landing/tick.png')" />
             <div class="title">Tài khoản Demo $1.000</div>
             <div class="desctiption">
               Kiểm tra và trau dồi kỹ năng giao dịch của bạn bằng tài khoản demo
               miễn phí và không giới hạn lần thử
             </div>
-          </div>
+          </div>-->
 
-          <div class="item space-y-2 mt-4 sm:mt-0">
+          <div class="item space-y-2 mt-4 sm:mt-0" style="flex-basis: 46%">
             <img :src="require('@/assets/images/landing/tick.png')" />
-            <div class="title">Nạp tiền chỉ từ $5</div>
+            <div class="title">Nạp tiền chỉ từ $50</div>
             <div class="desctiption">
               Nạp tiền nhanh chóng trong vòng vài phút. Phí rút tiền thấp.
             </div>
           </div>
 
-          <div class="item space-y-2 mt-4 sm:mt-0">
+          <div class="item space-y-2 mt-4 sm:mt-0" style="flex-basis: 46%">
             <img :src="require('@/assets/images/landing/tick.png')" />
             <div class="title">Đặt lệnh nhỏ nhất $1</div>
             <div class="desctiption">
@@ -263,8 +263,9 @@
                 All rights reserved.
               </div>
               <p>
-                Email:
-                <a :href="`mailto:${mail}`" class="emailLink">{{ mail }}</a>
+                TeLeGram:
+<!--                <a :href="`mailto:${mail}`" class="emailLink">{{ mail }}</a>-->
+                <a :href="`https://t.me/${telegram}`" class="emailLink" target="_blank">@{{ telegram }}</a>
               </p>
             </div>
             <div class="block md:pl-6">
@@ -424,7 +425,7 @@
       width: 561px;
       height: 381px;
       content: "";
-      background: url("~@/assets/images/landing_v2/Mockup-1.png");
+      background: url("~@/assets/images/landing_v2/WechatIMG92.png");
       background-position: 50%;
       background-size: cover;
       margin-top: 50px;
@@ -1145,6 +1146,7 @@ import "swiper/dist/css/swiper.min.css";
 import { swiper, swiperSlide } from "vue-awesome-swiper";
 import config from "@/config";
 import LogRegForGet from "@/pages/user/LogRegForGet";
+import AuthenticationService from "@/services/AuthenticationService";
 
 export default {
   data() {
@@ -1204,6 +1206,7 @@ export default {
       },
       domain: config.domainRealName,
       mail: config.support.mail,
+      telegram: config.support.telegram,
     };
   },
   methods: {
@@ -1235,6 +1238,14 @@ export default {
     });
   },
   created() {
+    AuthenticationService.getSupport().then((res) => {
+      // config.support = res.data.data;
+      if (res.data.data.telegram) {
+        this.telegram =  res.data.data.telegram
+      }else {
+        this.telegram = config.support.telegram
+      }
+    });
     window.addEventListener("load", this.onWindowLoad);
     window.addEventListener("scroll", function () {
       if ($(this).scrollTop() !== 0) {

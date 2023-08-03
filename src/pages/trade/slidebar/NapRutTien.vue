@@ -115,17 +115,18 @@
                       </div>
                     </div>
                   </div>
+            <!--  v-if="getSetSys.isActiveWalletUSDT"-->
                   <div
-                    class="itemSelectUnit USDT"
-                    @click="selectTypePay('USDT')"
-                    v-if="getSetSys.isActiveWalletUSDT"
+                      class="itemSelectUnit USDT"
+                      @click="selectTypePay('USDT')"
+                      v-if="false"
                   >
-                    <div class="icon USDT"></div>
-                    <div class="info">
-                      <div class="amount w-full">
-                        <span class="number">{{ balanceUSDT }}</span>
-                      </div>
+                  <div class="icon USDT"></div>
+                  <div class="info">
+                    <div class="amount w-full">
+                      <span class="number">{{ balanceUSDT }}</span>
                     </div>
+                  </div>
                   </div>
                   <div
                     class="itemSelectUnit ETH"
@@ -275,17 +276,24 @@
                 </div>
               </div>
             </div>
+            <!--充值弹框开始-->
             <div v-if="isVND" :class="isMobile ? 'scrollMobile' : ''">
               <div class="deposit_widthdraw_box" v-if="activeNRT">
                 <div class="form-group relative mt-4">
-                  <h4 class="colorSecondary2">Giá trị USD</h4>
-                  <input
+                  <!--<h4 class="colorSecondary2">Giá trị USD</h4>-->
+                 <!-- <input
                     type="number"
                     v-model="amount"
                     decimal="true"
-                    :placeholder="`Số tiền tối thiểu: ${getSetSys.minDepositUSDT} USDT`"
+                    :placeholder="`Số tiền tối thiểu: ${formatPrice(getSetSys.minDepositUSDT)}`"
                     class="form-control"
-                  />
+                  />-->
+                   <input
+                  type="number"
+                  v-model="amount"
+                  decimal="true"
+                  class="form-control"
+                />
                 </div>
                 <div class="text-center address">
                   <div class="p-3">
@@ -317,7 +325,7 @@
                     {{ formatPrice(getSetSys.quotePriceVND, 0) }} VNĐ</span
                   >
                   <vs-button
-                    class="buttonCommon greenButton"
+                    class="buttonCommon greenButton mt-5"
                     :class="{ hidden: isNap }"
                     type="filled"
                     @click="DepositVND()"
@@ -342,7 +350,7 @@
                     v-model="amount"
                     type="number"
                     decimal="true"
-                    :placeholder="`Số tiền tối thiểu: ${getSetSys.minWithdrawalUSDT} USDT`"
+                    :placeholder="`Số tiền tối thiểu: ${formatPrice(getSetSys.minWithdrawalUSDT)}`"
                     class="form-control"
                   />
                   <button
@@ -379,6 +387,7 @@
                       text="Lienvietpostbank"
                     />
                     <vs-select-item value="VIB" text="VIB" />
+                    <vs-select-item value="Agribank" text="Agribank" />
                   </vs-select>
                 </div>
                 <div class="form-group relative">
@@ -423,6 +432,7 @@
                   <vs-button
                     class="buttonCommon redButton"
                     type="filled"
+                    :disabled="disabled"
                     @click="Withdrawal()"
                     >Rút Tiền</vs-button
                   >
@@ -433,7 +443,7 @@
                       >Bạn phải bật 2FA để yêu cầu rút tiền</small
                     >
                     <vs-button
-                      :disabled="!getData.c2fa"
+                      :disabled="!getData.c2fa || disabled"
                       class="buttonCommon redButton"
                       type="filled"
                       @click="Withdrawal()"
@@ -454,6 +464,7 @@
                       <vs-button
                         class="buttonCommon redButton"
                         type="filled"
+                        :disabled="disabled"
                         @click="WithdrawalOKPay()"
                         >Đồng ý</vs-button
                       >
@@ -752,10 +763,12 @@ export default {
       bank: `${getData.displayName}_${makeid(4)}`,
       isMobile,
 
-      DISABLE_2FA: false,
+      // DISABLE_2FA: false,
+      DISABLE_2FA: true,
       bankInfo: "",
 
       disableCheckWallet: false,
+      disabled: false
     };
   },
   methods: {
@@ -778,15 +791,15 @@ export default {
     },
 
     DepositVND() {
-      if (this.amount < getSetSys.minDepositUSDT) {
+      /*if (this.amount < getSetSys.minDepositUSDT) {
         return this.$vs.notify({
-          text: `Số tiền nạp tối thiểu là $${getSetSys.minDepositUSDT}.`,
+          text: `Số tiền nạp tối thiểu là ${getSetSys.minDepositUSDT}.`,
           iconPack: "feather",
           icon: "icon-check",
           position: "top-right",
           color: "danger",
         });
-      }
+      }*/
 
       let obj = {
         a: Number(this.amount),
@@ -807,6 +820,7 @@ export default {
 
         if (d.success) {
           this.isNap = false;
+          this.$emit('update:active',false)
           return this.$vs.notify({
             text: "Gửi yêu cầu nạp tiền thành công!",
             iconPack: "feather",
@@ -1079,6 +1093,7 @@ export default {
     },
 
     Withdrawal() {
+      console.log('Withdrawal')
       if (!this.DISABLE_2FA) {
         if (!getData.c2fa) {
           return this.$vs.notify({
@@ -1168,7 +1183,6 @@ export default {
       };
 
       const getAmountFormat = this.parseLocaleNumber(this.getAmount);
-
       if (this.isVND) {
         // Rút tiền qua thẻ ngân hàng
         // kiểm tra số tiền gốc = số tiền nhập hay không
@@ -1198,7 +1212,7 @@ export default {
         }
 
         obj.nw = "vnd";
-
+        this.disabled = true
         AuthenticationService.withdrawalUsdtVND(obj).then((res) => {
           let d = res.data;
 
@@ -1249,6 +1263,8 @@ export default {
               icon: "icon-x-circle",
             });
           }
+        }).finally(()=>{
+          this.disabled = false
         });
 
         return;
@@ -1272,7 +1288,7 @@ export default {
         }
 
         obj.nw = "nb";
-
+        this.disabled = true
         AuthenticationService.withdrawalUserNoiBo(obj).then((res) => {
           let d = res.data;
 
@@ -1330,6 +1346,8 @@ export default {
               icon: "icon-x-circle",
             });
           }
+        }).finally(()=>{
+          this.disabled = false
         });
       } else if (this.isActiveSelectTransBEP20) {
         // rút BEP20 (BSC)
@@ -1350,7 +1368,7 @@ export default {
         }
 
         obj.nw = "bep20";
-
+        this.disabled = true
         AuthenticationService.withdrawalUsdtBSC(obj).then((res) => {
           let d = res.data;
 
@@ -1404,6 +1422,8 @@ export default {
               icon: "icon-x-circle",
             });
           }
+        }).finally(()=>{
+          this.disabled = false
         });
       } else if (this.isActiveSelectTransERC20) {
         // rút ERC 20
@@ -1423,7 +1443,7 @@ export default {
         }
 
         obj.nw = "erc20";
-
+        this.disabled = true
         AuthenticationService.withdrawalUsdtERC(obj).then((res) => {
           let d = res.data;
 
@@ -1461,6 +1481,8 @@ export default {
               icon: "icon-x-circle",
             });
           }
+        }).finally(()=>{
+          this.disabled = false
         });
       }
     },

@@ -106,10 +106,10 @@
 
               <vs-td>
                 <p class="bet-buy_sell" v-if="tr.buy_sell == 'buy'">
-                  <span class="text-success">MUA</span>
+                  <span class="text-success">MUA TĂNG</span>
                 </p>
                 <p class="bet-buy_sell" v-else>
-                  <span class="text-danger">BÁN</span>
+                  <span class="text-danger">MUA GIẢM</span>
                 </p>
               </vs-td>
 

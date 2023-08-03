@@ -189,11 +189,11 @@
               :style="`background: ${up_rate ? '#fc5f5f' : ''}`"
             ></vs-progress>
             <div class="block">
-              <span class="float-left mr-1 text-buy-sell">MUA</span>
+              <span class="float-left mr-1 text-buy-sell">MUA TĂNG</span>
               <span class="green float-left text-buy-sell">
                 {{ up_rate ? up_rate.toFixed(2) : 0 }}%
               </span>
-              <span class="float-right ml-1 text-buy-sell">BÁN</span>
+              <span class="float-right ml-1 text-buy-sell">MUA GIẢM</span>
               <span class="red float-right text-buy-sell">
                 <span v-if="up_rate">{{ (100 - up_rate).toFixed(2) }}% </span>
                 <span v-else>0%</span>
@@ -312,7 +312,7 @@
                     svgClasses="w-4 h-4"
                   />
                 </div>
-                MUA
+                MUA TĂNG
               </td>
               <td class="text-center" v-else>
                 <div class="bg-red px-1 py-0.5 rounded-sm inline-block">
@@ -322,7 +322,7 @@
                   svgClasses="w-4 h-4"
                 />
                 </div>
-                BÁN
+                MUA GIẢM
               </td>
               <td class="text-center">${{ formatPrice(tr.o) }}</td>
               <td class="text-center">${{ formatPrice(tr.c) }}</td>

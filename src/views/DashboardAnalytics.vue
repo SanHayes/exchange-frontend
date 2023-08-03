@@ -535,14 +535,14 @@ export default {
     //   .catch((error)   => { console.log(error) })
 
     // // Sales bar - Analytics
-    this.$http
-      .get("/api/card/card-analytics/sales/bar")
-      .then((response) => {
-        this.salesBarSession = response.data;
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    // this.$http
+    //   .get("/api/card/card-analytics/sales/bar")
+    //   .then((response) => {
+    //     this.salesBarSession = response.data;
+    //   })
+    //   .catch((error) => {
+    //     console.log(error);
+    //   });
 
     // // Support Tracker
     // this.$http.get("/api/card/card-analytics/support-tracker")

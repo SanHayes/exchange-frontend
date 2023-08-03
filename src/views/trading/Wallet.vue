@@ -69,7 +69,7 @@
                 <!-- <h6 class="colorGray mb-0 italic"><span >Giá trị ước tính: {{ giaTriUocTinh }} USD</span></h6> -->
               </div>
               <div class="vx-row">
-                <div
+<!--                <div
                   class="vx-col w-full lg:w-1/3 mb-3"
                   v-if="getSetSys.isActiveWalletUSDT"
                 >
@@ -134,13 +134,13 @@
                           >Rút Tiền</a
                         >
                       </div>
-                      <!--<div>
+                      &lt;!&ndash;<div>
                                             <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABsAAAAcCAYAAACQ0cTtAAAABHNCSVQICAgIfAhkiAAAAaxJREFUSIm11cFt2zAUxvH/EyRdK2/ADeINmkwQd4IoE9gB4qK3IrcCMRB1A3eCJBPE2cDZgCPIx1pqXg9V7CqWRDZh30kQHvijyE+kEKDMfJuj3CBagnyy1+m6qy8KgQEFQgZiUB7MfDv+f5hquXsWsj4wDCYyATYuUIJgQDPwCviwe6mUCCcve+jEzOd6gv46QyVziqIGxLTe/QXGztnq8y2I5xp0NDVLCoxce9aZqn8uIQNXQKrkDuXp3Zjy44/pUeaLGurauDu1QDh6DdlFmntjXhO63C4RzvoggMGAeEPzbQHDEIQ7rqYuCHq+zMw0I66+AmOQK7tIVg7sEfg4BHViZqYZSfXAS+xVx8BokKqSCXGVI5R2kS772loBOYD2g41sISXvrN2e9ULwPQQEzZf1QgPr/yZsACpBCr9R9L7vdm5jlz/vEDl901Rbk5MTV2qjIBAAz8eujgjV+zBY5PoXianTnLhaHRygsEblwsuJY2u/iXW17dPYDS7tdXruBXpUBGALKamT4467K28O2XCYA5wSqFqnfg+4IVAdXDF7UK+apDoj7Vu/AfL4ub5VTGABAAAAAElFTkSuQmCC" alt="">
                                             <router-link to="/user/exchange" class="cursor-pointer">Đổi Tiền</router-link>
-                                        </div>-->
+                                        </div>&ndash;&gt;
                     </div>
                   </div>
-                </div>
+                </div>-->
                 <div
                   class="vx-col w-full lg:w-1/3 mb-3"
                   v-if="getSetSys.isActiveWalletETH"
@@ -566,9 +566,10 @@
                                     class="deitalType transfer_in"
                                     v-if="tr.type_key == 'nt'"
                                     >Nạp tiền
-                                    {{
+<!--                                    {{
                                       tr.paypal_order_id ? "Paypal" : ""
-                                    }}</span
+                                    }}-->
+                                  </span
                                   >
                                 </div>
                                 <span
@@ -582,14 +583,14 @@
                                     v-if="tr.type_key == 'rt'"
                                     >Nạp tiền</span
                                   >
-                                  <span
+<!--                                  <span
                                     class="deitalType transfer_in"
                                     v-if="tr.type_key == 'nt'"
                                     >Rút tiền
                                     {{
                                       tr.paypal_order_id ? "Paypal" : ""
                                     }}</span
-                                  >
+                                  >-->
                                 </div>
 
                                 <span
@@ -823,7 +824,7 @@
           <div class="showV" :class="{ block: showVGD }">
             <div class="contentBox">
               <div class="vx-row">
-                <div class="vx-col w-full lg:w-1/2 mt-4">
+                <div class="vx-col w-full lg:w-2/2 mt-4" style="max-width: 500px;">
                   <div class="background backgroundImg backgroundLive">
                     <div
                       class="content flex flex-col justify-center items-center"
@@ -856,7 +857,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="vx-col w-full lg:w-1/2 mt-4">
+<!--                <div class="vx-col w-full lg:w-1/2 mt-4">
                   <div class="background backgroundImg backgroundDemo">
                     <div
                       class="content flex flex-col justify-center items-center"
@@ -888,7 +889,7 @@
                       </button>
                     </div>
                   </div>
-                </div>
+                </div>-->
               </div>
               <div class="sectionTable lg:pb-4">
                 <div class="balance">
@@ -1189,7 +1190,7 @@
     <rut-tien :isSidebarActive="addSidebarRutTien" @closeSidebar="toggleDataSidebarRutTien"/> -->
 
     <vs-prompt title="" :active.sync="popupActiveNRTien" :buttons-hidden="true">
-      <nap-rut-tien :money-type="moneyType" />
+      <nap-rut-tien :active.sync="popupActiveNRTien" :money-type="moneyType" />
     </vs-prompt>
   </div>
 </template>
@@ -1234,7 +1235,7 @@ export default {
 
       blObj: getData,
       textWalletHtml:
-        '<span class="mr-1 color-blue uppercase green">USDT</span> <span>Wallet</span>',
+        '<span class="mr-1 color-blue uppercase green"></span> <span>Ví điện tử</span>',
       textAccLive: "Tài khoản Thực",
       amountAcc: 0,
       amountAccLive: 0,
@@ -1344,10 +1345,10 @@ export default {
           tr.type_key == "ctsa" ||
           tr.type_key == "nn" ||
           tr.type_key == "mv"
-            ? "-$" + this.formatPrice(tr.amount, 2)
-            : "+$" + this.formatPrice(tr.amount, 2);
+            ? "-" + this.formatPrice(tr.amount, 2)
+            : "+" + this.formatPrice(tr.amount, 2);
       } else if (getData.displayName.toUpperCase() == tr.to_u.toUpperCase()) {
-        this.valueShow = "+$" + this.formatPrice(tr.amount, 2);
+        this.valueShow = "+" + this.formatPrice(tr.amount, 2);
       }
 
       switch (tr.type_key) {
@@ -1722,15 +1723,16 @@ export default {
 
         getSetSys.minDepositBTC = g.mDBTC; // nạp tiền tối thiểu
         getSetSys.minDepositETH = g.mDETH; // nạp tiền tối thiểu
-        getSetSys.minDepositUSDT = g.mDUSDT; // nạp tiền tối thiểu
+        // 写死
+        // getSetSys.minDepositUSDT = g.mDUSDT; // nạp tiền tối thiểu
         getSetSys.minDepositPaypal = g.mDPaypal; // nạp tiền tối thiểu
 
         getSetSys.minWithdrawalBTC = g.mWBTC; // rút tiền tối thiểu
         getSetSys.minWithdrawalETH = g.mWETH; // rút tiền tối thiểu
-        getSetSys.minWithdrawalUSDT = g.mWUSDT; // rút tiền tối thiểu
+        // getSetSys.minWithdrawalUSDT = g.mWUSDT; // rút tiền tối thiểu
         getSetSys.minWithdrawalPaypal = g.mWPaypal; // rút tiền tối thiểu
-
-        getSetSys.isActiveWalletPaypal = g.iAWPaypal; // Bật / tắt đồng COIN sử dụng nạp và gửi tiền trong hệ thống
+        // 去掉PAYPAL
+        // getSetSys.isActiveWalletPaypal = g.iAWPaypal; // Bật / tắt đồng COIN sử dụng nạp và gửi tiền trong hệ thống
         getSetSys.isActiveWalletETH = g.iAWETH; // Bật / tắt đồng COIN sử dụng nạp và gửi tiền trong hệ thống
         getSetSys.isActiveWalletUSDT = g.iAWUSDT; // Bật / tắt đồng COIN sử dụng nạp và gửi tiền trong hệ thống
         getSetSys.isActiveWalletBTC = g.iAWBTC; // Bật / tắt đồng COIN sử dụng nạp và gửi tiền trong hệ thống

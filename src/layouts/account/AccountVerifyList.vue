@@ -104,11 +104,15 @@
                 </vs-td>
 
                 <vs-td>
-                  <p class="verify-id_front" @click="getPopupViewImg(tr.id_front)" color="primary" type="border"><img width="50" :src="`${mediaType(tr.id_front)}`"></p>
+                  <p class="verify-id_front" @click="getPopupViewImg(tr.id_front)" color="primary" type="border">
+                    <img width="50" :src="`${mediaType(tr.id_front)}`">
+                  </p>
                 </vs-td>
 
                 <vs-td>
-                  <p class="verify-id_back" @click="getPopupViewImg(tr.id_back)"><img width="50" :src="`${mediaType(tr.id_back)}`"></p>
+                  <p class="verify-id_back" @click="getPopupViewImg(tr.id_back)">
+                    <img width="50" :src="`${mediaType(tr.id_back)}`">
+                  </p>
                 </vs-td>
 
                 <vs-td>
@@ -156,26 +160,7 @@ export default {
       imgLink: require("@/assets/images/profile/sfp.png"),
       popupViewImg: false,
       selected: [],
-      productsFake: [
-            {
-              "id": 1,
-              "email": "manhduc@gmail.com",
-              "nick_name": "SkyPlaza",
-              "first_name": "Ares",
-              "id_front": null,
-              "id_back": null,
-              "verified": 0,
-            },
-            {
-              "id": 2,
-              "email": "manhduc23@gmail.com",
-              "nick_name": "SkyPlaza 2",
-              "first_name": "Tùng",
-              "id_front": null,
-              "id_back": null,
-              "verified": 1,
-            },
-        ],
+      productsFake: [],
       itemsPerPage: 10,
       isMounted: false,
 
@@ -205,7 +190,7 @@ export default {
       const check = await this.$store.dispatch("check2fa");
       if(!check){
         return;
-      };
+      }
       const obj = {
         id: id,
         verified: val
@@ -293,9 +278,9 @@ export default {
 
       this.$vs.loading.close('#loading-corners > .con-vs-loading');
 
-      if(resp.data.success == 4){
+      if(resp.data.success === 4){
           localStorage.removeItem('token');
-          this.$router.push('/pages/login').catch(() => {})
+          this.$router.push('/pages/login')
       }else{
           this.productsFake = resp.data.data;
       }

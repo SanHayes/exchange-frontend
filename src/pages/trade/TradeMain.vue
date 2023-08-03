@@ -502,7 +502,7 @@ export default {
 }
 
 .vs-con-input .vs-inputx {
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.3)!important;
 }
 
 button.vs-tabs--btn {

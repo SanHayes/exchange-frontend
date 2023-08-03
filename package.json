@@ -3,7 +3,7 @@
   "version": "4.1.0",
   "private": true,
   "scripts": {
-    "serve": "vue-cli-service serve",
+    "serve": "vue-cli-service serve --port 9000",
     "build": "vue-cli-service build && cp ./line.png ./dist && cp ./logo.png ./dist",
     "lint": "vue-cli-service lint"
   },

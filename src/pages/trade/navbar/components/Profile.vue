@@ -8,16 +8,31 @@
       <p class="font-semibold">{{ activeUserInfo.displayName }}</p>
      <small>Available</small>
     </div> -->
-    <div class="streak">
+   <!-- <div class="streak">
       <div class="nav-streak-rewards">
-        <!-- <router-link to="/streak-challenge"> -->
+        &lt;!&ndash; <router-link to="/streak-challenge"> &ndash;&gt;
           <span class="nav-streak-rewards-label d-block"> Prize Pool </span>
           <span class="nav-streak-rewards-value d-block">${{ this.nFormatter(prize, 2) }}</span>
-        <!-- </router-link> -->
+        &lt;!&ndash; </router-link> &ndash;&gt;
+      </div>
+    </div>-->
+    <div class="info-money">
+      <div class="money-i">
+        <div class="wrapper-money">
+          <div class="text-money">
+            Ví tiền: {{
+              this.formatPrice($store.state.currentBalance === 0 ? blObj.blLive : $store.state.currentBalance)
+            }}
+<!--            {{
+              isAcc
+                  ? this.nFormatter(blObj.blLive, 0)
+                  : this.nFormatter(blObj.blDemo, 0)
+            }}-->
+          </div>
+        </div>
       </div>
     </div>
-
-    <div class="info-money">
+    <!--<div class="info-money">
       <vs-dropdown vs-custom-content vs-trigger-click>
         <div class="money-i">
           <div class="wrapper-money">
@@ -146,26 +161,28 @@
           </div>
         </vs-dropdown-menu>
       </vs-dropdown>
-    </div>
+    </div>-->
 
     <div class="maddmoney con-img ml-3 mr-3">
       <vs-button
         class="add-money"
-        @click="(popupActiveNapNhanh = true), getBalanceWalletClick()"
+        @click="(popupActiveNapNhanh = true), getBalanceWalletClick(),(getSetSys.isDepositOpen = true),
+                              (getSetSys.isWithdraOpen = false)"
       >
         <span class="nowrap">{{ isMobile ? "Nạp" : "Nạp nhanh" }}</span>
       </vs-button>
       <!-- <vs-button type="line" icon-pack="feather" :color="colorNT" icon="icon-dollar-sign" @click.stop="viewNapTien()">Nạp nhanh</vs-button> -->
     </div>
-
-    <!-- <div class="tele-support">
-      <a :href="config.support.telegram" target="_blank" title="Hỗ trợ khách hàng">
+<!--    客服-->
+     <div class="tele-support">
+      <a :href="`https://t.me/${config.support.telegram}`" target="_blank" title="Hỗ trợ khách hàng">
         <img :src="require('@/assets/images/sky/bot.svg')" alt="">
       </a>
-    </div> -->
-    <!--<div class="con-img ml-3">
+    </div>
+<!--    <div class="con-img ml-3">
       <vs-button type="line" icon-pack="feather" :color="colorRT" icon="icon-dollar-sign" @click.stop="viewRutTien()">Rút tiền</vs-button>
-    </div> -->
+    </div>-->
+    <!--设置-->
     <div
       class="con-img ml-3 mr-3 cursor-pointer msetting"
       @click="popupActiveCaiDat = true"
@@ -387,6 +404,7 @@
     <div class="con-img ml-3 mr-3 text-center relative cursor-pointer mTT">
       <notification-drop-down />
     </div>
+<!--    页面客服-->
     <!-- <div class="con-img ml-3 mr-3 cursor-pointer mhelper" @click.stop="viewHelp()">
       <svg class="block text-center h-5" width="18" height="20" viewBox="0 0 18 20" fill="none" xmlns="http://www.w3.org/2000/svg">
         <g clip-path="url(#clip0_17_2)">
@@ -659,12 +677,13 @@
         </ul>
       </vs-dropdown-menu>
     </vs-dropdown>-->
-    <vs-popup
+    <vs-prompt
       class="qDeposit"
-      title="Nạp Nhanh"
+      title=""
+      :buttons-hidden="true"
       :active.sync="popupActiveNapNhanh"
     >
-      <div class="relative">
+      <!--<div class="relative">
         <vs-button
           color="#38495d"
           type="filled"
@@ -724,8 +743,9 @@
         <p class="noticeDeposit text-center mt-2">
           <small>*Giá báo có thể thay đổi</small>
         </p>
-      </div>
-    </vs-popup>
+      </div>-->
+      <nap-rut-tien :active.sync="popupActiveNapNhanh" money-type="VND" />
+    </vs-prompt>
     <vs-popup
       class="text-center"
       :title="null"
@@ -846,9 +866,12 @@ import I18n from "./i18n";
 import NotificationDropDown from "@/pages/user/NotifiDropDown.vue";
 //import { gsap } from "gsap"
 import config from '@/config';
+import NapRutTien from '@/pages/trade/slidebar/NapRutTien.vue';
+import getSetSys from "@/services/settingSys.json";
 
 export default {
   components: {
+    NapRutTien,
     I18n,
     HoSoUserInfo,
     NotificationDropDown,
@@ -859,12 +882,12 @@ export default {
       config,
       popupTransferActive: false,
       textWalletHtml:
-        '<span class="mr-1 color-blue uppercase green">USDT</span> <span>Wallet</span>',
+        '<span class="mr-1 color-blue uppercase green"></span> <span>Ví điện tử</span>',
       textAccLive: "Tài khoản Thực",
       amountAcc: 0,
       amountAccLive: 0,
       enterAmount: "",
-
+      getSetSys: getSetSys,
       isMenuMobie: false,
       switchAmThanh: true,
       popupActiveCaiDat: false,
@@ -923,6 +946,65 @@ export default {
     },
   },
   methods: {
+    getSysWallet() {
+      AuthenticationService.getSetupWallet().then((res) => {
+        let g = res.data.data;
+        getSetSys.quotePriceUSDT = this.replaceAll(
+            this.formatPrice(g.qUSDT, 2),
+            ",",
+            ""
+        ); // giá sấp sĩ USD
+        getSetSys.quotePriceETH = this.replaceAll(
+            this.formatPrice(g.qETH, 4),
+            ",",
+            ""
+        ); // giá sấp sĩ USD
+        getSetSys.quotePriceBTC = this.replaceAll(
+            this.formatPrice(g.qBTC, 6),
+            ",",
+            ""
+        ); // giá sấp sĩ USD
+        getSetSys.quotePricePAYPAL = this.replaceAll(
+            this.formatPrice(g.qPaypal, 2),
+            ",",
+            ""
+        ); //  giá sấp sĩ USD
+        getSetSys.quotePriceVND = this.replaceAll(
+            this.formatPrice(g.qVND, 2),
+            ",",
+            ""
+        ); //  giá sấp sĩ USD
+
+        getSetSys.typeCurrUseSys = g.tCUseSys; // đồng tiền tệ sử dụng trong hệ thống
+
+        getSetSys.minDepositBTC = g.mDBTC; // nạp tiền tối thiểu
+        getSetSys.minDepositETH = g.mDETH; // nạp tiền tối thiểu
+        // 写死
+        // getSetSys.minDepositUSDT = g.mDUSDT; // nạp tiền tối thiểu
+        getSetSys.minDepositPaypal = g.mDPaypal; // nạp tiền tối thiểu
+
+        getSetSys.minWithdrawalBTC = g.mWBTC; // rút tiền tối thiểu
+        getSetSys.minWithdrawalETH = g.mWETH; // rút tiền tối thiểu
+        // getSetSys.minWithdrawalUSDT = g.mWUSDT; // rút tiền tối thiểu
+        getSetSys.minWithdrawalPaypal = g.mWPaypal; // rút tiền tối thiểu
+        // 去掉PAYPAL
+        // getSetSys.isActiveWalletPaypal = g.iAWPaypal; // Bật / tắt đồng COIN sử dụng nạp và gửi tiền trong hệ thống
+        getSetSys.isActiveWalletETH = g.iAWETH; // Bật / tắt đồng COIN sử dụng nạp và gửi tiền trong hệ thống
+        getSetSys.isActiveWalletUSDT = g.iAWUSDT; // Bật / tắt đồng COIN sử dụng nạp và gửi tiền trong hệ thống
+        getSetSys.isActiveWalletBTC = g.iAWBTC; // Bật / tắt đồng COIN sử dụng nạp và gửi tiền trong hệ thống
+        getSetSys.isActiveWalletVND = g.iAWVND; // Bật / tắt đồng COIN sử dụng nạp và gửi tiền trong hệ thống
+
+        getSetSys.feeRutPaypalNoiBo = g.fDPaypalNB;
+        getSetSys.feeRutPaypalAcc = g.fDPaypalAcc;
+        getSetSys.feeRutBTCNoiBo = g.fDBTCNB;
+        getSetSys.feeRutBTCAcc = g.fDBTCAcc;
+        getSetSys.feeRutETHNoiBo = g.fDETHNB;
+        getSetSys.feeRutETHERC20 = g.fDETHERC20;
+        getSetSys.feeRutUSDTNoiBo = g.fDUSDTNB;
+        getSetSys.feeRutUSDTBEP20 = g.fDUSDTBEP20;
+        getSetSys.feeRutUSDTERC20 = g.fDUSDTERC20;
+      });
+    },
     clickShowPopTrans() {
       this.popupTransferActive = true;
 
@@ -1238,9 +1320,10 @@ export default {
         //currency: '',
         minimumFractionDigits: minimum,
       });
-      return formatter.format(value);
+      let val = Number(value).toFixed(0)
+      return formatter.format(val);
     },
-
+      // 转义
     nFormatter(num, digits) {
       const lookup = [
         { value: 1, symbol: "" },
@@ -1324,7 +1407,7 @@ export default {
     this.blanceStart = this.isAcc ? getData.blLive : getData.blDemo;
 
     let acc = localStorage.getItem("BO_BALANCE_TYPE");
-    if (acc == "LIVE") {
+    if (acc !== "DEMO") {
       this.isAcc = getData.isAccount = 1;
       this.$store.commit("SET_ACCOUNT_TYPE", 1);
     } else {
@@ -1340,6 +1423,10 @@ export default {
         this.prize = resp.data.data.sum;
       }
     });
+    AuthenticationService.getSupport().then((res) => {
+      config.support = res.data.data;
+    });
+    this.getSysWallet()
   },
   mounted() {
     let stateOpen = localStorage.getItem("stateOpen");
@@ -1635,7 +1722,7 @@ export default {
   .mhoso,
   .ttM,
   .mhelper,
-  .maddmoney,
+  //.maddmoney,
   .mDatLenh {
     display: none !important;
   }
@@ -1748,18 +1835,21 @@ export default {
 
 @media (max-width: 1024.98px) {
   .info-money {
-    border-radius: 3px !important;
     height: 40px;
     display: flex;
     align-items: center;
   }
 }
-
+@media (min-width: 600px) {
+  .info-money{
+    display: none !important;
+  }
+}
 .info-money {
   background-color: #2f3342 !important;
   border-radius: 10px;
-  padding-left: 20px;
-  padding-right: 10px;
+  padding-left: 6px;
+  padding-right: 6px;
   margin-left: 10px;
 
   & > * {
@@ -1770,7 +1860,7 @@ export default {
     white-space: nowrap;
     line-height: normal;
     color: #fff;
-    font-size: 8px;
+    font-size: 15px;
     text-align: left !important;
     margin-bottom: 0.25rem !important;
   }
@@ -1798,7 +1888,7 @@ export default {
     padding: 5px 0;
     margin-right: 0.5rem !important;
     display: flex;
-    flex-direction: column;
+    //flex-direction: column;
     align-items: flex-start;
   }
 }
@@ -1838,7 +1928,7 @@ export default {
 }
 
 .qDeposit .vs-popup {
-  width: 300px !important;
+  //width: 300px !important;
 }
 .qDeposit .vs-button--text {
   width: 100%;

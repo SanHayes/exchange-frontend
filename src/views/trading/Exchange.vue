@@ -11,7 +11,7 @@
                                 <div class="inputAmount mt-0 mb-1">
                                     <div class="flex justify-between items-center"><span class="font-bold font-12-m color-white">Gửi:</span>
                                         <div class="inputLabel absolute right-0">
-                                            <a href="javascript:;" class="butt text-center" @click="ttClickAmount(1)">Một nửa</a> 
+                                            <a href="javascript:;" class="butt text-center" @click="ttClickAmount(1)">Một nửa</a>
                                             <a href="javascript:;" class="butt text-center" @click="ttClickAmount(2)">Tất cả</a>
                                         </div>
                                     </div>
@@ -46,7 +46,7 @@
                                     </button>
                                 </div>
                             </div>
-                            
+
                         </div>
                         <div class="vx-col w-full lg:w-4/12">
                             <div class="receive">
@@ -70,14 +70,14 @@
                                                 <div class="icon ETH"></div>
                                                 <div class="info"><span class="titleUnit">Ethereum</span>
                                                     <!-- <div class="amount">
-                                                        <span class="label">Số dư của bạn :</span> <span class="number">0</span> 
+                                                        <span class="label">Số dư của bạn :</span> <span class="number">0</span>
                                                         <span class="symb ETH">ETH</span>
                                                     </div> -->
                                                 </div>
                                             </div>
                                             <!---->
                                             <!---->
-                                            <div class="itemSelectUnit USDT">
+                                            <div class="itemSelectUnit USDT" v-if="false">
                                                 <div class="icon USDT"></div>
                                                 <div class="info">
                                                     <span class="titleUnit">USD</span>
@@ -87,7 +87,7 @@
                                     </div>
                                 </div>
                             </div>
-                            
+
                         </div>
                         <div class="vx-col w-full lg:w-3/12">
                             <div class="flex items-center md:mt-2 lg:mt-6 xl:mt-6">
@@ -156,7 +156,7 @@
             </div>
         </div>
     </div>
-    
+
 
   </div>
 </template>
@@ -169,7 +169,7 @@ import moment from 'moment'
 
 export default {
 components: {
-    
+
 },
   data () {
     return {
@@ -193,7 +193,7 @@ components: {
         ssDownSend: 'Đổi',
         backgroundLoading:'primary',
         colorLoading: '#fff',
-        
+
         totalRCT: 0,
         currentxCT: 0,
         dataHisEx: {}
@@ -209,7 +209,7 @@ components: {
           let mE = this.amountEnterOne == '' ? 0 : Number(this.amountEnterOne)
           this.amountEnterTwo = this.formatPrice(mE * 1, 2) // 1 là giá trị quy đổi ( mặc định USDT là 1)
 
-          
+
     },
 
     ttClickAmount(v){
@@ -243,7 +243,7 @@ components: {
               this.balanceTwo = o
           }
           this.balanceOne = this.replaceAll(this.balanceOne.toString(), ',', '');
-          
+
       },
 
       sendCodeSecure(){
@@ -271,7 +271,7 @@ components: {
     exChangeSubmit(){
           let am = this.amountEnterOne == '' ? 0 : Number(this.amountEnterOne)
           let adf = this.minAmountTrans
-          
+
           // kiểm tra nếu số tiền đổi nhỏ hơn 11 USD và có nhỏ hơn số tiền hiện có hay không
           if(am < adf){
               return this.$vs.notify({
@@ -295,20 +295,20 @@ components: {
                     icon:'icon-x-circle'
                 })
           }
-          
+
             // thực hiện quy trình chuyển đổi
-            
+
             this.sendCodeSecure()
 
             let obj = {
                 t_s: this.isCoinOne,
                 t_r: this.isCoinTwo,
                 a: am,
-                
+
             }
             AuthenticationService.transWallet(obj)
             .then((res) => {
-                let d = res.data 
+                let d = res.data
                 if(d.success == 3 || d.success == 4){
                     localStorage.removeItem('token')
                     // this.$router.push('/login').catch(() => {})
@@ -331,12 +331,12 @@ components: {
 
                 }
 
-            }) 
-          
+            })
+
     },
 
     getBalanceWallet(){
-        
+
         AuthenticationService.getBalanceWallet()
         .then((res) => {
             let d = res.data
@@ -379,7 +379,7 @@ components: {
             }
         })
     },
-    
+
     formatPrice(value, minimum) {
         var formatter = new Intl.NumberFormat('en-US', {
             //style: 'currency',
@@ -394,7 +394,7 @@ components: {
           return moment(String(value)).format('MM/DD/YYYY HH:mm:ss')
       }
     },
-    
+
   },
 
   mounted() {
@@ -415,7 +415,7 @@ components: {
 .historyEx .table.ex tbody tr td:first-child {
     padding-left: 1.5rem;
 }
-    
+
 .historyEx .table.ex tbody tr td span.icon {
     padding-left: 30px;
     background-size: 20px;
@@ -443,7 +443,7 @@ components: {
     font-size: 15px;
 }
 
-.exchange-currency .boxExchange .inputAmount .inputLabel .butt.USD:focus, 
+.exchange-currency .boxExchange .inputAmount .inputLabel .butt.USD:focus,
 .exchange-currency .boxExchange .inputAmount .inputLabel .butt.USD:active {
     border: 1px solid #F0972D;
     background-color: #F0972D;
@@ -768,7 +768,7 @@ components: {
     position: relative;
 }
 
-.exchange-currency .boxExchange .send, 
+.exchange-currency .boxExchange .send,
 .exchange-currency .boxExchange .receive {
     width: 100%;
 }

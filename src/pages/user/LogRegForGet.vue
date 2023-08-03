@@ -71,25 +71,24 @@
               />
             </div>
           </div>
+<!--          登录帐户-->
           <div class="formWapper w-full">
             <div class="loginForm login_acc white mt-0" v-if="!isG2FA">
               <h2 class="lg:mb-5">Đăng nhập vào Tài khoản của bạn</h2>
               <div class="centerx labelx">
                 <div class="mb-3">
-                  <label class="label_custom" for="input-bvxi30l9g"
-                    >Địa chỉ Email *</label
-                  >
+                  <label class="label_custom">Số Điện Thoại *</label>
                   <input
-                    type="email"
+                    type="number"
                     class="w-full input-bvxi30l9g"
-                    placeholder="Điền Email"
-                    v-model="email"
+                    placeholder="Điền Phone"
+                    minlength="10"
+                    maxlength="11"
+                    v-model="phone"
                   />
                 </div>
                 <div class="mb-3 relative">
-                  <label class="label_custom" for="input-bvxi30l9g"
-                    >Mật khẩu *</label
-                  >
+                  <label class="label_custom">Mật khẩu *</label>
                   <input
                     :type="passTypeLog"
                     class="w-full input-bvxi30l9g"
@@ -135,7 +134,7 @@
                   >
                 </div>
 
-                <div>
+<!--                <div>
                   <div
                     data-text="Or continue with"
                     class="divider__with-text mt-4 mb-4"
@@ -244,7 +243,7 @@
                       </button></a
                     >
                   </div>
-                </div>
+                </div>-->
               </div>
             </div>
             <div class="loginForm white mt-0" v-else>
@@ -280,7 +279,7 @@
                 >Đăng ký</router-link
               >
             </p>
-            <div class="colorWhite">
+<!--            <div class="colorWhite">
               <span class="colorWhite text-center"
                 >Không nhận được email xác nhận?</span
               >
@@ -290,7 +289,7 @@
               >
                 Yêu cầu một email mới.</router-link
               >
-            </div>
+            </div>-->
           </div>
         </div>
       </div>
@@ -456,14 +455,14 @@
                   class="mb-5 relative"
                   :class="{ 'md-invalid': msgEm3rd != '' }"
                 >
-                  <label class="label_custom" for="input-bvxi30l9g"
-                    >Địa chỉ Email *</label
-                  >
+                  <label class="label_custom">Số Điện Thoại *</label>
                   <input
-                    type="email"
+                    type="number"
+                    minlength="10"
+                    maxlength="11"
                     class="w-full input-bvxi30l9g"
-                    placeholder="Điền Email"
-                    v-model="email3rd"
+                    placeholder="Điền Phone"
+                    v-model="phone3rd"
                   />
                   <small class="md-error text-danger text-sm">
                     {{ msgEm3rd }}
@@ -473,9 +472,7 @@
                   class="mb-5 relative"
                   :class="{ 'md-invalid': msgPass3rd != '' }"
                 >
-                  <label class="label_custom" for="input-bvxi30l9g"
-                    >Mật khẩu *</label
-                  >
+                  <label class="label_custom">Mật khẩu *</label>
                   <input
                     v-validate="'required|min:6|max:20'"
                     maxlength="20"
@@ -511,13 +508,11 @@
                   >
                 </div>
 
-                <div
+<!--                <div
                   class="mb-5 relative"
                   :class="{ 'md-invalid': msgNickName3rd != '' }"
                 >
-                  <label class="label_custom" for="input-bvxi30l9g"
-                    >Biệt danh *</label
-                  >
+                  <label class="label_custom">Biệt danh *</label>
                   <input
                     type="email"
                     class="w-full input-bvxi30l9g"
@@ -533,18 +528,17 @@
                   <span class="md-count float-right text-xs italic"
                     >{{ nickName3rd.length }} / 20</span
                   >
-                </div>
+                </div>-->
 
                 <div class="flex">
                   <div
                     class="mb-5 relative mr-5"
                     :class="{ 'md-invalid': msgFirstName != '' }"
                   >
-                    <label class="label_custom" for="input-bvxi30l9g"
-                      >Tên *</label
+                    <label class="label_custom"  >Tên *</label
                     >
                     <input
-                      type="email"
+                      type="text"
                       class="w-full input-bvxi30l9g"
                       placeholder="Điền Tên"
                       v-model="firstName"
@@ -563,11 +557,10 @@
                     class="mb-5 relative"
                     :class="{ 'md-invalid': msgLastName != '' }"
                   >
-                    <label class="label_custom" for="input-bvxi30l9g"
-                      >Họ *</label
+                    <label class="label_custom"  >Họ *</label
                     >
                     <input
-                      type="email"
+                      type="text"
                       class="w-full input-bvxi30l9g"
                       placeholder="Điền Họ"
                       v-model="lastName"
@@ -588,11 +581,9 @@
                   class="mb-5 relative"
                   :class="{ 'mt-10': msgNickName != '' }"
                 >
-                  <label class="label_custom" for="input-bvxi30l9g"
-                    >Mã giới thiệu / Mã khuyến mãi</label
-                  >
+                  <label class="label_custom">Mã giới thiệu / Mã khuyến mãi</label>
                   <input
-                    type="email"
+                    type="text"
                     class="w-full input-bvxi30l9g"
                     placeholder="Điền Mã giới thiệu"
                     v-model="codeRef"
@@ -626,15 +617,15 @@
                                Một liên kết xác nhận đã được gửi tới
                                 Vui lòng xác nhận email: <a :href="`mailto:${emailReg}`" class="colorBlue4">{{ emailReg }}</a> qua TELEGRAM BOT để kích hoạt tài khoản<a target="_blank" href="https://t.me/ares_idefibo_bot">NHẤP VÀO ĐÂY</a>
                             </p> -->
-              <p class="colorSecondary">
+<!--              <p class="colorSecondary">
                 Một liên kết xác nhận đã được gửi tới
                 <a :href="`mailto:${emailReg}`" class="colorBlue4">{{
                   emailReg
                 }}</a>
                 Vui lòng chờ ít phút để nhận liên kết xác nhận và kích hoạt tài
                 khoản của bạn.<br />
-                <!-- Nếu không nhận được email xin vui lòng dùng TELEGRAM BOT để kích hoạt tài khoản: <a target="_blank" href="https://t.me/ares_idefibo_bot">Nhấp vào đây</a>-->
-              </p>
+                &lt;!&ndash; Nếu không nhận được email xin vui lòng dùng TELEGRAM BOT để kích hoạt tài khoản: <a target="_blank" href="https://t.me/ares_idefibo_bot">Nhấp vào đây</a>&ndash;&gt;
+              </p>-->
 
               <p>
                 <!-- <button class="btn btn-resendemail w-full mt-4" @click="openSite">NHẤP VÀO ĐÂY 🤝KÍCH HOẠT🤝</button> -->
@@ -731,6 +722,7 @@
               />
             </div>
           </div>
+<!--          注册-->
           <div class="formWapper w-full">
             <div class="regFrom login_acc white mt-0" v-if="!isSubmitReg">
               <h2
@@ -744,14 +736,15 @@
                   class="mb-5 relative"
                   :class="{ 'md-invalid': msgEmReg != '' }"
                 >
-                  <label class="label_custom" for="input-bvxi30l9g"
-                    >Địa chỉ Email *</label
-                  >
+                  <label class="label_custom"> Số Điện Thoại *</label>
                   <input
-                    type="email"
+                    type="number"
+                    prop="input-bvxi30l9g"
                     class="w-full input-bvxi30l9g"
-                    placeholder="Điền Email"
-                    v-model="emailReg"
+                    placeholder="Điền Phone"
+                    v-model="phoneReg"
+                    minlength="10"
+                    maxlength="11"
                   />
                   <small class="md-error text-danger text-sm">
                     {{ msgEmReg }}
@@ -761,9 +754,7 @@
                   class="mb-5 relative"
                   :class="{ 'md-invalid': msgPassReg != '' }"
                 >
-                  <label class="label_custom" for="input-bvxi30l9g"
-                    >Mật khẩu *</label
-                  >
+                  <label class="label_custom"> Mật khẩu *</label>
                   <input
                     v-validate="'required|min:6|max:20'"
                     maxlength="20"
@@ -799,13 +790,11 @@
                   >
                 </div>
 
-                <div
+<!--                <div
                   class="mb-5 relative"
                   :class="{ 'md-invalid': msgNickName != '' }"
                 >
-                  <label class="label_custom" for="input-bvxi30l9g"
-                    >Biệt danh *</label
-                  >
+                  <label class="label_custom">Biệt danh *</label>
                   <input
                     type="email"
                     class="w-full input-bvxi30l9g"
@@ -821,21 +810,23 @@
                   <span class="md-count float-right text-xs italic"
                     >{{ countNickNameReg }} / 20</span
                   >
-                </div>
+                </div>-->
 
                 <div
-                  class="mb-5 relative"
-                  :class="{ 'mt-10': msgNickName != '' }"
+                  class="mb-10 relative"
+                  :class="{ 'md-invalid': msgCoSeReset != ''  }"
+
                 >
-                  <label class="label_custom" for="input-bvxi30l9g"
-                    >Mã giới thiệu / Mã khuyến mãi</label
-                  >
+                  <label class="label_custom">Mã giới thiệu / Mã khuyến mãi</label>
                   <input
-                    type="email"
+                    type="text"
                     class="w-full input-bvxi30l9g"
                     placeholder="Điền Mã giới thiệu"
                     v-model="codeRef"
                   />
+                  <small class="md-error text-danger text-sm">
+                    {{ msgCoSeReset }}
+                  </small>
                 </div>
                 <div>
                   <vs-button
@@ -849,7 +840,7 @@
                     >Đăng ký</vs-button
                   >
                 </div>
-                <div>
+<!--                <div>
                   <div
                     data-text="Or continue with"
                     class="divider__with-text mt-4 mb-4"
@@ -958,7 +949,7 @@
                       </button></a
                     >
                   </div>
-                </div>
+                </div>-->
               </div>
             </div>
             <div v-if="isSubmitReg">
@@ -975,15 +966,15 @@
                                Một liên kết xác nhận đã được gửi tới
                                 Vui lòng xác nhận email: <a :href="`mailto:${emailReg}`" class="colorBlue4">{{ emailReg }}</a> qua TELEGRAM BOT để kích hoạt tài khoản<a target="_blank" href="https://t.me/ares_idefibo_bot">NHẤP VÀO ĐÂY</a>
                             </p> -->
-              <p class="colorSecondary">
+<!--              <p class="colorSecondary">
                 Một liên kết xác nhận đã được gửi tới
                 <a :href="`mailto:${emailReg}`" class="colorBlue4">{{
                   emailReg
                 }}</a>
                 Vui lòng chờ ít phút để nhận liên kết xác nhận và kích hoạt tài
                 khoản của bạn.<br />
-                <!-- Nếu không nhận được email xin vui lòng dùng TELEGRAM BOT để kích hoạt tài khoản: <a target="_blank" href="https://t.me/ares_idefibo_bot">Nhấp vào đây</a>-->
-              </p>
+                &lt;!&ndash; Nếu không nhận được email xin vui lòng dùng TELEGRAM BOT để kích hoạt tài khoản: <a target="_blank" href="https://t.me/ares_idefibo_bot">Nhấp vào đây</a>&ndash;&gt;
+              </p>-->
 
               <p>
                 <!-- <button class="btn btn-resendemail w-full mt-4" @click="openSite">NHẤP VÀO ĐÂY 🤝KÍCH HOẠT🤝</button> -->
@@ -1095,24 +1086,24 @@
               :class="{ block: hideTbResend, hidden: !hideTbResend }"
             >
               <h2 class="mt5m font-24 white font-bold lg:mb-5 mb-5">
-                Gửi lại email xác nhận
+                Gửi lại Phone xác nhận
               </h2>
               <p class="color-white-50 mb-8">
-                Vui lòng nhập địa chỉ email của bạn để gửi lại email xác nhận.
+                Vui lòng nhập địa chỉ Phone của bạn để gửi lại Phone xác nhận.
               </p>
               <div class="centerx labelx">
                 <div
                   class="mb-5 relative"
                   :class="{ 'md-invalid': msgEmailResend != '' }"
                 >
-                  <label class="label_custom" for="input-bvxi30l9g"
-                    >Địa chỉ Email *</label
-                  >
+                  <label class="label_custom">Số Điện Thoại *</label>
                   <input
-                    type="email"
+                    type="number"
                     class="w-full input-bvxi30l9g"
-                    placeholder="Điền Email"
-                    v-model="emailResend"
+                    placeholder="Điền Phone"
+                    minlength="10"
+                    maxlength="11"
+                    v-model="phoneResend"
                   />
 
                   <small class="md-error text-danger text-sm">
@@ -1136,10 +1127,10 @@
             </div>
             <div :class="{ hidden: hideTbResend, block: !hideTbResend }">
               <h2 class="font-bold mb-5 white titleHeader">
-                Đã gửi email xác nhận!
+                Đã gửi Phone xác nhận!
               </h2>
               <p class="white">
-                Một liên kết xác nhận đã được gửi tới email đăng ký của bạn.
+                Một liên kết xác nhận đã được gửi tới Phone đăng ký của bạn.
               </p>
               <!--<p class="white">
                                 Nếu không nhận được email xin vui lòng dùng TELEGRAM BOT để kích hoạt tài khoản: <a target="_blank" href="https://t.me/ares_idefibo_bot">Nhấp vào đây</a>
@@ -1242,14 +1233,14 @@
                   class="mb-5 relative"
                   :class="{ 'md-invalid': msgEmailForgot != '' }"
                 >
-                  <label class="label_custom" for="input-bvxi30l9g"
-                    >Địa chỉ Email *</label
-                  >
+                  <label class="label_custom">Số Điện Thoại *</label>
                   <input
-                    type="email"
+                    type="number"
                     class="w-full input-bvxi30l9g"
-                    placeholder="Điền Email"
-                    v-model="emailForgot"
+                    placeholder="Điền Phone"
+                    minlength="10"
+                    maxlength="11"
+                    v-model="phoneForgot"
                   />
                   <small class="md-error text-danger text-sm">
                     {{ msgEmailForgot }}
@@ -1380,11 +1371,13 @@
                   :class="{ 'md-invalid': msgEmReset != '' }"
                 >
                   <vs-input
-                    type="email"
+                    type="number"
                     disabled="disabled"
                     class="w-full"
-                    label="Địa chỉ Email *"
-                    v-model="emailReset"
+                    label="Số Điện Thoại *"
+                    minlength="10"
+                    maxlength="11"
+                    v-model="phoneReset"
                   />
                   <small class="md-error text-danger text-sm">
                     {{ msgEmReset }}
@@ -1543,11 +1536,17 @@ export default {
       passTypeReReset: "password",
       passType3rd: "password",
       emailResend: "",
+      phoneResend: "",
       emailForgot: "",
+      phoneForgot: "",
       emailReg: "",
+      phoneReg: "",
       emailReset: "",
+      phoneReset: "",
       email: "",
+      phone: "",
       email3rd: "",
+      phone3rd: "",
       firstName: "",
       lastName: "",
       password: "",
@@ -1585,8 +1584,8 @@ export default {
   computed: {
     disabledLogin() {
       if (
-        this.email !== "" &&
-        this.checkReg(this.email) &&
+        this.phone !== "" &&
+        // this.checkReg(this.email) &&
         this.password !== ""
       ) {
         return true;
@@ -1604,6 +1603,9 @@ export default {
     countPassReset() {
       return this.passwordReset.length;
     },
+    countPhone() {
+      return this.phone.length;
+    },
     countPassReReset() {
       return this.passwordReReset.length;
     },
@@ -1613,7 +1615,7 @@ export default {
       let path = this.$router.currentRoute.path;
       this.activeSlide = false;
       // console.log(path)
-      if (path == "/login") {
+      if (path === "/login") {
         this.activeLogin = true;
         this.activeRegister = false;
         this.activeFogotPass = false;
@@ -1621,7 +1623,7 @@ export default {
         this.slepShowSlide();
       }
 
-      if (path == "/register") {
+      if (path === "/register") {
         this.activeRegister = true;
         this.activeLogin = false;
         this.activeFogotPass = false;
@@ -1629,7 +1631,7 @@ export default {
         this.slepShowSlide();
       }
 
-      if (path == "/forgot-password") {
+      if (path === "/forgot-password") {
         this.activeFogotPass = true;
         this.activeLogin = false;
         this.activeRegister = false;
@@ -1637,7 +1639,7 @@ export default {
         this.slepShowSlide();
       }
 
-      if (path == "/register-resend-verify-email") {
+      if (path === "/register-resend-verify-email") {
         this.activeResendVerifyEmail = true;
         this.activeLogin = false;
         this.activeRegister = false;
@@ -1696,7 +1698,8 @@ export default {
     },
 
     reSendMail() {
-      this.emailResend = this.emailReg;
+      // this.emailResend = this.emailReg;
+      this.phoneResend = this.phoneReg;
       this.submitFormResendActive();
       this.countDownResendMail();
     },
@@ -1729,14 +1732,20 @@ export default {
 
     submitFormResetPass() {
       let isActive = true;
-      if (this.emailReset === "" || !this.checkReg(this.emailReset)) {
+     /* if (this.emailReset === "" || !this.checkReg(this.emailReset)) {
         this.msgEmReset = "Địa chỉ email không hợp lệ. Vui lòng thử lại.";
         return;
       } else {
         isActive = true;
         this.msgEmReset = "";
+      }*/
+      if (this.phoneReset === "" || this.phoneReset.length < 10 || this.phoneReset.length > 11) {
+        this.msgPassReset = "Địa chỉ phone không hợp lệ. Vui lòng thử lại.";
+        return;
+      } else {
+        isActive = true;
+        this.msgPassReset = "";
       }
-
       if (this.passwordReset.length < 6 || this.passwordReset.length > 20) {
         this.msgPassReset = "Mật khẩu của bạn ít nhất phải 6 đến 20 ký tự.";
         return;
@@ -1744,6 +1753,7 @@ export default {
         isActive = true;
         this.msgPassReset = "";
       }
+
 
       if (this.passwordReReset.length < 6 || this.passwordReReset.length > 20) {
         this.msgPassReReset = "Mật khẩu của bạn ít nhất phải 6 đến 20 ký tự.";
@@ -1761,21 +1771,21 @@ export default {
         this.msgPassReReset = "";
       }
 
-      // if(this.codeReset == ''){
-      //     this.msgCoSeReset = 'Mã bảo vệ không được rỗng.'
-      //     isActive = false
-      // }else{
-      //     isActive = true
-      //     this.msgCoSeReset = ''
-      // }
+      if(this.codeReset == ''){
+          this.msgCoSeReset = 'Mã bảo vệ không được rỗng.'
+          isActive = false
+      }else{
+          isActive = true
+          this.msgCoSeReset = ''
+      }
 
       if (isActive) {
         this.ldFrom = true;
 
         let obj = {
-          email: this.emailReset,
+          email: this.phoneReset,
           password: this.passwordReset,
-          //code_secure: this.codeReset
+          code_secure: this.codeReset
         };
 
         AuthenticationService.changePassword(obj).then((res) => {
@@ -1800,8 +1810,16 @@ export default {
     },
 
     submitFormReg() {
-      if (this.emailReg === "" || !this.checkReg(this.emailReg)) {
+      /*if (this.emailReg === "" || !this.checkReg(this.emailReg)) {
         this.msgEmReg = "Địa chỉ email không hợp lệ. Vui lòng thử lại.";
+        return;
+      } else {
+        this.msgEmReg = "";
+      }*/
+      console.log('submitFormReg')
+      if (this.phoneReg === "" || this.phoneReg.length < 10 ||
+          this.phoneReg.length > 11) {
+        this.msgEmReg = "Địa chỉ phone không hợp lệ. Vui lòng thử lại.";
         return;
       } else {
         this.msgEmReg = "";
@@ -1817,21 +1835,29 @@ export default {
       } else {
         this.msgPassReg = "";
       }
-
-      const regex = /^[a-zA-Z0-9-_]+$/;
-
-      if (
-        this.nickName === "" ||
-        this.nickName.length < 6 ||
-        this.nickName.length > 20 ||
-        !regex.test(this.nickName)
-      ) {
-        this.msgNickName =
-          "Biệt danh phải từ 6 đến 20 ký tự, bắt đầu bằng chữ và không chứa ký tự đặc biệt.";
+      console.log('this.codeRef', this.codeRef)
+      if(this.codeRef === ''){
+        this.msgCoSeReset = 'Mã bảo vệ không được rỗng.'
+        isActive = false
         return;
-      } else {
-        this.msgNickName = "";
+      }else{
+        isActive = true
+        this.msgCoSeReset = ''
       }
+      // const regex = /^[a-zA-Z0-9-_]+$/;
+
+      // if (
+      //   this.nickName === "" ||
+      //   this.nickName.length < 6 ||
+      //   this.nickName.length > 20 ||
+      //   !regex.test(this.nickName)
+      // ) {
+      //   this.msgNickName =
+      //     "Biệt danh phải từ 6 đến 20 ký tự, bắt đầu bằng chữ và không chứa ký tự đặc biệt.";
+      //   return;
+      // } else {
+      //   this.msgNickName = "";
+      // }
 
       let isActive = true;
 
@@ -1839,32 +1865,50 @@ export default {
         this.ldFrom = true;
 
         let obj = {
-          email: this.emailReg,
+          // email: this.emailReg,
+          email: this.phoneReg,
           password: this.passwordReg,
-          nick_name: this.nickName,
+          // nick_name: this.nickName,
           upline_id: this.codeRef,
         };
 
         //
 
-        AuthenticationService.registerUser(obj).then((res) => {
+        AuthenticationService.registerUser(obj).then(async (res) => {
           this.ldFrom = false;
           if (res.data.success == 1) {
-            this.isSubmitReg = true;
-            setTimeout(() => {
-              this.countDownResendMail();
-            }, 500);
+            // this.isSubmitReg = true;
+            const {data: {success, g_2fa, token}} = await AuthenticationService.loginUser({
+              email: this.phoneReg,
+              password: this.passwordReg,
+            })
+            if (success === 1) {
+              if (g_2fa) {
+                this.isG2FA = g_2fa;
+                this.saveToken = token;
+                return;
+              }
+            }
+            localStorage.setItem("tokenUser", token);
 
-            this.$vs.notify({
-              title: "Đăng ký thành công",
-              text: "Chúng tôi đã gửi 1 một liên kết kích hoạt đến tài khoản của bạn.",
-              iconPack: "feather",
-              icon: "icon-check",
-              color: "success",
-            });
+            this.activeLogin = false;
+
+            await this.getInfoLogin();
+            return;
+            // setTimeout(() => {
+            //   this.countDownResendMail();
+            // }, 500);
+            //
+            // this.$vs.notify({
+            //   title: "Đăng ký thành công",
+            //   text: "Chúng tôi đã gửi 1 một liên kết kích hoạt đến tài khoản của bạn.",
+            //   iconPack: "feather",
+            //   icon: "icon-check",
+            //   color: "success",
+            // });
           } else if (res.data.success == 2) {
             this.$vs.notify({
-              text: "Email này đã tồn tại",
+              text: "phone này đã tồn tại",
               iconPack: "feather",
               icon: "icon-alert-circle",
               color: "warning",
@@ -1883,8 +1927,16 @@ export default {
 
     async submitForm3rd() {
       let isActive = true;
-      if (this.email3rd === "" || !this.checkReg(this.email3rd)) {
+      /*if (this.email3rd === "" || !this.checkReg(this.email3rd)) {
         this.msgEm3rd = "Địa chỉ email không hợp lệ. Vui lòng thử lại.";
+        return;
+      } else {
+        this.msgEm3rd = "";
+      }*/
+     if (this.phone3rd === "" ||
+         this.phone3rd.length < 10 ||
+         this.phone3rd.length > 11) {
+        this.msgEm3rd = "Địa chỉ phone không hợp lệ. Vui lòng thử lại.";
         return;
       } else {
         this.msgEm3rd = "";
@@ -1915,11 +1967,18 @@ export default {
       } else {
         this.msgNickName3rd = "";
       }
-
+      if(this.codeRef === ''){
+        this.msgCoSeReset = 'Mã bảo vệ không được rỗng.'
+        isActive = false
+      }else{
+        isActive = true
+        this.msgCoSeReset = ''
+      }
       if (isActive) {
         this.ldFrom = true;
         let obj = {
-          email: this.email3rd,
+          // email: this.email3rd,
+          email: this.phone3rd,
           password: this.password3rd,
           nick_name: this.nickName3rd,
           isOpt: true,
@@ -1951,7 +2010,7 @@ export default {
           // });
         } else if (res.data.success == 2) {
           this.$vs.notify({
-            text: "Email này đã tồn tại",
+            text: "phone này đã tồn tại",
             iconPack: "feather",
             icon: "icon-alert-circle",
             color: "warning",
@@ -1967,8 +2026,9 @@ export default {
 
         this.ldFrom = true;
         const loginRes = await AuthenticationService.loginUser({
-          email: this.email3rd,
+          email: this.phone3rd,
           password: this.password3rd,
+          upline_id: this.codeRef,
         });
 
         this.ldFrom = false;
@@ -2036,8 +2096,20 @@ export default {
     submitFormForgot() {
       let isActive = true;
 
-      if (this.emailForgot === "" || !this.checkReg(this.emailForgot)) {
+     /* if (this.emailForgot === "" || !this.checkReg(this.emailForgot)) {
         this.msgEmailForgot = "Địa chỉ email không hợp lệ. Vui lòng thử lại.";
+        isActive = false;
+      } else {
+        isActive = true;
+        this.msgEmailForgot = "";
+      }*/
+      //
+      /**
+       * 忘记密码
+       */
+      if (this.phoneForgot === "" || this.phoneForgot.length < 10 ||
+          this.phoneForgot.length > 11) {
+        this.msgEmailForgot = "Địa chỉ phone không hợp lệ. Vui lòng thử lại.";
         isActive = false;
       } else {
         isActive = true;
@@ -2048,7 +2120,7 @@ export default {
         this.ldFrom = true;
 
         let obj = {
-          email: this.emailForgot,
+          email: this.phoneForgot,
         };
 
         AuthenticationService.forgotPassUser(obj).then((res) => {
@@ -2074,8 +2146,11 @@ export default {
       if (isActive) {
         this.ldFrom = true;
 
-        let obj = {
+        /*let obj = {
           email: this.emailResend,
+        };*/
+        let obj = {
+          email: this.phoneResend,
         };
         AuthenticationService.resendConfirUser(obj).then((res) => {
           this.ldFrom = false;
@@ -2125,7 +2200,7 @@ export default {
     loginForm() {
       this.ldFrom = true;
       AuthenticationService.loginUser({
-        email: this.email,
+        email: this.phone,
         password: this.password,
       }).then((res) => {
         this.ldFrom = false;
@@ -2153,7 +2228,7 @@ export default {
           //window.location.href = window.location.origin + '/user/affiliate/general';
         } else if (res.data.success == 0) {
           this.$vs.notify({
-            text: "Email hoặc mật khẩu không đúng. Vui lòng nhập lại",
+            text: "phone hoặc mật khẩu không đúng. Vui lòng nhập lại",
             iconPack: "feather",
             icon: "icon-alert-circle",
             color: "danger",
@@ -2218,7 +2293,7 @@ export default {
         try {
           token = parseJwt(token3rd);
           let data = token.result.data;
-          this.email3rd = data.email;
+          this.phone3rd = data.email;
           this.firstName = data.first_name || "";
           this.lastName = data.last_name || "";
           if (data.tokenLogin) {
@@ -2271,7 +2346,7 @@ export default {
       this.slepShowSlide();
       let gr = this.$route.query.e;
       if (gr != undefined) {
-        this.emailReset = gr;
+        this.phoneReset = gr;
       }
     }
   },

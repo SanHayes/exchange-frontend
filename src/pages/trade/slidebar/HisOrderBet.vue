@@ -76,7 +76,7 @@
                             trendDown: oknha.type == 'sell',
                           }"
                         ></span>
-                        <span class="uppercase">{{ oknha.type }}</span>
+                        <span class="uppercase">{{ oknha.type==='buy' ? 'MUA TĂNG': 'MUA GIẢM' }}</span>
                       </span>
                       <span>${{ formatPrice(oknha.amt) }}</span>
                     </div>
@@ -134,7 +134,7 @@
                             trendDown: oknha.bs == 'sell',
                           }"
                         ></span>
-                        <span class="uppercase">{{ oknha.bs }}</span>
+                        <span class="uppercase">{{ oknha.bs === 'buy' ? 'MUA TĂNG' : 'MUA GIẢM' }}</span>
                       </span>
                       <span>${{ formatPrice(oknha.ab) }}</span>
                     </div>
@@ -473,7 +473,7 @@ export default {
     ::v-deep .vs-sidebar {
       width: 230px !important;
       max-width: 90vw !important;
-      top: 65px;
+      //top: 65px;
     }
   }
 

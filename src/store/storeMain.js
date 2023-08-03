@@ -85,7 +85,8 @@ export default new Vuex.Store({
     isRenderdTradeIndex: false,
     forceWin: false, // Nếu TK MKT sẽ có thêm mục bắt phải thắng
     isScrollTrading: true, // Ngăn không cho trading scroll
-    accountType: 0,
+    accountType: 1,
+    currentBalance: 0,
   },
   mutations: {
     // ////////////////////////////////////////////
@@ -140,6 +141,9 @@ export default new Vuex.Store({
     SET_INFO_USDER(state, val) {
       state.AppActiveUser = val
     },
+    UPDATE_CURRENT_BALANCE(state, val) {
+      state.currentBalance = val
+    },
 
   },
   actions: {
@@ -154,6 +158,9 @@ export default new Vuex.Store({
     },
     setInfoUser({ commit }, list) {
       commit('SET_INFO_USDER', list)
+    },
+    setCurrentBalance({ commit }, value) {
+      commit('UPDATE_CURRENT_BALANCE', value)
     }
   },
 })

@@ -37,7 +37,7 @@
               <!--<vs-avatar v-else-if="url_avatar!=''" :src="url_avatar" size="80px" class="mr-4" /> -->
               <vs-avatar
                 v-else-if="!!avatar"
-                :src="`${dm}api/auth/me/photo/${avatar}`"
+                :src="`${dm}/api/auth/me/photo/${avatar}`"
                 size="80px"
                 class="mr-4"
               />
@@ -130,7 +130,7 @@
         <span v-else-if="getDataJson.verify == 2" class="lightyellow italic"
           >* Tài khoản đang được xem xét</span
         >
-        <span v-else class="green italic">* Tài khoản đã được xác minh</span>
+        <!--<span v-else class="green italic">* Tài khoản đã được xác minh</span>-->
       </div>
 
       <p class="clearfix"></p>
@@ -151,7 +151,7 @@
           >Đổi</vs-button
         >
         <p class="clearfix"></p>
-        <span v-if="!DISABLE_2FA" class="d-flex" style="font-size: 12px; margin-bottom: 5px"
+<!--        <span v-if="!DISABLE_2FA" class="d-flex" style="font-size: 12px; margin-bottom: 5px"
           >Bắt buộc bật 2FA để rút tiền hoặc cập nhật các bảo mật.</span
         >
         <p class="clearfix"></p>
@@ -164,7 +164,7 @@
             icon-pack="feather"
             vs-icon="icon-check"
           />
-        </div>
+        </div>-->
       </div>
 
       <vs-popup
@@ -294,7 +294,7 @@ export default {
       passOld: "",
       passNew: "",
       passRenew: "",
-      avatar: "df.jpg",
+      avatar: "@/assets/images/avatar/da.jpg",
       url_avatar: "",
       nickName: "",
       email: "",
@@ -349,6 +349,7 @@ export default {
 
     showHoSoSetting() {
       this.toggleDataSidebar(true);
+      this.isSidebarActiveLocal = false
     },
 
     toggleDataSidebar(val = false) {

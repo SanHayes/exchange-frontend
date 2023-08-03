@@ -25,6 +25,6 @@
     "num_secu":"",
     "country": "",
     "mkt": 0,
-    "countDown": 30,
+    "countDown": null,
     "textTimeDown": "Hãy đặt lệnh"
 }

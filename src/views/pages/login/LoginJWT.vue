@@ -1,7 +1,7 @@
 <template>
   <div>
     <vs-input
-        v-validate="'required|username|min:3'"
+        v-validate="'required|min:3'"
         data-vv-validate-on="blur"
         name="text"
         icon-no-border
@@ -71,7 +71,7 @@ export default {
           //localStorage.setItem('name', response.data.nick_name);
           this.$store.dispatch('setToken', response.data.token)
           //this.$store.dispatch('setUser', response.data.email)
-          this.$router.push('/analytics').catch(() => {})
+          this.$router.push('/analytics')
         }else{
           this.$vs.notify({
             title: 'Error',

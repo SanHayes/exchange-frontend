@@ -45,10 +45,10 @@
               <div class="vx-row">
                 <p class="d-flex w-full">Thông tin cá nhân</p>
                 <div class="vx-col md:w-1/2 w-full mt-5">
-                  <vs-input label="Họ" v-model="first_n" class="w-full" />
+                  <vs-input label="Họ" v-model="first_n" class="w-full" style="border: #333;"/>
                 </div>
                 <div class="vx-col md:w-1/2 w-full mt-5">
-                  <vs-input label="Tên" v-model="last_n" class="w-full" />
+                  <vs-input label="Tên" v-model="last_n" class="w-full" style="border: #333;"/>
                 </div>
                 <div class="vx-col w-full mt-5">
                   <vs-input
@@ -477,7 +477,7 @@ export default {
   methods: {
     successUploadFront(file) {
       //this.url_avatar = URL.createObjectURL(file[0]);
-      var reader = new FileReader();
+      const reader = new FileReader();
       reader.onload = (e) => {
         this.urlPassFront = e.target.result;
       };
@@ -493,7 +493,7 @@ export default {
     },
 
     successUploadBack(file) {
-      var reader = new FileReader();
+      const reader = new FileReader();
       reader.onload = (e) => {
         this.urlPassBack = e.target.result;
       };
@@ -508,10 +508,10 @@ export default {
 
     formSubmitted() {
       if (
-        this.first_n == "" ||
-        this.last_n == "" ||
-        this.country == 999 ||
-        this.smcnn == "" ||
+        this.first_n === "" ||
+        this.last_n === "" ||
+        this.country === 999 ||
+        this.smcnn === "" ||
         this.forFront == null ||
         this.forBack == null
       ) {
@@ -623,11 +623,11 @@ export default {
             email: this.dataEmail,
             super_user: this.dataPermission,
           };
-          if (this.dataPassword != "") {
+          if (this.dataPassword !== "") {
             obj["password"] = this.dataPassword;
           }
           // thêm mới tài khoản
-          if (Object.entries(this.data).length == 0) {
+          if (Object.entries(this.data).length === 0) {
             AuthenticationService.checkEmail(this.dataEmail).then((resp) => {
               if (resp.data.success) {
                 return this.$vs.notify({
