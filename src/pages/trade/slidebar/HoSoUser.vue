@@ -151,7 +151,7 @@
           >Đổi</vs-button
         >
         <p class="clearfix"></p>
-<!--        <span v-if="!DISABLE_2FA" class="d-flex" style="font-size: 12px; margin-bottom: 5px"
+        <!--        <span v-if="!DISABLE_2FA" class="d-flex" style="font-size: 12px; margin-bottom: 5px"
           >Bắt buộc bật 2FA để rút tiền hoặc cập nhật các bảo mật.</span
         >
         <p class="clearfix"></p>
@@ -170,7 +170,6 @@
       <vs-popup
         background-color="rgba(0,0,0,.6)"
         :background-color-popup="colorxChangePass"
-
         title="Đổi mật khẩu"
         :active.sync="popupActiveChangePass"
       >
@@ -208,17 +207,14 @@
             />
           </div>
           <div class="vx-col w-full mt-5">
-            <small class="red italic" v-if="!getDataJson.c2fa && !DISABLE_2FA"
-              >* Bạn phải bật 2FA để điều chỉnh</small
-            >
             <vs-button
-              v-else
               color="success"
               type="border"
               :disabled="disableChangePass"
               @click="ChangeNewPass()"
-              >Đồng ý</vs-button
             >
+              Đồng ý
+            </vs-button>
           </div>
         </div>
       </vs-popup>
@@ -313,7 +309,7 @@ export default {
         maxScrollbarLength: 60,
         wheelSpeed: 0.6,
       },
-      DISABLE_2FA: false
+      DISABLE_2FA: false,
     };
   },
   //   filters: {
@@ -349,7 +345,7 @@ export default {
 
     showHoSoSetting() {
       this.toggleDataSidebar(true);
-      this.isSidebarActiveLocal = false
+      this.isSidebarActiveLocal = false;
     },
 
     toggleDataSidebar(val = false) {

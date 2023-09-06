@@ -14,10 +14,15 @@
       </header>
     </section>
 
-    <section class="sec--00 faqsContent ">
+    <section class="sec--00 faqsContent">
       <div class="container">
-        <div class="text-center title mb-3">Chúng tôi có thể giúp bạn thế nào ?</div>
-        <div class="text-center mb-3">Chúng tôi sẽ nhanh chóng giải đáp thắc mắc của bạn. Bạn muốn tìm hiểu thêm về vấn đề gì?</div>
+        <div class="text-center title mb-3">
+          Chúng tôi có thể giúp bạn thế nào ?
+        </div>
+        <div class="text-center mb-3">
+          Chúng tôi sẽ nhanh chóng giải đáp thắc mắc của bạn. Bạn muốn tìm hiểu
+          thêm về vấn đề gì?
+        </div>
       </div>
     </section>
 
@@ -27,14 +32,7 @@
       <div class="footerFAQs">
         <div class="container position-relative">
           <div
-            class="
-              py-3 py-sm-5
-              blockRow
-              border-bottom
-              pb-0
-              flex flex-col
-              md:flex-row
-            "
+            class="py-3 py-sm-5 blockRow border-bottom pb-0 flex flex-col md:flex-row"
           >
             <div class="block logo">
               <p class="mb-lg-2 mb-1">
@@ -52,8 +50,13 @@
               </div>
               <p>
                 TeLeGram:
-<!--                <a :href="`mailto:${mail}`" class="emailLink">{{ mail }}</a>-->
-                <a :href="`https://t.me/${telegram}`" class="emailLink" target="_blank">@{{ telegram }}</a>
+                <!--                <a :href="`mailto:${mail}`" class="emailLink">{{ mail }}</a>-->
+                <a
+                  :href="`https://t.me/${telegram}`"
+                  class="emailLink"
+                  target="_blank"
+                  >@{{ telegram }}</a
+                >
               </p>
             </div>
             <div class="block md:pl-6">
@@ -85,14 +88,7 @@
                   data-toggle="dropdown"
                   aria-haspopup="true"
                   aria-expanded="false"
-                  class="
-                    btn
-                    dropdown-toggle
-                    colorSecondary
-                    dropdownMenuButton
-                    bgPrimary1
-                    position-relative
-                  "
+                  class="btn dropdown-toggle colorSecondary dropdownMenuButton bgPrimary1 position-relative"
                 >
                   <img
                     width="18"
@@ -139,16 +135,16 @@ export default {
       vueAppClasses: [],
       domain: config.domainRealName,
       mail: config.support.mail,
-      telegram: '',
+      telegram: "",
     };
   },
   created() {
     AuthenticationService.getSupport().then((res) => {
       // config.support = res.data.data;
       if (res.data.data.telegram) {
-        this.telegram =  res.data.data.telegram
-      }else {
-        this.telegram = config.support.telegram
+        this.telegram = res.data.data.telegram;
+      } else {
+        this.telegram = config.support.telegram;
       }
     });
   },
@@ -158,10 +154,14 @@ export default {
       this.vueAppClasses.push(classesStr);
     },
     LoginUrl() {
-      this.$router.push({ redirect: window.location.href = config.domain + "login" });
+      this.$router.push({
+        redirect: (window.location.href = config.domain + "login"),
+      });
     },
     RegisterUrl() {
-      this.$router.push({ redirect: window.location.href = config.domain + "register" });
+      this.$router.push({
+        redirect: (window.location.href = config.domain + "register"),
+      });
     },
     onWindowLoad() {
       let path = this.$router.currentRoute.path;
@@ -172,7 +172,6 @@ export default {
       }
     },
   },
-
 };
 </script>
 
@@ -192,42 +191,41 @@ export default {
   justify-content: center;
   background: url("~@/assets/images/BackgroundFAQs.jpeg");
   .title {
-      color: #fff!important;
-      font-size: 1.75rem;
+    color: #fff !important;
+    font-size: 1.75rem;
   }
 
   .mb-3 {
-    margin-bottom: 1rem!important;
+    margin-bottom: 1rem !important;
   }
 }
 
 .mb-4 {
-  margin-bottom: 1.5rem!important;
+  margin-bottom: 1.5rem !important;
 }
 
 h4 {
-    font-size: 1.5rem;
+  font-size: 1.5rem;
 }
-
 
 @media screen and (max-width: 992px) {
   .faqsContent {
-      min-height: 170px;
+    min-height: 170px;
   }
 }
 
 @media screen and (max-width: 1200px) {
   .faqsContent {
-      min-height: 230px;
+    min-height: 230px;
   }
 }
 @media screen and (max-width: 1700px) {
   .faqsContent {
-      min-height: 340px;
+    min-height: 340px;
   }
   .faqsContent {
-      min-height: 486px;
-      position: relative;
+    min-height: 486px;
+    position: relative;
   }
 }
 
@@ -252,7 +250,7 @@ h4 {
       }
 
       &_login {
-        background: #F1DD48;
+        background: #f1dd48;
         margin-right: 1rem;
         margin-left: 0.25rem;
       }
@@ -292,7 +290,7 @@ h4 {
       }
 
       .emailLink {
-        color: #F1DD48;
+        color: #f1dd48;
       }
     }
 
