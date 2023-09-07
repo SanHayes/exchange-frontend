@@ -169,7 +169,8 @@
         @click="(popupActiveNapNhanh = true), getBalanceWalletClick(),(getSetSys.isDepositOpen = true),
                               (getSetSys.isWithdraOpen = false)"
       >
-        <span class="nowrap">{{ isMobile ? "Nạp" : "Nạp nhanh" }}</span>
+        <!--<span class="nowrap">{{ isMobile ? "Nạp" : "Nạp nhanh" }}</span>-->
+        <span class="nowrap">{{  "Nạp" }}</span>
       </vs-button>
       <!-- <vs-button type="line" icon-pack="feather" :color="colorNT" icon="icon-dollar-sign" @click.stop="viewNapTien()">Nạp nhanh</vs-button> -->
     </div>
