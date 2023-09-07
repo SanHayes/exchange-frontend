@@ -115,18 +115,18 @@
                       </div>
                     </div>
                   </div>
-            <!--  v-if="getSetSys.isActiveWalletUSDT"-->
+                  <!--  v-if="getSetSys.isActiveWalletUSDT"-->
                   <div
-                      class="itemSelectUnit USDT"
-                      @click="selectTypePay('USDT')"
-                      v-if="false"
+                    class="itemSelectUnit USDT"
+                    @click="selectTypePay('USDT')"
+                    v-if="false"
                   >
-                  <div class="icon USDT"></div>
-                  <div class="info">
-                    <div class="amount w-full">
-                      <span class="number">{{ balanceUSDT }}</span>
+                    <div class="icon USDT"></div>
+                    <div class="info">
+                      <div class="amount w-full">
+                        <span class="number">{{ balanceUSDT }}</span>
+                      </div>
                     </div>
-                  </div>
                   </div>
                   <div
                     class="itemSelectUnit ETH"
@@ -162,10 +162,7 @@
                 <div v-if="!activeNRT">
                   <h4 class="transfer-network-title mt-0">Mạng lưới</h4>
                   <ul
-                    class="
-                      transfer-network-list transfer-network-list--deposit
-                      has-bsc
-                    "
+                    class="transfer-network-list transfer-network-list--deposit has-bsc"
                   >
                     <li
                       class="transfer-network-item"
@@ -281,19 +278,19 @@
               <div class="deposit_widthdraw_box" v-if="activeNRT">
                 <div class="form-group relative mt-4">
                   <!--<h4 class="colorSecondary2">Giá trị USD</h4>-->
-                 <!-- <input
+                  <!-- <input
                     type="number"
                     v-model="amount"
                     decimal="true"
                     :placeholder="`Số tiền tối thiểu: ${formatPrice(getSetSys.minDepositUSDT)}`"
                     class="form-control"
                   />-->
-                   <input
-                  type="number"
-                  v-model="amount"
-                  decimal="true"
-                  class="form-control"
-                />
+                  <input
+                    type="number"
+                    v-model="amount"
+                    decimal="true"
+                    class="form-control"
+                  />
                 </div>
                 <div class="text-center address">
                   <div class="p-3">
@@ -350,7 +347,9 @@
                     v-model="amount"
                     type="number"
                     decimal="true"
-                    :placeholder="`Số tiền tối thiểu: ${formatPrice(getSetSys.minWithdrawalUSDT)}`"
+                    :placeholder="`Số tiền tối thiểu: ${formatPrice(
+                      getSetSys.minWithdrawalUSDT
+                    )}`"
                     class="form-control"
                   />
                   <button
@@ -388,6 +387,7 @@
                     />
                     <vs-select-item value="VIB" text="VIB" />
                     <vs-select-item value="Agribank" text="Agribank" />
+                    <vs-select-item value="NAMABank" text="NAMABank" />
                   </vs-select>
                 </div>
                 <div class="form-group relative">
@@ -477,10 +477,7 @@
               <div class="transfer-network">
                 <h4 class="transfer-network-title mt-0">Mạng lưới</h4>
                 <ul
-                  class="
-                    transfer-network-list transfer-network-list--deposit
-                    has-bsc
-                  "
+                  class="transfer-network-list transfer-network-list--deposit has-bsc"
                 >
                   <li
                     class="transfer-network-item"
@@ -768,7 +765,7 @@ export default {
       bankInfo: "",
 
       disableCheckWallet: false,
-      disabled: false
+      disabled: false,
     };
   },
   methods: {
@@ -820,7 +817,7 @@ export default {
 
         if (d.success) {
           this.isNap = false;
-          this.$emit('update:active',false)
+          this.$emit("update:active", false);
           return this.$vs.notify({
             text: "Gửi yêu cầu nạp tiền thành công!",
             iconPack: "feather",
@@ -1093,7 +1090,7 @@ export default {
     },
 
     Withdrawal() {
-      console.log('Withdrawal')
+      console.log("Withdrawal");
       if (!this.DISABLE_2FA) {
         if (!getData.c2fa) {
           return this.$vs.notify({
@@ -1212,60 +1209,62 @@ export default {
         }
 
         obj.nw = "vnd";
-        this.disabled = true
-        AuthenticationService.withdrawalUsdtVND(obj).then((res) => {
-          let d = res.data;
+        this.disabled = true;
+        AuthenticationService.withdrawalUsdtVND(obj)
+          .then((res) => {
+            let d = res.data;
 
-          if (d.success == 3 || d.success == 4) {
-            localStorage.removeItem("token");
-            // this.$router.push("/login").catch(() => {});
-            window.location.href = window.location.origin + "/login";
-            return;
-          }
+            if (d.success == 3 || d.success == 4) {
+              localStorage.removeItem("token");
+              // this.$router.push("/login").catch(() => {});
+              window.location.href = window.location.origin + "/login";
+              return;
+            }
 
-          // cập nhật lại tiền ví nếu thành công
-          this.balanceUSDT = this.formatPrice(getAmountFormat - amount, 2);
-          this.getAmount = this.balanceUSDT;
+            // cập nhật lại tiền ví nếu thành công
+            this.balanceUSDT = this.formatPrice(getAmountFormat - amount, 2);
+            this.getAmount = this.balanceUSDT;
 
-          if (res.data.success == 1) {
-            getData.balance -= amount;
-            getData.balanceUSDT -= amount;
+            if (res.data.success == 1) {
+              getData.balance -= amount;
+              getData.balanceUSDT -= amount;
 
-            return this.$vs.notify({
-              text: "Rút tiền thành công.",
-              iconPack: "feather",
-              icon: "icon-check",
-              color: "success",
-              position: "top-right",
-            });
-          } else if (res.data.success === 10) {
-            return this.$vs.notify({
-              text: "Tài khoản chưa được xác minh.",
-              iconPack: "feather",
-              icon: "icon-check",
-              color: "danger",
-              position: "top-right",
-            });
-          } else if (res.data.success === 2) {
-            return this.$vs.notify({
-              text: "Mã 2Fa không đúng.",
-              iconPack: "feather",
-              icon: "icon-check",
-              color: "danger",
-              position: "top-right",
-            });
-          } else {
-            return this.$vs.notify({
-              text: "Số dư không đủ.",
-              color: "danger",
-              position: "top-right",
-              iconPack: "feather",
-              icon: "icon-x-circle",
-            });
-          }
-        }).finally(()=>{
-          this.disabled = false
-        });
+              return this.$vs.notify({
+                text: "Rút tiền thành công.",
+                iconPack: "feather",
+                icon: "icon-check",
+                color: "success",
+                position: "top-right",
+              });
+            } else if (res.data.success === 10) {
+              return this.$vs.notify({
+                text: "Tài khoản chưa được xác minh.",
+                iconPack: "feather",
+                icon: "icon-check",
+                color: "danger",
+                position: "top-right",
+              });
+            } else if (res.data.success === 2) {
+              return this.$vs.notify({
+                text: "Mã 2Fa không đúng.",
+                iconPack: "feather",
+                icon: "icon-check",
+                color: "danger",
+                position: "top-right",
+              });
+            } else {
+              return this.$vs.notify({
+                text: "Số dư không đủ.",
+                color: "danger",
+                position: "top-right",
+                iconPack: "feather",
+                icon: "icon-x-circle",
+              });
+            }
+          })
+          .finally(() => {
+            this.disabled = false;
+          });
 
         return;
       }
@@ -1288,67 +1287,69 @@ export default {
         }
 
         obj.nw = "nb";
-        this.disabled = true
-        AuthenticationService.withdrawalUserNoiBo(obj).then((res) => {
-          let d = res.data;
+        this.disabled = true;
+        AuthenticationService.withdrawalUserNoiBo(obj)
+          .then((res) => {
+            let d = res.data;
 
-          if (d.success == 3 || d.success == 4) {
-            localStorage.removeItem("token");
-            // return this.$router.push("/login").catch(() => {});
-            window.location.href = window.location.origin + "/login";
-          }
+            if (d.success == 3 || d.success == 4) {
+              localStorage.removeItem("token");
+              // return this.$router.push("/login").catch(() => {});
+              window.location.href = window.location.origin + "/login";
+            }
 
-          if (d.success == 5) {
-            return this.$vs.notify({
-              text: "Biệt danh không đúng hoặc không tồn tại.",
-              iconPack: "feather",
-              icon: "icon-check",
-              color: "danger",
-              position: "top-right",
-            });
-          }
+            if (d.success == 5) {
+              return this.$vs.notify({
+                text: "Biệt danh không đúng hoặc không tồn tại.",
+                iconPack: "feather",
+                icon: "icon-check",
+                color: "danger",
+                position: "top-right",
+              });
+            }
 
-          if (d.success == 2) {
-            return this.$vs.notify({
-              text: "Mã 2FA không chính xác.",
-              iconPack: "feather",
-              icon: "icon-check",
-              color: "danger",
-              position: "top-right",
-            });
-          }
+            if (d.success == 2) {
+              return this.$vs.notify({
+                text: "Mã 2FA không chính xác.",
+                iconPack: "feather",
+                icon: "icon-check",
+                color: "danger",
+                position: "top-right",
+              });
+            }
 
-          if (res.data.success == 1) {
-            getData.balance -= tongphi;
-            getData.balanceUSDT -= tongphi;
+            if (res.data.success == 1) {
+              getData.balance -= tongphi;
+              getData.balanceUSDT -= tongphi;
 
-            return this.$vs.notify({
-              text: "Rút tiền thành công.",
-              iconPack: "feather",
-              icon: "icon-check",
-              color: "success",
-              position: "top-right",
-            });
-          } else if (res.data.success === 10) {
-            return this.$vs.notify({
-              text: "Tài khoản chưa được xác minh.",
-              iconPack: "feather",
-              icon: "icon-check",
-              color: "danger",
-              position: "top-right",
-            });
-          } else {
-            return this.$vs.notify({
-              text: "Không tìm thấy người nhận.",
-              color: "danger",
-              position: "top-right",
-              iconPack: "feather",
-              icon: "icon-x-circle",
-            });
-          }
-        }).finally(()=>{
-          this.disabled = false
-        });
+              return this.$vs.notify({
+                text: "Rút tiền thành công.",
+                iconPack: "feather",
+                icon: "icon-check",
+                color: "success",
+                position: "top-right",
+              });
+            } else if (res.data.success === 10) {
+              return this.$vs.notify({
+                text: "Tài khoản chưa được xác minh.",
+                iconPack: "feather",
+                icon: "icon-check",
+                color: "danger",
+                position: "top-right",
+              });
+            } else {
+              return this.$vs.notify({
+                text: "Không tìm thấy người nhận.",
+                color: "danger",
+                position: "top-right",
+                iconPack: "feather",
+                icon: "icon-x-circle",
+              });
+            }
+          })
+          .finally(() => {
+            this.disabled = false;
+          });
       } else if (this.isActiveSelectTransBEP20) {
         // rút BEP20 (BSC)
 
@@ -1368,63 +1369,65 @@ export default {
         }
 
         obj.nw = "bep20";
-        this.disabled = true
-        AuthenticationService.withdrawalUsdtBSC(obj).then((res) => {
-          let d = res.data;
+        this.disabled = true;
+        AuthenticationService.withdrawalUsdtBSC(obj)
+          .then((res) => {
+            let d = res.data;
 
-          if (d.success == 3 || d.success == 4) {
-            localStorage.removeItem("token");
-            // this.$router.push("/login").catch(() => {});
-            window.location.href = window.location.origin + "/login";
-            return;
-          }
+            if (d.success == 3 || d.success == 4) {
+              localStorage.removeItem("token");
+              // this.$router.push("/login").catch(() => {});
+              window.location.href = window.location.origin + "/login";
+              return;
+            }
 
-          // cập nhật lại tiền ví nếu thành công
-          this.balanceUSDT = this.formatPrice(
-            Number(this.balanceUSDT) - tongphi,
-            2
-          );
-          this.getAmount = this.balanceUSDT;
+            // cập nhật lại tiền ví nếu thành công
+            this.balanceUSDT = this.formatPrice(
+              Number(this.balanceUSDT) - tongphi,
+              2
+            );
+            this.getAmount = this.balanceUSDT;
 
-          if (res.data.success == 1) {
-            getData.balance -= tongphi;
-            getData.balanceUSDT -= tongphi;
+            if (res.data.success == 1) {
+              getData.balance -= tongphi;
+              getData.balanceUSDT -= tongphi;
 
-            return this.$vs.notify({
-              text: "Rút tiền thành công.",
-              iconPack: "feather",
-              icon: "icon-check",
-              color: "success",
-              position: "top-right",
-            });
-          } else if (res.data.success === 10) {
-            return this.$vs.notify({
-              text: "Tài khoản chưa được xác minh.",
-              iconPack: "feather",
-              icon: "icon-check",
-              color: "danger",
-              position: "top-right",
-            });
-          } else if (res.data.success === 2) {
-            return this.$vs.notify({
-              text: "Mã 2Fa không đúng.",
-              iconPack: "feather",
-              icon: "icon-check",
-              color: "danger",
-              position: "top-right",
-            });
-          } else {
-            return this.$vs.notify({
-              text: "Số dư không đủ.",
-              color: "danger",
-              position: "top-right",
-              iconPack: "feather",
-              icon: "icon-x-circle",
-            });
-          }
-        }).finally(()=>{
-          this.disabled = false
-        });
+              return this.$vs.notify({
+                text: "Rút tiền thành công.",
+                iconPack: "feather",
+                icon: "icon-check",
+                color: "success",
+                position: "top-right",
+              });
+            } else if (res.data.success === 10) {
+              return this.$vs.notify({
+                text: "Tài khoản chưa được xác minh.",
+                iconPack: "feather",
+                icon: "icon-check",
+                color: "danger",
+                position: "top-right",
+              });
+            } else if (res.data.success === 2) {
+              return this.$vs.notify({
+                text: "Mã 2Fa không đúng.",
+                iconPack: "feather",
+                icon: "icon-check",
+                color: "danger",
+                position: "top-right",
+              });
+            } else {
+              return this.$vs.notify({
+                text: "Số dư không đủ.",
+                color: "danger",
+                position: "top-right",
+                iconPack: "feather",
+                icon: "icon-x-circle",
+              });
+            }
+          })
+          .finally(() => {
+            this.disabled = false;
+          });
       } else if (this.isActiveSelectTransERC20) {
         // rút ERC 20
 
@@ -1443,47 +1446,49 @@ export default {
         }
 
         obj.nw = "erc20";
-        this.disabled = true
-        AuthenticationService.withdrawalUsdtERC(obj).then((res) => {
-          let d = res.data;
+        this.disabled = true;
+        AuthenticationService.withdrawalUsdtERC(obj)
+          .then((res) => {
+            let d = res.data;
 
-          if (d.success == 3 || d.success == 4) {
-            localStorage.removeItem("token");
-            // this.$router.push("/login").catch(() => {});
-            window.location.href = window.location.origin + "/login";
-            return;
-          }
+            if (d.success == 3 || d.success == 4) {
+              localStorage.removeItem("token");
+              // this.$router.push("/login").catch(() => {});
+              window.location.href = window.location.origin + "/login";
+              return;
+            }
 
-          // cập nhật lại tiền ví nếu thành công
-          this.balanceUSDT = this.formatPrice(
-            Number(this.balanceUSDT) - tongphi,
-            2
-          );
-          this.getAmount = this.balanceUSDT;
+            // cập nhật lại tiền ví nếu thành công
+            this.balanceUSDT = this.formatPrice(
+              Number(this.balanceUSDT) - tongphi,
+              2
+            );
+            this.getAmount = this.balanceUSDT;
 
-          if (res.data.success) {
-            getData.balance -= tongphi;
-            getData.balanceUSDT -= tongphi;
+            if (res.data.success) {
+              getData.balance -= tongphi;
+              getData.balanceUSDT -= tongphi;
 
-            return this.$vs.notify({
-              text: "Rút tiền thành công.",
-              iconPack: "feather",
-              icon: "icon-check",
-              color: "success",
-              position: "top-right",
-            });
-          } else {
-            return this.$vs.notify({
-              text: "Số dư không đủ.",
-              color: "danger",
-              position: "top-right",
-              iconPack: "feather",
-              icon: "icon-x-circle",
-            });
-          }
-        }).finally(()=>{
-          this.disabled = false
-        });
+              return this.$vs.notify({
+                text: "Rút tiền thành công.",
+                iconPack: "feather",
+                icon: "icon-check",
+                color: "success",
+                position: "top-right",
+              });
+            } else {
+              return this.$vs.notify({
+                text: "Số dư không đủ.",
+                color: "danger",
+                position: "top-right",
+                iconPack: "feather",
+                icon: "icon-x-circle",
+              });
+            }
+          })
+          .finally(() => {
+            this.disabled = false;
+          });
       }
     },
     selectTypePay(val) {
@@ -1603,7 +1608,7 @@ export default {
         //style: 'currency',
         //currency: '',
         minimumFractionDigits: 0,
-        maximumFractionDigits: 2
+        maximumFractionDigits: 2,
       });
       return formatter.format(value);
     },
@@ -1750,7 +1755,7 @@ export default {
   content: "";
   height: 4px;
   width: 160px;
-  background: #F1DD48;
+  background: #f1dd48;
   border-radius: 3px 3px 0 0;
   display: block;
   position: absolute;
@@ -1795,7 +1800,7 @@ export default {
 
 .borderSecondary2 {
   border: 1px solid;
-  border-color: #F1DD48;
+  border-color: #f1dd48;
 }
 
 .boxAddress,
@@ -1863,7 +1868,7 @@ export default {
 .boxAddress .btn.sendMax {
   top: 50%;
   color: #fff;
-  background-color: #F1DD48;
+  background-color: #f1dd48;
   padding: 7px 10px;
   border-radius: 5px;
 }
@@ -1936,8 +1941,8 @@ export default {
 }
 
 .deposit_widthdraw .transfer-network-item.is-active {
-  background-color: #F1DD48;
-  border-color: #F1DD48;
+  background-color: #f1dd48;
+  border-color: #f1dd48;
 }
 
 .deposit_widthdraw .transfer-network-item {
@@ -2037,7 +2042,7 @@ export default {
   display: block;
   clear: both;
   margin-bottom: 5px;
-  color: #F1DD48;
+  color: #f1dd48;
 }
 
 .address .buttonCommon {
@@ -2060,7 +2065,7 @@ export default {
 }
 
 .address .redButton {
-  background: #F1DD48 !important;
+  background: #f1dd48 !important;
 }
 
 .qr-code-container canvas {

@@ -6,13 +6,7 @@
       v-if="activeLogin"
     >
       <div
-        class="
-          contentAuthentication
-          bgPrimary
-          flex flex-col
-          items-center
-          justify-between
-        "
+        class="contentAuthentication bgPrimary flex flex-col items-center justify-between"
         :class="{ 'ld-loading': ldFrom }"
       >
         <div class="loading">
@@ -50,16 +44,7 @@
           </div>
         </div>
         <div
-          class="
-            header-sidebar
-            p-10
-            fixed
-            flex
-            items-center
-            justify-between
-            flex-col
-            w-full
-          "
+          class="header-sidebar p-10 fixed flex items-center justify-between flex-col w-full"
         >
           <div class="header w-full">
             <a href="/" class="logoLogin mb-0 router-link-active">BoTrade</a>
@@ -71,7 +56,7 @@
               />
             </div>
           </div>
-<!--          登录帐户-->
+          <!--          登录帐户-->
           <div class="formWapper w-full">
             <div class="loginForm login_acc white mt-0" v-if="!isG2FA">
               <h2 class="lg:mb-5">Đăng nhập vào Tài khoản của bạn</h2>
@@ -123,7 +108,7 @@
                   >
                   <vs-button
                     style="
-                      background: #F1DD48 !important;
+                      background: #f1dd48 !important;
                       color: #fff !important;
                     "
                     class="w-full"
@@ -134,7 +119,7 @@
                   >
                 </div>
 
-<!--                <div>
+                <!--                <div>
                   <div
                     data-text="Or continue with"
                     class="divider__with-text mt-4 mb-4"
@@ -257,7 +242,7 @@
                     label="Mã Google Authentication"
                     v-model="G2FACodeEnter"
                   />
-                 <span class="icon" @click="pasteCode">Paste</span>
+                  <span class="icon" @click="pasteCode">Paste</span>
                 </div>
                 <div>
                   <vs-button
@@ -279,7 +264,7 @@
                 >Đăng ký</router-link
               >
             </p>
-<!--            <div class="colorWhite">
+            <!--            <div class="colorWhite">
               <span class="colorWhite text-center"
                 >Không nhận được email xác nhận?</span
               >
@@ -301,13 +286,7 @@
       v-if="activeLogin3rd"
     >
       <div
-        class="
-          contentAuthentication
-          bgPrimary
-          flex flex-col
-          items-center
-          justify-between
-        "
+        class="contentAuthentication bgPrimary flex flex-col items-center justify-between"
         :class="{ 'ld-loading': ldFrom }"
       >
         <div class="loading">
@@ -345,16 +324,7 @@
           </div>
         </div>
         <div
-          class="
-            header-sidebar
-            p-10
-            fixed
-            flex
-            items-center
-            justify-between
-            flex-col
-            w-full
-          "
+          class="header-sidebar p-10 fixed flex items-center justify-between flex-col w-full"
         >
           <div class="header w-full">
             <a href="/" class="logoLogin mb-0 router-link-active">BoTrade</a>
@@ -508,35 +478,12 @@
                   >
                 </div>
 
-<!--                <div
-                  class="mb-5 relative"
-                  :class="{ 'md-invalid': msgNickName3rd != '' }"
-                >
-                  <label class="label_custom">Biệt danh *</label>
-                  <input
-                    type="email"
-                    class="w-full input-bvxi30l9g"
-                    placeholder="Điền Nickname"
-                    v-model="nickName3rd"
-                    v-validate="'required|min:3|max:20|alpha_dash'"
-                    maxlength="20"
-                  />
-
-                  <small class="md-error text-danger text-sm">
-                    {{ msgNickName3rd }}
-                  </small>
-                  <span class="md-count float-right text-xs italic"
-                    >{{ nickName3rd.length }} / 20</span
-                  >
-                </div>-->
-
                 <div class="flex">
                   <div
                     class="mb-5 relative mr-5"
                     :class="{ 'md-invalid': msgFirstName != '' }"
                   >
-                    <label class="label_custom"  >Tên *</label
-                    >
+                    <label class="label_custom">Tên *</label>
                     <input
                       type="text"
                       class="w-full input-bvxi30l9g"
@@ -557,8 +504,7 @@
                     class="mb-5 relative"
                     :class="{ 'md-invalid': msgLastName != '' }"
                   >
-                    <label class="label_custom"  >Họ *</label
-                    >
+                    <label class="label_custom">Họ *</label>
                     <input
                       type="text"
                       class="w-full input-bvxi30l9g"
@@ -581,7 +527,9 @@
                   class="mb-5 relative"
                   :class="{ 'mt-10': msgNickName != '' }"
                 >
-                  <label class="label_custom">Mã giới thiệu / Mã khuyến mãi</label>
+                  <label class="label_custom">
+                    Mã giới thiệu / Mã khuyến mãi
+                  </label>
                   <input
                     type="text"
                     class="w-full input-bvxi30l9g"
@@ -592,7 +540,7 @@
                 <div>
                   <vs-button
                     style="
-                      background: #F1DD48 !important;
+                      background: #f1dd48 !important;
                       color: #fff !important;
                     "
                     class="w-full"
@@ -607,36 +555,10 @@
               <h2 class="font-weight-bold mb-5 font-24 colorSecondary">
                 KÍCH HOẠT TÀI KHOẢN
               </h2>
-              <!--<p class="colorSecondary">
-                              Để được kích hoạt tài khoản: <a :href="`mailto:${emailReg}`" class="colorBlue4">{{ emailReg }}</a><br><br>
-                              - B1: Tải ứng dụng Telegram về trên App Store (IOS) hoặc CH Play (Android).<br>
-                              - B2: Nếu đã có ứng dụng (Bỏ qua Bước 1) Nhấp vào nút KÍCH HOẠT bên dưới 👇🏻 để mở App Telegram.<br>
-                              - B3: Nhấp lệnh start (Bắt đầu) và làm theo hướng dẫn.<br>
-                            </p>-->
-              <!-- <p class="colorSecondary">
-                               Một liên kết xác nhận đã được gửi tới
-                                Vui lòng xác nhận email: <a :href="`mailto:${emailReg}`" class="colorBlue4">{{ emailReg }}</a> qua TELEGRAM BOT để kích hoạt tài khoản<a target="_blank" href="https://t.me/ares_idefibo_bot">NHẤP VÀO ĐÂY</a>
-                            </p> -->
-<!--              <p class="colorSecondary">
-                Một liên kết xác nhận đã được gửi tới
-                <a :href="`mailto:${emailReg}`" class="colorBlue4">{{
-                  emailReg
-                }}</a>
-                Vui lòng chờ ít phút để nhận liên kết xác nhận và kích hoạt tài
-                khoản của bạn.<br />
-                &lt;!&ndash; Nếu không nhận được email xin vui lòng dùng TELEGRAM BOT để kích hoạt tài khoản: <a target="_blank" href="https://t.me/ares_idefibo_bot">Nhấp vào đây</a>&ndash;&gt;
-              </p>-->
-
               <p>
-                <!-- <button class="btn btn-resendemail w-full mt-4" @click="openSite">NHẤP VÀO ĐÂY 🤝KÍCH HOẠT🤝</button> -->
                 <button
                   id="button-with-loading"
-                  class="
-                    btn btn-resendemail
-                    w-full
-                    mt-4
-                    vs-con-loading__container
-                  "
+                  class="btn btn-resendemail w-full mt-4 vs-con-loading__container"
                   :disabled="disSendMail"
                   @click="reSendMail"
                 >
@@ -657,13 +579,7 @@
       v-if="activeRegister"
     >
       <div
-        class="
-          contentAuthentication
-          bgPrimary
-          flex flex-col
-          items-center
-          justify-between
-        "
+        class="contentAuthentication bgPrimary flex flex-col items-center justify-between"
         :class="{ 'ld-loading': ldFrom }"
       >
         <div class="loading">
@@ -701,16 +617,7 @@
           </div>
         </div>
         <div
-          class="
-            header-sidebar
-            p-10
-            fixed
-            flex
-            items-center
-            justify-between
-            flex-col
-            w-full
-          "
+          class="header-sidebar p-10 fixed flex items-center justify-between flex-col w-full"
         >
           <div class="header w-full">
             <a href="/" class="logoLogin mb-0 router-link-active">BoTrade</a>
@@ -722,7 +629,7 @@
               />
             </div>
           </div>
-<!--          注册-->
+          <!--          注册-->
           <div class="formWapper w-full">
             <div class="regFrom login_acc white mt-0" v-if="!isSubmitReg">
               <h2
@@ -790,7 +697,7 @@
                   >
                 </div>
 
-<!--                <div
+                <!--                <div
                   class="mb-5 relative"
                   :class="{ 'md-invalid': msgNickName != '' }"
                 >
@@ -814,10 +721,11 @@
 
                 <div
                   class="mb-10 relative"
-                  :class="{ 'md-invalid': msgCoSeReset != ''  }"
-
+                  :class="{ 'md-invalid': msgCoSeReset != '' }"
                 >
-                  <label class="label_custom">Mã giới thiệu / Mã khuyến mãi</label>
+                  <label class="label_custom"
+                    >Mã giới thiệu / Mã khuyến mãi</label
+                  >
                   <input
                     type="text"
                     class="w-full input-bvxi30l9g"
@@ -831,16 +739,17 @@
                 <div>
                   <vs-button
                     style="
-                      background: #F1DD48 !important;
+                      background: #f1dd48 !important;
                       color: #fff !important;
                     "
                     class="w-full"
                     type="filled"
                     @click="submitFormReg"
-                    >Đăng ký</vs-button
                   >
+                    Đăng ký
+                  </vs-button>
                 </div>
-<!--                <div>
+                <!--                <div>
                   <div
                     data-text="Or continue with"
                     class="divider__with-text mt-4 mb-4"
@@ -966,7 +875,7 @@
                                Một liên kết xác nhận đã được gửi tới
                                 Vui lòng xác nhận email: <a :href="`mailto:${emailReg}`" class="colorBlue4">{{ emailReg }}</a> qua TELEGRAM BOT để kích hoạt tài khoản<a target="_blank" href="https://t.me/ares_idefibo_bot">NHẤP VÀO ĐÂY</a>
                             </p> -->
-<!--              <p class="colorSecondary">
+              <!--              <p class="colorSecondary">
                 Một liên kết xác nhận đã được gửi tới
                 <a :href="`mailto:${emailReg}`" class="colorBlue4">{{
                   emailReg
@@ -980,12 +889,7 @@
                 <!-- <button class="btn btn-resendemail w-full mt-4" @click="openSite">NHẤP VÀO ĐÂY 🤝KÍCH HOẠT🤝</button> -->
                 <button
                   id="button-with-loading"
-                  class="
-                    btn btn-resendemail
-                    w-full
-                    mt-4
-                    vs-con-loading__container
-                  "
+                  class="btn btn-resendemail w-full mt-4 vs-con-loading__container"
                   :disabled="disSendMail"
                   @click="reSendMail"
                 >
@@ -1012,13 +916,7 @@
       v-if="activeResendVerifyEmail"
     >
       <div
-        class="
-          contentAuthentication
-          bgPrimary
-          flex flex-col
-          items-center
-          justify-between
-        "
+        class="contentAuthentication bgPrimary flex flex-col items-center justify-between"
         :class="{ 'ld-loading': ldFrom }"
       >
         <div class="loading">
@@ -1056,16 +954,7 @@
           </div>
         </div>
         <div
-          class="
-            header-sidebar
-            p-10
-            fixed
-            flex
-            items-center
-            justify-between
-            flex-col
-            w-full
-          "
+          class="header-sidebar p-10 fixed flex items-center justify-between flex-col w-full"
         >
           <div class="header w-full">
             <a href="/" class="logoLogin mb-0 router-link-active">BoTrade</a>
@@ -1114,7 +1003,7 @@
                 <div>
                   <vs-button
                     style="
-                      background: #F1DD48 !important;
+                      background: #f1dd48 !important;
                       color: #fff !important;
                     "
                     class="w-full"
@@ -1154,13 +1043,7 @@
       v-if="activeFogotPass"
     >
       <div
-        class="
-          contentAuthentication
-          bgPrimary
-          flex flex-col
-          items-center
-          justify-between
-        "
+        class="contentAuthentication bgPrimary flex flex-col items-center justify-between"
         :class="{ 'ld-loading': ldFrom }"
       >
         <div class="loading">
@@ -1198,16 +1081,7 @@
           </div>
         </div>
         <div
-          class="
-            header-sidebar
-            p-10
-            fixed
-            flex
-            items-center
-            justify-between
-            flex-col
-            w-full
-          "
+          class="header-sidebar p-10 fixed flex items-center justify-between flex-col w-full"
         >
           <div class="header w-full">
             <a href="/" class="logoLogin mb-0 router-link-active">BoTrade</a>
@@ -1289,13 +1163,7 @@
       v-if="activeResetPass"
     >
       <div
-        class="
-          contentAuthentication
-          bgPrimary
-          flex flex-col
-          items-center
-          justify-between
-        "
+        class="contentAuthentication bgPrimary flex flex-col items-center justify-between"
         :class="{ 'ld-loading': ldFrom }"
       >
         <div class="loading">
@@ -1333,16 +1201,7 @@
           </div>
         </div>
         <div
-          class="
-            header-sidebar
-            p-10
-            fixed
-            flex
-            items-center
-            justify-between
-            flex-col
-            w-full
-          "
+          class="header-sidebar p-10 fixed flex items-center justify-between flex-col w-full"
         >
           <div class="header w-full">
             <a href="/" class="logoLogin mb-0 router-link-active">BoTrade</a>
@@ -1649,7 +1508,7 @@ export default {
     },
   },
   methods: {
-    async pasteCode(){
+    async pasteCode() {
       this.G2FACodeEnter = await navigator.clipboard.readText();
     },
     loginFb() {
@@ -1732,14 +1591,18 @@ export default {
 
     submitFormResetPass() {
       let isActive = true;
-     /* if (this.emailReset === "" || !this.checkReg(this.emailReset)) {
+      /* if (this.emailReset === "" || !this.checkReg(this.emailReset)) {
         this.msgEmReset = "Địa chỉ email không hợp lệ. Vui lòng thử lại.";
         return;
       } else {
         isActive = true;
         this.msgEmReset = "";
       }*/
-      if (this.phoneReset === "" || this.phoneReset.length < 10 || this.phoneReset.length > 11) {
+      if (
+        this.phoneReset === "" ||
+        this.phoneReset.length < 10 ||
+        this.phoneReset.length > 11
+      ) {
         this.msgPassReset = "Địa chỉ phone không hợp lệ. Vui lòng thử lại.";
         return;
       } else {
@@ -1753,7 +1616,6 @@ export default {
         isActive = true;
         this.msgPassReset = "";
       }
-
 
       if (this.passwordReReset.length < 6 || this.passwordReReset.length > 20) {
         this.msgPassReReset = "Mật khẩu của bạn ít nhất phải 6 đến 20 ký tự.";
@@ -1771,12 +1633,12 @@ export default {
         this.msgPassReReset = "";
       }
 
-      if(this.codeReset == ''){
-          this.msgCoSeReset = 'Mã bảo vệ không được rỗng.'
-          isActive = false
-      }else{
-          isActive = true
-          this.msgCoSeReset = ''
+      if (this.codeReset == "") {
+        this.msgCoSeReset = "Mã bảo vệ không được rỗng.";
+        isActive = false;
+      } else {
+        isActive = true;
+        this.msgCoSeReset = "";
       }
 
       if (isActive) {
@@ -1785,7 +1647,7 @@ export default {
         let obj = {
           email: this.phoneReset,
           password: this.passwordReset,
-          code_secure: this.codeReset
+          code_secure: this.codeReset,
         };
 
         AuthenticationService.changePassword(obj).then((res) => {
@@ -1810,15 +1672,11 @@ export default {
     },
 
     submitFormReg() {
-      /*if (this.emailReg === "" || !this.checkReg(this.emailReg)) {
-        this.msgEmReg = "Địa chỉ email không hợp lệ. Vui lòng thử lại.";
-        return;
-      } else {
-        this.msgEmReg = "";
-      }*/
-      console.log('submitFormReg')
-      if (this.phoneReg === "" || this.phoneReg.length < 10 ||
-          this.phoneReg.length > 11) {
+      if (
+        this.phoneReg === "" ||
+        this.phoneReg.length < 10 ||
+        this.phoneReg.length > 11
+      ) {
         this.msgEmReg = "Địa chỉ phone không hợp lệ. Vui lòng thử lại.";
         return;
       } else {
@@ -1835,29 +1693,6 @@ export default {
       } else {
         this.msgPassReg = "";
       }
-      console.log('this.codeRef', this.codeRef)
-      if(this.codeRef === ''){
-        this.msgCoSeReset = 'Mã bảo vệ không được rỗng.'
-        isActive = false
-        return;
-      }else{
-        isActive = true
-        this.msgCoSeReset = ''
-      }
-      // const regex = /^[a-zA-Z0-9-_]+$/;
-
-      // if (
-      //   this.nickName === "" ||
-      //   this.nickName.length < 6 ||
-      //   this.nickName.length > 20 ||
-      //   !regex.test(this.nickName)
-      // ) {
-      //   this.msgNickName =
-      //     "Biệt danh phải từ 6 đến 20 ký tự, bắt đầu bằng chữ và không chứa ký tự đặc biệt.";
-      //   return;
-      // } else {
-      //   this.msgNickName = "";
-      // }
 
       let isActive = true;
 
@@ -1878,10 +1713,12 @@ export default {
           this.ldFrom = false;
           if (res.data.success == 1) {
             // this.isSubmitReg = true;
-            const {data: {success, g_2fa, token}} = await AuthenticationService.loginUser({
+            const {
+              data: { success, g_2fa, token },
+            } = await AuthenticationService.loginUser({
               email: this.phoneReg,
               password: this.passwordReg,
-            })
+            });
             if (success === 1) {
               if (g_2fa) {
                 this.isG2FA = g_2fa;
@@ -1933,9 +1770,11 @@ export default {
       } else {
         this.msgEm3rd = "";
       }*/
-     if (this.phone3rd === "" ||
-         this.phone3rd.length < 10 ||
-         this.phone3rd.length > 11) {
+      if (
+        this.phone3rd === "" ||
+        this.phone3rd.length < 10 ||
+        this.phone3rd.length > 11
+      ) {
         this.msgEm3rd = "Địa chỉ phone không hợp lệ. Vui lòng thử lại.";
         return;
       } else {
@@ -1967,12 +1806,12 @@ export default {
       } else {
         this.msgNickName3rd = "";
       }
-      if(this.codeRef === ''){
-        this.msgCoSeReset = 'Mã bảo vệ không được rỗng.'
-        isActive = false
-      }else{
-        isActive = true
-        this.msgCoSeReset = ''
+      if (this.codeRef === "") {
+        this.msgCoSeReset = "Mã bảo vệ không được rỗng.";
+        isActive = false;
+      } else {
+        isActive = true;
+        this.msgCoSeReset = "";
       }
       if (isActive) {
         this.ldFrom = true;
@@ -2096,7 +1935,7 @@ export default {
     submitFormForgot() {
       let isActive = true;
 
-     /* if (this.emailForgot === "" || !this.checkReg(this.emailForgot)) {
+      /* if (this.emailForgot === "" || !this.checkReg(this.emailForgot)) {
         this.msgEmailForgot = "Địa chỉ email không hợp lệ. Vui lòng thử lại.";
         isActive = false;
       } else {
@@ -2107,8 +1946,11 @@ export default {
       /**
        * 忘记密码
        */
-      if (this.phoneForgot === "" || this.phoneForgot.length < 10 ||
-          this.phoneForgot.length > 11) {
+      if (
+        this.phoneForgot === "" ||
+        this.phoneForgot.length < 10 ||
+        this.phoneForgot.length > 11
+      ) {
         this.msgEmailForgot = "Địa chỉ phone không hợp lệ. Vui lòng thử lại.";
         isActive = false;
       } else {
@@ -2162,7 +2004,7 @@ export default {
     },
 
     async getInfoLogin() {
-      const res = await AuthenticationService.getInfoUser()
+      const res = await AuthenticationService.getInfoUser();
       if (res.data.success == 1) {
         let dt = res.data.data;
 
@@ -2193,7 +2035,7 @@ export default {
 
         localStorage.setItem("INFO", JSON.stringify(dt));
         //localStorage.removeItem('isLog')
-        this.$router.push({path: "/trading"});
+        this.$router.push({ path: "/trading" });
       }
     },
 
@@ -2369,9 +2211,9 @@ export default {
 </style>
 
 <style scoped lang="scss">
-.custom-input-wrapper{
+.custom-input-wrapper {
   position: relative;
-  .icon{
+  .icon {
     position: absolute;
     right: 5px;
     top: 20px;
@@ -2384,7 +2226,7 @@ export default {
     cursor: pointer;
     transition: 0.25s;
 
-    &:hover{
+    &:hover {
       color: #2ada79;
     }
   }
@@ -2657,7 +2499,7 @@ export default {
 }
 
 a {
-  color: #F1DD48 !important;
+  color: #f1dd48 !important;
   font-size: 14px;
   font-weight: 400;
   line-height: 20px;

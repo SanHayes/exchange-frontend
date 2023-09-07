@@ -12,6 +12,9 @@
           <div class="header--btn_register" @click="LoginUrl">Đăng nhập</div>
         </div>
       </header>
+      <a class="download-app" href="http://app.mastertrader.vip/">
+        <vs-button warn gradient :active="true"> Tải app </vs-button>
+      </a>
 
       <div class="content">
         <div class="title mx-auto">Trải nghiệm giao dịch tuyệt vời</div>
@@ -27,7 +30,7 @@
 
       <footer>
         <div class="flex flex-col sm:flex-row wraper mx-auto">
-<!--          <div class="item space-y-2">
+          <!--          <div class="item space-y-2">
             <img :src="require('@/assets/images/landing/tick.png')" />
             <div class="title">Tài khoản Demo $1.000</div>
             <div class="desctiption">
@@ -186,15 +189,7 @@
 
     <section class="sec--05">
       <div
-        class="
-          section-wrapper
-          flex flex-col
-          lg:flex-row
-          items-center
-          ml-10
-          pt-20
-          lg:pt-10
-        "
+        class="section-wrapper flex flex-col lg:flex-row items-center ml-10 pt-20 lg:pt-10"
       >
         <div class="flex-grow">
           <div class="max-w-md mx-auto">
@@ -247,7 +242,9 @@
     <section class="sec--08">
       <div class="footerFAQs">
         <div class="container position-relative">
-          <div class="py-3 py-sm-5 blockRow border-bottom pb-0 flex flex-col md:flex-row">
+          <div
+            class="py-3 py-sm-5 blockRow border-bottom pb-0 flex flex-col md:flex-row"
+          >
             <div class="block logo">
               <p class="mb-lg-2 mb-1">
                 <img
@@ -264,8 +261,13 @@
               </div>
               <p>
                 TeLeGram:
-<!--                <a :href="`mailto:${mail}`" class="emailLink">{{ mail }}</a>-->
-                <a :href="`https://t.me/${telegram}`" class="emailLink" target="_blank">@{{ telegram }}</a>
+                <!--                <a :href="`mailto:${mail}`" class="emailLink">{{ mail }}</a>-->
+                <a
+                  :href="`https://t.me/${telegram}`"
+                  class="emailLink"
+                  target="_blank"
+                  >@{{ telegram }}</a
+                >
               </p>
             </div>
             <div class="block md:pl-6">
@@ -297,14 +299,7 @@
                   data-toggle="dropdown"
                   aria-haspopup="true"
                   aria-expanded="false"
-                  class="
-                    btn
-                    dropdown-toggle
-                    colorSecondary
-                    dropdownMenuButton
-                    bgPrimary1
-                    position-relative
-                  "
+                  class="btn dropdown-toggle colorSecondary dropdownMenuButton bgPrimary1 position-relative"
                 >
                   <img
                     width="18"
@@ -369,7 +364,7 @@
       }
 
       &_login {
-        background: #F1DD48;
+        background: #f1dd48;
         margin-right: 1rem;
         margin-left: 0.25rem;
       }
@@ -406,7 +401,7 @@
     }
 
     .btn {
-      background-color: #F1DD48;
+      background-color: #f1dd48;
       color: #fff;
       text-transform: uppercase;
       text-align: center;
@@ -528,7 +523,7 @@
     font-size: 14px;
     text-transform: uppercase;
     transition: all 0.35s ease-in-out;
-    background: #F1DD48;
+    background: #f1dd48;
     margin-left: 0 !important;
     border-radius: 30px;
     cursor: pointer;
@@ -607,7 +602,7 @@
     font-size: 48px;
     line-height: 57px;
     font-weight: 700;
-    color: #F1DD48;
+    color: #f1dd48;
     margin-bottom: 40px;
   }
 
@@ -620,7 +615,7 @@
 
   .btn {
     display: inline-block;
-    background-color: #F1DD48;
+    background-color: #f1dd48;
     color: #fff;
     padding: 20px 45px;
     margin-left: 0;
@@ -724,7 +719,7 @@
   }
 
   a {
-    background-color: #F1DD48;
+    background-color: #f1dd48;
     color: #fff;
     text-transform: uppercase;
     text-align: center;
@@ -764,7 +759,7 @@
       }
 
       .emailLink {
-        color: #F1DD48;
+        color: #f1dd48;
       }
     }
 
@@ -829,8 +824,16 @@
     }
   }
 }
-
+.download-app {
+  display: none;
+  position: absolute;
+  right: 15px;
+  top: 55px;
+}
 @media only screen and (max-width: 490px) {
+  .download-app {
+    display: block;
+  }
   .sec--01 {
     width: 100%;
     header {
@@ -1241,9 +1244,9 @@ export default {
     AuthenticationService.getSupport().then((res) => {
       // config.support = res.data.data;
       if (res.data.data.telegram) {
-        this.telegram =  res.data.data.telegram
-      }else {
-        this.telegram = config.support.telegram
+        this.telegram = res.data.data.telegram;
+      } else {
+        this.telegram = config.support.telegram;
       }
     });
     window.addEventListener("load", this.onWindowLoad);
