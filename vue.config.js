@@ -61,21 +61,4 @@ module.exports = {
   },
 
   transpileDependencies: true
-
-  //cssSourceMap: false,
-  // publicPath: '/',
-  // transpileDependencies: [
-  //   'vue-echarts',
-  //   'resize-detector'
-  // ],
-  // configureWebpack: {
-  //   // optimization: {
-  //   //   splitChunks: {
-  //   //     chunks: 'all'
-  //   //   }
-  //   // }
-  //   devServer: {
-  //     historyApiFallback: true
-  //   }
-  // }
 };
