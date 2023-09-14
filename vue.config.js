@@ -31,7 +31,6 @@ module.exports = {
       title: 'Admin',
       chunks: ['chunk-vendors', 'chunk-common', 'portal']
     },
-    //不知道干嘛的
     daily: {
       entry: 'src/dai-ly/main.js',
       template: 'public/client/dai-ly.html',
@@ -61,21 +60,4 @@ module.exports = {
   },
 
   transpileDependencies: true
-
-  //cssSourceMap: false,
-  // publicPath: '/',
-  // transpileDependencies: [
-  //   'vue-echarts',
-  //   'resize-detector'
-  // ],
-  // configureWebpack: {
-  //   // optimization: {
-  //   //   splitChunks: {
-  //   //     chunks: 'all'
-  //   //   }
-  //   // }
-  //   devServer: {
-  //     historyApiFallback: true
-  //   }
-  // }
 };
