@@ -25,8 +25,8 @@ Vue.use(IconCrypto);
 Vue.use(Vuesax);
 
 const routes = new VueRouter({
-  mode: 'history',
-  base: '/faqs',
+  mode: 'hash',
+  base: '/',
   routes: [
     {
       path: '/general-provitions',

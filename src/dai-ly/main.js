@@ -21,8 +21,8 @@ Vue.use(IconCrypto);
 Vue.config.productionTip = false;
 
 const routes = new VueRouter({
-  mode: 'history',
-  base: '/daily',
+  mode: 'hash',
+  base: '/',
   routes: [
     {
       path: '/',
