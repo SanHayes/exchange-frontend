@@ -111,7 +111,7 @@
                   >
                   <vs-button
                     style="
-                      background: #F1DD48 !important;
+                      background: #f1dd48 !important;
                       color: #fff !important;
                     "
                     class="w-full"
@@ -138,7 +138,7 @@
                 <div>
                   <vs-button
                     style="
-                      background: #F1DD48 !important;
+                      background: #f1dd48 !important;
                       color: #fff !important;
                     "
                     class="w-full"
@@ -327,7 +327,7 @@
                 <div>
                   <vs-button
                     style="
-                      background: #F1DD48 !important;
+                      background: #f1dd48 !important;
                       color: #fff !important;
                     "
                     class="w-full"
@@ -375,7 +375,7 @@
                 </div>
                 <vs-button
                   style="
-                    background: #F1DD48 !important;
+                    background: #f1dd48 !important;
                     color: #fff !important;
                     white-space: nowrap;
                     height: 45px;
@@ -398,7 +398,7 @@
               </vs-alert>
               <div>
                 <vs-button
-                  style="background: #F1DD48 !important; color: #fff !important"
+                  style="background: #f1dd48 !important; color: #fff !important"
                   :disabled="optCode.length === 0"
                   class="w-full"
                   type="filled"
@@ -512,7 +512,7 @@
                 <div>
                   <vs-button
                     style="
-                      background: #F1DD48 !important;
+                      background: #f1dd48 !important;
                       color: #fff !important;
                     "
                     class="w-full"
@@ -633,7 +633,7 @@
                 <div>
                   <vs-button
                     style="
-                      background: #F1DD48 !important;
+                      background: #f1dd48 !important;
                       color: #fff !important;
                     "
                     class="w-full"
@@ -834,7 +834,7 @@
                 <div class="mt-2">
                   <vs-button
                     style="
-                      background: #F1DD48 !important;
+                      background: #f1dd48 !important;
                       color: #fff !important;
                     "
                     class="w-full"
@@ -1244,7 +1244,7 @@ export default {
               icon: "icon-check",
               color: "success",
             });
-            window.location.href = window.location.origin + "/login";
+            this.$router.push("/login").catch(() => {});
           } else if (res.data.success == 2) {
             this.$vs.notify({
               text: "Mã 2FA không đúng",

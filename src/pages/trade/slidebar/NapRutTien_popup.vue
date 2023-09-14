@@ -750,7 +750,7 @@ export default {
         if (d.success == 3 || d.success == 4) {
           localStorage.removeItem("token");
           // this.$router.push('/login').catch(() => {})
-          window.location.href = window.location.origin + "/login";
+          this.$router.push("/login").catch(() => {});
           return;
         }
         if (d.success) {
@@ -783,7 +783,7 @@ export default {
         if (d.success == 3 || d.success == 4) {
           localStorage.removeItem("token");
           // this.$router.push('/login').catch(() => {})
-          window.location.href = window.location.origin + "/login";
+          this.$router.push("/login").catch(() => {});
           return;
         }
 
@@ -826,7 +826,7 @@ export default {
         if (d.success == 3 || d.success == 4) {
           localStorage.removeItem("token");
           // this.$router.push('/login').catch(() => {})
-          window.location.href = window.location.origin + "/login";
+          this.$router.push("/login").catch(() => {});
           return;
         }
 
@@ -915,7 +915,7 @@ export default {
           if (d.success == 3 || d.success == 4) {
             localStorage.removeItem("token");
             // this.$router.push('/login').catch(() => {})
-            window.location.href = window.location.origin + "/login";
+            this.$router.push("/login").catch(() => {});
             return;
           }
 
@@ -958,7 +958,7 @@ export default {
           if (d.success == 3 || d.success == 4) {
             localStorage.removeItem("token");
             // this.$router.push('/login').catch(() => {})
-            window.location.href = window.location.origin + "/login";
+            this.$router.push("/login").catch(() => {});
             return;
           }
 
@@ -1187,7 +1187,7 @@ export default {
           if (d.success == 3 || d.success == 4) {
             localStorage.removeItem("token");
             // this.$router.push('/login').catch(() => {})
-            window.location.href = window.location.origin + "/login";
+            this.$router.push("/login").catch(() => {});
             return;
           }
 
@@ -1261,7 +1261,7 @@ export default {
           if (d.success == 3 || d.success == 4) {
             localStorage.removeItem("token");
             // return this.$router.push('/login').catch(() => {})
-            window.location.href = window.location.origin + "/login";
+            this.$router.push("/login").catch(() => {});
           }
 
           if (d.success == 5) {
@@ -1339,7 +1339,7 @@ export default {
           if (d.success == 3 || d.success == 4) {
             localStorage.removeItem("token");
             // this.$router.push('/login').catch(() => {})
-            window.location.href = window.location.origin + "/login";
+            this.$router.push("/login").catch(() => {});
             return;
           }
 
@@ -1412,7 +1412,7 @@ export default {
           if (d.success == 3 || d.success == 4) {
             localStorage.removeItem("token");
             // this.$router.push('/login').catch(() => {})
-            window.location.href = window.location.origin + "/login";
+            this.$router.push("/login").catch(() => {});
             return;
           }
 
@@ -1494,7 +1494,7 @@ export default {
         if (d.success == 3 || d.success == 4) {
           localStorage.removeItem("token");
           // this.$router.push('/login').catch(() => {})
-          window.location.href = window.location.origin + "/login";
+          this.$router.push("/login").catch(() => {});
           return;
         }
         this.textAddress = d.a;
@@ -1524,7 +1524,7 @@ export default {
         if (d.success == 3 || d.success == 4) {
           localStorage.removeItem("token");
           // this.$router.push('/login').catch(() => {})
-          window.location.href = window.location.origin + "/login";
+          this.$router.push("/login").catch(() => {});
           return;
         }
         if (d.success) {

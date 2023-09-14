@@ -339,7 +339,7 @@ export default {
           localStorage.removeItem("INFO");
           localStorage.removeItem("token");
           this.$router.push({ name: "page-login" });
-          //   window.location.href = window.location.origin + "/login";
+          //    this.$router.push("/login").catch(() => {});
         }
       });
     },
@@ -354,7 +354,7 @@ export default {
           localStorage.removeItem("INFO");
           localStorage.removeItem("token");
           this.$router.push({ name: "page-login" });
-          //   window.location.href = window.location.origin + "/login";
+          //    this.$router.push("/login").catch(() => {});
         }
       });
     },

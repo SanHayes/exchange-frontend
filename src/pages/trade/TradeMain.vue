@@ -294,7 +294,7 @@ export default {
           } else if (res.data.success == 4) {
             localStorage.removeItem("INFO");
             localStorage.removeItem("tokenUser");
-            window.location.href = window.location.origin + "/login";
+            this.$router.push("/login").catch(() => {});
             //let checkLog = localStorage.getItem('isLog')
             //localStorage.setItem('isLog', true);
             //if(!checkLog){
@@ -502,7 +502,7 @@ export default {
 }
 
 .vs-con-input .vs-inputx {
-  border: 1px solid rgba(255, 255, 255, 0.3)!important;
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
 }
 
 button.vs-tabs--btn {

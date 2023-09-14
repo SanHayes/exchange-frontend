@@ -1658,7 +1658,7 @@ export default {
               icon: "icon-check",
               color: "success",
             });
-            window.location.href = window.location.origin + "/login";
+            this.$router.push("/login").catch(() => {});
           } else if (res.data.success == 2) {
             this.$vs.notify({
               text: "Mã 2FA không đúng",

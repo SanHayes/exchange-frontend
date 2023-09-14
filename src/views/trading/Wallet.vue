@@ -69,7 +69,7 @@
                 <!-- <h6 class="colorGray mb-0 italic"><span >Giá trị ước tính: {{ giaTriUocTinh }} USD</span></h6> -->
               </div>
               <div class="vx-row">
-<!--                <div
+                <!--                <div
                   class="vx-col w-full lg:w-1/3 mb-3"
                   v-if="getSetSys.isActiveWalletUSDT"
                 >
@@ -566,11 +566,10 @@
                                     class="deitalType transfer_in"
                                     v-if="tr.type_key == 'nt'"
                                     >Nạp tiền
-<!--                                    {{
+                                    <!--                                    {{
                                       tr.paypal_order_id ? "Paypal" : ""
                                     }}-->
-                                  </span
-                                  >
+                                  </span>
                                 </div>
                                 <span
                                   class="deitalType transfer_in"
@@ -583,7 +582,7 @@
                                     v-if="tr.type_key == 'rt'"
                                     >Nạp tiền</span
                                   >
-<!--                                  <span
+                                  <!--                                  <span
                                     class="deitalType transfer_in"
                                     v-if="tr.type_key == 'nt'"
                                     >Rút tiền
@@ -824,7 +823,10 @@
           <div class="showV" :class="{ block: showVGD }">
             <div class="contentBox">
               <div class="vx-row">
-                <div class="vx-col w-full lg:w-2/2 mt-4" style="max-width: 500px;">
+                <div
+                  class="vx-col w-full lg:w-2/2 mt-4"
+                  style="max-width: 500px"
+                >
                   <div class="background backgroundImg backgroundLive">
                     <div
                       class="content flex flex-col justify-center items-center"
@@ -842,14 +844,7 @@
                       <button
                         @click="popupTransferActive = true"
                         type="button"
-                        class="
-                          btn
-                          button
-                          wbtn
-                          btn-large btn-radius
-                          w-9/12
-                          cursor-pointer
-                        "
+                        class="btn button wbtn btn-large btn-radius w-9/12 cursor-pointer"
                       >
                         <span class="iconSubmit iconSubmitLive"></span>
                         <span>Chuyển Tiền</span>
@@ -857,7 +852,7 @@
                     </div>
                   </div>
                 </div>
-<!--                <div class="vx-col w-full lg:w-1/2 mt-4">
+                <!--                <div class="vx-col w-full lg:w-1/2 mt-4">
                   <div class="background backgroundImg backgroundDemo">
                     <div
                       class="content flex flex-col justify-center items-center"
@@ -1329,7 +1324,7 @@ export default {
 
         localStorage.setItem("INFO", JSON.stringify(gData));
       } else {
-        window.location.href = window.location.origin + "/login";
+        this.$router.push("/login").catch(() => {});
       }
     },
 
@@ -1670,7 +1665,7 @@ export default {
         if (d.success == 3 || d.success == 4) {
           localStorage.removeItem("token");
           // this.$router.push("/login").catch(() => {});
-          window.location.href = window.location.origin + "/login";
+          this.$router.push("/login").catch(() => {});
           return;
         }
         if (d.success) {
@@ -1973,7 +1968,7 @@ export default {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background-color: #F1DD48;
+  background-color: #f1dd48;
   color: #fff;
   font-weight: 400;
 }
@@ -2129,7 +2124,7 @@ export default {
   color: rgba(255, 255, 255, 0.3);
   height: 160px;
   width: 100%;
-  background: linear-gradient(180deg, #F1DD48, #15797c 110%) !important;
+  background: linear-gradient(180deg, #f1dd48, #15797c 110%) !important;
 }
 
 .subBanner .price {

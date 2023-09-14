@@ -12,7 +12,7 @@
                 </p>
                 <vs-button
                   size="large"
-                  style="background: #F1DD48 !important; color: #fff !important"
+                  style="background: #f1dd48 !important; color: #fff !important"
                   type="filled"
                   @click="popupBuyThamGiaVip = true"
                   >Mua ngay $100</vs-button
@@ -308,14 +308,7 @@
                   <div class="vx-col w-full lg:w-1/3 mb-4">
                     <div class="boxBasic bgSecondary borderSecondary">
                       <div
-                        class="
-                          heading
-                          flex
-                          items-center
-                          mb-3
-                          pb-3
-                          borderBtSecondary
-                        "
+                        class="heading flex items-center mb-3 pb-3 borderBtSecondary"
                       >
                         <div class="flex boxRank items-center">
                           <div class="rank-number">
@@ -341,12 +334,7 @@
                       </div>
                       <div class="body">
                         <h5
-                          class="
-                            nextRankCondition
-                            colorSecondary
-                            text-center
-                            mb-3
-                          "
+                          class="nextRankCondition colorSecondary text-center mb-3"
                         >
                           Điều kiện Cấp bậc
                         </h5>
@@ -356,13 +344,7 @@
                               F1 tổng (Tuần này)
                             </p>
                             <p
-                              class="
-                                text-xl
-                                font-size-18
-                                colorPrimary
-                                m-0
-                                value
-                              "
+                              class="text-xl font-size-18 colorPrimary m-0 value"
                             >
                               <span class="colorSecondary"
                                 >{{ hhMeF1isWeek.toFixed(2) }} /
@@ -481,13 +463,7 @@
                   <div class="vx-col w-full lg:w-1/3 mb-4">
                     <div class="affiliateInfo bgSecondary borderSecondary">
                       <p
-                        class="
-                          text-base
-                          font-bold
-                          white
-                          mb-3
-                          affiliateInfo-title
-                        "
+                        class="text-base font-bold white mb-3 affiliateInfo-title"
                         style="vertical-align: middle"
                       >
                         <svg
@@ -557,13 +533,7 @@
                         </div>
                       </div>
                       <p
-                        class="
-                          text-base
-                          font-bold
-                          white
-                          mb-3
-                          affiliateInfo-title
-                        "
+                        class="text-base font-bold white mb-3 affiliateInfo-title"
                         style="vertical-align: middle"
                       >
                         <svg
@@ -636,12 +606,7 @@
                   </div>
                   <div class="vx-col w-full lg:w-2/3 mb-4">
                     <div
-                      class="
-                        wrap-chart
-                        bgSecondary
-                        borderSecondary
-                        recent-statistics
-                      "
+                      class="wrap-chart bgSecondary borderSecondary recent-statistics"
                     >
                       <vs-tabs>
                         <vs-tab
@@ -664,13 +629,7 @@
                             <div class="vx-row">
                               <div class="vx-col w-full lg:w-1/3">
                                 <p
-                                  class="
-                                    text-xl
-                                    font-bold
-                                    white
-                                    my-4
-                                    recent-statistics-title
-                                  "
+                                  class="text-xl font-bold white my-4 recent-statistics-title"
                                 >
                                   Số liệu gần đây
                                 </p>
@@ -705,13 +664,7 @@
                             <div class="vx-row">
                               <div class="vx-col w-full lg:w-1/3">
                                 <p
-                                  class="
-                                    text-xl
-                                    font-bold
-                                    white
-                                    my-4
-                                    recent-statistics-title
-                                  "
+                                  class="text-xl font-bold white my-4 recent-statistics-title"
                                 >
                                   Số liệu gần đây
                                 </p>
@@ -781,12 +734,7 @@
                           ></path>
                         </svg>
                         <span
-                          class="
-                            text-xl
-                            white
-                            font-bold
-                            networkVolumeStats-title
-                          "
+                          class="text-xl white font-bold networkVolumeStats-title"
                           >KLGD Cấp Dưới</span
                         >
                         <vs-dropdown vs-custom-content vs-trigger-click>
@@ -972,13 +920,7 @@
                               class="mb-3"
                             />
                             <p
-                              class="
-                                elipText
-                                white
-                                text-base
-                                mb-2
-                                getIntouch-sub-title
-                              "
+                              class="elipText white text-base mb-2 getIntouch-sub-title"
                             >
                               {{ domain }}
                             </p>
@@ -994,13 +936,7 @@
                               />
                               <a
                                 :href="`mailto:${config.support.mail}`"
-                                class="
-                                  elipText
-                                  white
-                                  text-base
-                                  ml-2
-                                  getIntouch-value
-                                "
+                                class="elipText white text-base ml-2 getIntouch-value"
                                 >Email support</a
                               >
                               <!-- <a :href="`mailto:contact@${hostName}`" class="elipText white text-base ml-2 getIntouch-value">contact@{{hostName}}</a> -->
@@ -1173,25 +1109,10 @@
           <div class="commission" :class="{ block: showCom }">
             <div class="wraperContent">
               <div
-                class="
-                  headerContent
-                  flex
-                  lg:flex-row
-                  flex-col
-                  justify-between
-                  items-center
-                  mb-4
-                "
+                class="headerContent flex lg:flex-row flex-col justify-between items-center mb-4"
               >
                 <h1
-                  class="
-                    text-2xl
-                    white
-                    font-bold
-                    text-capitalize
-                    pointer
-                    affiliateCommission-title
-                  "
+                  class="text-2xl white font-bold text-capitalize pointer affiliateCommission-title"
                 >
                   Hoa hồng
                   <span class="q">
@@ -1344,12 +1265,7 @@
                                   ></line>
                                 </g></svg
                               ><span
-                                class="
-                                  white
-                                  text-lg
-                                  font-bold
-                                  trading-detail-title
-                                "
+                                class="white text-lg font-bold trading-detail-title"
                                 >Chi tiết Lợi nhuận Giao dịch</span
                               >
                             </div>
@@ -1477,12 +1393,7 @@
                                   ></line>
                                 </g></svg
                               ><span
-                                class="
-                                  white
-                                  text-lg
-                                  font-bold
-                                  trading-detail-title
-                                "
+                                class="white text-lg font-bold trading-detail-title"
                                 >Chi tiết Lợi nhuận Giao dịch</span
                               >
                             </div>
@@ -1539,14 +1450,7 @@
                         Tìm kiếm bằng
                       </p>
                       <button
-                        class="
-                          btn
-                          search
-                          btnSearchType
-                          lg:mr-3
-                          button
-                          cursor-pointer
-                        "
+                        class="btn search btnSearchType lg:mr-3 button cursor-pointer"
                         :class="{ active: showActiveLv, primary: showActiveLv }"
                         @click="(showActiveLv = true), (showActiveBD = false)"
                       >
@@ -1647,14 +1551,7 @@
                   <div class="search-result">
                     <div class="table-responsive table-pc relative">
                       <table
-                        class="
-                          table
-                          w-full
-                          text-center
-                          overflow-hidden
-                          table-bordered
-                          mb-0
-                        "
+                        class="table w-full text-center overflow-hidden table-bordered mb-0"
                         :class="{ 'ld-loading': isLoading }"
                       >
                         <div class="loading">
@@ -2415,7 +2312,7 @@ export default {
       } else if (res.data.success == 4) {
         localStorage.removeItem("INFO");
         localStorage.removeItem("tokenUser");
-        window.location.href = window.location.origin + "/login";
+        this.$router.push("/login").catch(() => {});
       }
     }
 
@@ -2536,7 +2433,7 @@ export default {
 }
 
 .color-yellow {
-  color: #F1DD48;
+  color: #f1dd48;
 }
 
 .table-bordered thead th {
@@ -2547,7 +2444,7 @@ export default {
 }
 
 .btnTime.active {
-  background-color: #F1DD48;
+  background-color: #f1dd48;
   color: #fff;
 }
 
@@ -2555,14 +2452,14 @@ export default {
   padding: 5px 11px;
   margin-bottom: 5px;
   border-radius: 5px;
-  border: 1px solid #F1DD48;
-  color: #F1DD48;
+  border: 1px solid #f1dd48;
+  color: #f1dd48;
   background-color: transparent;
   white-space: nowrap;
 }
 
 .textTime {
-  color: #F1DD48;
+  color: #f1dd48;
 }
 
 .v-select .vs__dropdown-toggle {
@@ -2572,7 +2469,7 @@ export default {
 .btnSearchType {
   background-color: #414141;
   color: #fff;
-  border: 1px solid #F1DD48;
+  border: 1px solid #f1dd48;
   border-radius: 10px;
   min-width: 162px;
   padding: 9px 0;
@@ -2627,7 +2524,7 @@ export default {
 .tableBackground .table-dark thead th {
   font-weight: 400;
   font-size: 0.75rem;
-  color: #F1DD48;
+  color: #f1dd48;
 }
 
 .tableBackground {
@@ -2652,7 +2549,7 @@ export default {
 
 .c-question,
 .c-mail {
-  stroke: #F1DD48;
+  stroke: #f1dd48;
 }
 
 .elipText {
@@ -2680,7 +2577,7 @@ export default {
 }
 
 .networkVolumeStats .cardFooter {
-  background-color: #F1DD48;
+  background-color: #f1dd48;
   color: #000;
 }
 
@@ -2705,7 +2602,7 @@ export default {
 }
 
 .networkVolumeStats .texthead {
-  color: #F1DD48;
+  color: #f1dd48;
 }
 
 .networkVolumeStats .cardBody .head p {
@@ -2714,7 +2611,7 @@ export default {
 
 .networkVolumeStats .cardBody .border-bottom,
 .networkVolumeStats .cardBody .border-top {
-  border-color: #F1DD48 !important;
+  border-color: #f1dd48 !important;
 }
 
 .networkVolumeStats .cardBody {
@@ -2751,7 +2648,7 @@ export default {
 
 .wrap-chart .header {
   padding: 15px;
-  border-bottom: 1px solid #F1DD48;
+  border-bottom: 1px solid #f1dd48;
 }
 
 .groupButton .leftControl {
@@ -2768,14 +2665,14 @@ export default {
   background-color: #fafafa;
   border: 1px solid;
   border-radius: 4px;
-  border-color: #F1DD48;
+  border-color: #f1dd48;
   height: 40px;
   line-height: 40px;
 }
 
 .button.primary,
 .button.primary:hover {
-  background-color: #F1DD48 !important;
+  background-color: #f1dd48 !important;
   color: #fff !important;
 }
 
@@ -2803,7 +2700,7 @@ export default {
 }
 
 .colorPrimary {
-  color: #F1DD48;
+  color: #f1dd48;
 }
 
 .affiliatePage .affiliateInfo {
@@ -2812,11 +2709,11 @@ export default {
   height: 100%;
   overflow: hidden;
   border: 1px solid;
-  border-color: #F1DD48;
+  border-color: #f1dd48;
 }
 
 .borderBottom {
-  border-color: #F1DD48;
+  border-color: #f1dd48;
 }
 
 .white-50 {
@@ -2839,8 +2736,8 @@ export default {
 
 .boxBasic .heading .textRank {
   font-size: 17px;
-  color: #F1DD48;
-  border: 1px solid #F1DD48;
+  color: #f1dd48;
+  border: 1px solid #f1dd48;
   border-radius: 14px;
   padding: 1rem 1rem 1rem 80px;
   margin-bottom: 0;
@@ -2864,7 +2761,7 @@ export default {
 
 .borderSecondary {
   border: 1px solid;
-  border-color: #F1DD48;
+  border-color: #f1dd48;
 }
 
 .boxRank {
@@ -2873,7 +2770,7 @@ export default {
 
 .borderBtSecondary {
   border-bottom: 1px solid;
-  border-color: #F1DD48;
+  border-color: #f1dd48;
 }
 
 .boxBasic .heading {
@@ -3028,7 +2925,7 @@ export default {
 }
 
 .colorBlue {
-  color: #F1DD48;
+  color: #f1dd48;
 }
 
 .content .inputGroup input {

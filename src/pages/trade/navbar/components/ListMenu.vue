@@ -6,7 +6,7 @@
       class="left-menu-content"
     >
       <div class="topSidebar">
-<!--        <div
+        <!--        <div
           class="nav-item nap-nhanh"
           @click="(popupActiveNapNhanh = true), getBalanceWalletClick()"
         >
@@ -15,7 +15,7 @@
           </div>
         </div>-->
 
-<!--        <div class="bigger-title">Kiếm tiền</div>-->
+        <!--        <div class="bigger-title">Kiếm tiền</div>-->
         <div class="nav-item">
           <router-link to="/trading" class="nav-link cursor-pointer">
             <span
@@ -74,7 +74,7 @@
           </router-link>
         </div>
 
-<!--        <div class="nav-item">
+        <!--        <div class="nav-item">
           <router-link
             to="/user/affiliate/general"
             class="nav-link cursor-pointer"
@@ -177,24 +177,24 @@
         <div class="nav-item">
           <router-link to="/user/balance" class="nav-link cursor-pointer">
             <span
-            ><svg
+              ><svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="19.815"
                 height="16.846"
                 viewBox="0 0 19.815 16.846"
                 class="non-active iconWallet"
-            >
+              >
                 <g
-                    id="_000000ff"
-                    data-name="#000000ff"
-                    transform="translate(-42.663 -106.619)"
+                  id="_000000ff"
+                  data-name="#000000ff"
+                  transform="translate(-42.663 -106.619)"
                 >
                   <path
-                      id="Path_30756"
-                      data-name="Path 30756"
-                      d="M45.072,106.675a3.344,3.344,0,0,1,.674-.054H58.933a5.487,5.487,0,0,1,1.171.061,2.972,2.972,0,0,1,2.374,2.926q0,5.458,0,10.916a2.985,2.985,0,0,1-2.939,2.94H46.391a5.837,5.837,0,0,1-1.532-.1,3,3,0,0,1-2.11-2.16,3.184,3.184,0,0,1-.085-.815q0-5.389,0-10.777a2.946,2.946,0,0,1,.652-1.866,2.985,2.985,0,0,1,1.756-1.066m-.426,2.89q0,5.454,0,10.908a1,1,0,0,0,1.007,1.008H59.49a1,1,0,0,0,1-.96c0-.671.008-1.343,0-2.014-1.494,0-2.988,0-4.482,0a3.467,3.467,0,0,1,.048-6.934H60.5q0-1,0-2.01a.99.99,0,0,0-.957-.961q-6.944,0-13.887,0a1,1,0,0,0-1,.963m9.934,5.193a1.5,1.5,0,0,0,.825,1.627,2.538,2.538,0,0,0,1.159.143c1.311,0,2.622,0,3.933,0,0-.99,0-1.98,0-2.97-1.5,0-2.994,0-4.491,0A1.492,1.492,0,0,0,54.58,114.758Z"
-                      fill="#fff"
-                      class="fill-color"
+                    id="Path_30756"
+                    data-name="Path 30756"
+                    d="M45.072,106.675a3.344,3.344,0,0,1,.674-.054H58.933a5.487,5.487,0,0,1,1.171.061,2.972,2.972,0,0,1,2.374,2.926q0,5.458,0,10.916a2.985,2.985,0,0,1-2.939,2.94H46.391a5.837,5.837,0,0,1-1.532-.1,3,3,0,0,1-2.11-2.16,3.184,3.184,0,0,1-.085-.815q0-5.389,0-10.777a2.946,2.946,0,0,1,.652-1.866,2.985,2.985,0,0,1,1.756-1.066m-.426,2.89q0,5.454,0,10.908a1,1,0,0,0,1.007,1.008H59.49a1,1,0,0,0,1-.96c0-.671.008-1.343,0-2.014-1.494,0-2.988,0-4.482,0a3.467,3.467,0,0,1,.048-6.934H60.5q0-1,0-2.01a.99.99,0,0,0-.957-.961q-6.944,0-13.887,0a1,1,0,0,0-1,.963m9.934,5.193a1.5,1.5,0,0,0,.825,1.627,2.538,2.538,0,0,0,1.159.143c1.311,0,2.622,0,3.933,0,0-.99,0-1.98,0-2.97-1.5,0-2.994,0-4.491,0A1.492,1.492,0,0,0,54.58,114.758Z"
+                    fill="#fff"
+                    class="fill-color"
                   ></path>
                 </g></svg
             ></span>
@@ -205,35 +205,35 @@
         <div class="nav-item">
           <router-link to="/user/trade/history" class="nav-link cursor-pointer">
             <span
-            ><svg
+              ><svg
                 id="speedometer"
                 xmlns="http://www.w3.org/2000/svg"
                 width="17.809"
                 height="17.809"
                 viewBox="0 0 17.809 17.809"
                 class="non-active"
-            >
+              >
                 <path
-                    id="Path_30761"
-                    data-name="Path 30761"
-                    d="M9.995,9.995a2.226,2.226,0,0,0,0-3.149C9.125,5.978,1,1,1,1S5.978,9.125,6.846,9.995A2.226,2.226,0,0,0,9.995,9.995Z"
-                    transform="translate(0.484 0.484)"
-                    fill="#fff"
-                    class="fill-color"
+                  id="Path_30761"
+                  data-name="Path 30761"
+                  d="M9.995,9.995a2.226,2.226,0,0,0,0-3.149C9.125,5.978,1,1,1,1S5.978,9.125,6.846,9.995A2.226,2.226,0,0,0,9.995,9.995Z"
+                  transform="translate(0.484 0.484)"
+                  fill="#fff"
+                  class="fill-color"
                 ></path>
                 <path
-                    id="Path_30762"
-                    data-name="Path 30762"
-                    d="M8.9,0a1.484,1.484,0,1,0,0,2.968A5.936,5.936,0,1,1,2.968,8.9,1.484,1.484,0,1,0,0,8.9,8.9,8.9,0,1,0,8.9,0Z"
-                    fill="#fff"
-                    class="fill-color"
+                  id="Path_30762"
+                  data-name="Path 30762"
+                  d="M8.9,0a1.484,1.484,0,1,0,0,2.968A5.936,5.936,0,1,1,2.968,8.9,1.484,1.484,0,1,0,0,8.9,8.9,8.9,0,1,0,8.9,0Z"
+                  fill="#fff"
+                  class="fill-color"
                 ></path></svg
             ></span>
             <span class="textLink">{{ $t("Dashboard") || "Dashboard" }}</span>
           </router-link>
         </div>
 
-<!--        <div class="nav-item" v-if="activeGames.champion">
+        <!--        <div class="nav-item" v-if="activeGames.champion">
           <router-link
             to="/user/affiliate/championship"
             class="nav-link cursor-pointer"
@@ -395,7 +395,7 @@
           </router-link>
         </div>-->
 
-<!--        <div class="nav-item" v-if="activeGames.lucky">
+        <!--        <div class="nav-item" v-if="activeGames.lucky">
           <router-link
             to="/user/affiliate/lucky"
             class="nav-link cursor-pointer"
@@ -453,8 +453,7 @@
                         <span class="textLink">{{ $t('Exchange') || 'Exchange' }}</span>
                     </router-link>
                 </div> -->
-<!--        <div class="bigger-title">Quản lý hồ sơ</div>-->
-
+        <!--        <div class="bigger-title">Quản lý hồ sơ</div>-->
 
         <!-- <div v-if="blObj.mkt" class="nav-item">
           <a
@@ -500,7 +499,9 @@
             class="nav-link cursor-pointer"
           >
             <span>
-              <span class="noticeCmdN" v-if="blObj.Notify">{{ blObj.Notify }}</span>
+              <span class="noticeCmdN" v-if="blObj.Notify">{{
+                blObj.Notify
+              }}</span>
               <svg
                 style="color: #fff"
                 xmlns="http://www.w3.org/2000/svg"
@@ -522,7 +523,7 @@
           </a>
         </div>
 
-<!--        <div class="bigger-title mobileShow">Cài đặt</div>-->
+        <!--        <div class="bigger-title mobileShow">Cài đặt</div>-->
         <div class="mobileA nav-item mobileShow">
           <a @click="popupActiveCaiDat = true" class="nav-link cursor-pointer">
             <span>
@@ -574,25 +575,25 @@
           <a @click.stop="viewHoSo()" class="nav-link cursor-pointer">
             <span>
               <svg
-                  style="color: #fff"
-                  class="block text-center"
-                  xmlns="http://www.w3.org/2000/svg"
-                  version="1.1"
-                  xmlns:xlink="http://www.w3.org/1999/xlink"
-                  xmlns:svgjs="http://svgjs.com/svgjs"
-                  width="512"
-                  height="512"
-                  x="0"
-                  y="0"
-                  viewBox="0 0 512 512"
-                  xml:space="preserve"
+                style="color: #fff"
+                class="block text-center"
+                xmlns="http://www.w3.org/2000/svg"
+                version="1.1"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+                xmlns:svgjs="http://svgjs.com/svgjs"
+                width="512"
+                height="512"
+                x="0"
+                y="0"
+                viewBox="0 0 512 512"
+                xml:space="preserve"
               >
                 <g>
                   <path
-                      xmlns="http://www.w3.org/2000/svg"
-                      d="m437.019531 74.980469c-48.351562-48.351563-112.640625-74.980469-181.019531-74.980469s-132.667969 26.628906-181.019531 74.980469c-48.351563 48.351562-74.980469 112.640625-74.980469 181.019531s26.628906 132.667969 74.980469 181.019531c48.351562 48.351563 112.640625 74.980469 181.019531 74.980469s132.667969-26.628906 181.019531-74.980469c48.351563-48.351562 74.980469-112.640625 74.980469-181.019531s-26.628906-132.667969-74.980469-181.019531zm-325.914062 354.316406c8.453125-72.734375 70.988281-128.890625 144.894531-128.890625 38.960938 0 75.597656 15.179688 103.15625 42.734375 23.28125 23.285156 37.964844 53.6875 41.742188 86.152344-39.257813 32.878906-89.804688 52.707031-144.898438 52.707031s-105.636719-19.824219-144.894531-52.703125zm144.894531-159.789063c-42.871094 0-77.753906-34.882812-77.753906-77.753906 0-42.875 34.882812-77.753906 77.753906-77.753906s77.753906 34.878906 77.753906 77.753906c0 42.871094-34.882812 77.753906-77.753906 77.753906zm170.71875 134.425782c-7.644531-30.820313-23.585938-59.238282-46.351562-82.003906-18.4375-18.4375-40.25-32.269532-64.039063-40.9375 28.597656-19.394532 47.425781-52.160157 47.425781-89.238282 0-59.414062-48.339844-107.753906-107.753906-107.753906s-107.753906 48.339844-107.753906 107.753906c0 37.097656 18.84375 69.875 47.464844 89.265625-21.886719 7.976563-42.140626 20.308594-59.566407 36.542969-25.234375 23.5-42.757812 53.464844-50.882812 86.347656-34.410157-39.667968-55.261719-91.398437-55.261719-147.910156 0-124.617188 101.382812-226 226-226s226 101.382812 226 226c0 56.523438-20.859375 108.265625-55.28125 147.933594zm0 0"
-                      fill="#fff"
-                      data-original="#fff"
+                    xmlns="http://www.w3.org/2000/svg"
+                    d="m437.019531 74.980469c-48.351562-48.351563-112.640625-74.980469-181.019531-74.980469s-132.667969 26.628906-181.019531 74.980469c-48.351563 48.351562-74.980469 112.640625-74.980469 181.019531s26.628906 132.667969 74.980469 181.019531c48.351562 48.351563 112.640625 74.980469 181.019531 74.980469s132.667969-26.628906 181.019531-74.980469c48.351563-48.351562 74.980469-112.640625 74.980469-181.019531s-26.628906-132.667969-74.980469-181.019531zm-325.914062 354.316406c8.453125-72.734375 70.988281-128.890625 144.894531-128.890625 38.960938 0 75.597656 15.179688 103.15625 42.734375 23.28125 23.285156 37.964844 53.6875 41.742188 86.152344-39.257813 32.878906-89.804688 52.707031-144.898438 52.707031s-105.636719-19.824219-144.894531-52.703125zm144.894531-159.789063c-42.871094 0-77.753906-34.882812-77.753906-77.753906 0-42.875 34.882812-77.753906 77.753906-77.753906s77.753906 34.878906 77.753906 77.753906c0 42.871094-34.882812 77.753906-77.753906 77.753906zm170.71875 134.425782c-7.644531-30.820313-23.585938-59.238282-46.351562-82.003906-18.4375-18.4375-40.25-32.269532-64.039063-40.9375 28.597656-19.394532 47.425781-52.160157 47.425781-89.238282 0-59.414062-48.339844-107.753906-107.753906-107.753906s-107.753906 48.339844-107.753906 107.753906c0 37.097656 18.84375 69.875 47.464844 89.265625-21.886719 7.976563-42.140626 20.308594-59.566407 36.542969-25.234375 23.5-42.757812 53.464844-50.882812 86.347656-34.410157-39.667968-55.261719-91.398437-55.261719-147.910156 0-124.617188 101.382812-226 226-226s226 101.382812 226 226c0 56.523438-20.859375 108.265625-55.28125 147.933594zm0 0"
+                    fill="#fff"
+                    data-original="#fff"
                   ></path>
                 </g>
               </svg>
@@ -600,8 +601,8 @@
             <span class="textLink">{{ blObj.displayName }}</span>
           </a>
         </div>
-<!--        退出-->
-<!--        <div class="mobileA nav-item mobileShow chose-header">
+        <!--        退出-->
+        <!--        <div class="mobileA nav-item mobileShow chose-header">
           <a @click="logOut()" class="nav-link cursor-pointer">
             <span>
               <svg
@@ -661,7 +662,7 @@
       </div>
     </VuePerfectScrollbar>
 
-    <div class="footer ">
+    <div class="footer">
       <div class="mobileA nav-item">
         <a @click="logOut()" class="nav-link cursor-pointer">
           <span>
@@ -981,7 +982,7 @@ export default {
       localStorage.removeItem("stateOpen");
       // This is just for demo Purpose. If user clicks on logout -> redirect
       //this.$router.push('/login').catch(() => {})
-      window.location.href = window.location.origin + "/login";
+      this.$router.push("/login").catch(() => {});
     },
 
     viewHoSo() {
@@ -1170,7 +1171,7 @@ export default {
   width: 100%;
   padding: 1.2rem 0;
 
-/*  &::before {
+  /*  &::before {
     content: "";
     position: absolute;
     top: 0;
@@ -1269,17 +1270,17 @@ export default {
   .v-nav-menu .router-link-active .textLink {
     background: transparent;
     box-shadow: none;
-    color: #F1DD48 !important;
+    color: #f1dd48 !important;
   }
 
   .v-nav-menu .router-link-active {
-    background: #F1DD48 !important;
+    background: #f1dd48 !important;
   }
   .v-nav-menu .router-link-active .fill-color {
-    fill: #F1DD48;
+    fill: #f1dd48;
   }
   .v-nav-menu .router-link-active .stroke-color {
-    stroke: #F1DD48;
+    stroke: #f1dd48;
   }
 
   .footer {
@@ -1292,7 +1293,6 @@ export default {
   }
 }
 .chose-header {
-
 }
 #leftSidebar {
   //padding: 0 1.25rem;
@@ -1312,7 +1312,7 @@ export default {
   position: relative;
 }
 #leftSidebar .nav-link.highlight {
-  background: #F1DD48;
+  background: #f1dd48;
   justify-content: center !important;
 }
 #leftSidebar .nav-link.new:before {

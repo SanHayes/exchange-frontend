@@ -358,7 +358,7 @@ export default {
         } else if (res.data.success == 4) {
           localStorage.removeItem("INFO");
           localStorage.removeItem("tokenUser");
-          window.location.href = window.location.origin + "/login";
+          this.$router.push("/login").catch(() => {});
         }
       });
     },
@@ -420,7 +420,7 @@ export default {
         } else if (res.data.success == 4) {
           localStorage.removeItem("INFO");
           localStorage.removeItem("tokenUser");
-          window.location.href = window.location.origin + "/login";
+          this.$router.push("/login").catch(() => {});
         }
       });
     },
@@ -434,7 +434,7 @@ export default {
         if (res.data.success == 4) {
           localStorage.removeItem("INFO");
           localStorage.removeItem("tokenUser");
-          window.location.href = window.location.origin + "/login";
+          this.$router.push("/login").catch(() => {});
         }
       });
     },

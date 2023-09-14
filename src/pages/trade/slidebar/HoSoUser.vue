@@ -358,7 +358,7 @@ export default {
       getData.Notify = 0;
       localStorage.removeItem("stateOpen");
 
-      window.location.href = window.location.origin + "/login";
+      this.$router.push("/login").catch(() => {});
     },
 
     ChangeNewPass() {
