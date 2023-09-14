@@ -18,11 +18,11 @@ process.env.VUE_APP_INFO = JSON.stringify(info);
 module.exports = {
   pages: {
     //前台
-    index: {
+    home: {
       entry: 'src/pages/index/main.js',
       template: 'public/client/index.html',
       title: 'Home',
-      chunks: ['chunk-vendors', 'chunk-common', 'index']
+      chunks: ['chunk-vendors', 'chunk-common', 'home']
     },
     //后台
     portal: {
