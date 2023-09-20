@@ -4,7 +4,7 @@ import config from '@/config';
 
 const request = axios.create({
   baseURL: `${config.domain}`,
-  timeout: 5000 // 设置超时时间为5秒
+  timeout: 50000 // 设置超时时间为5秒
 });
 
 request.interceptors.request.use(

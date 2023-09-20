@@ -34,29 +34,12 @@
                     <span @click="deleteMultiple">Xóa</span>
                   </span>
                 </vs-dropdown-item>
-
-                <!-- <vs-dropdown-item>
-                  <span class="flex items-center">
-                    <feather-icon icon="ArchiveIcon" svgClasses="h-4 w-4" class="mr-2" />
-                    <span>Archive</span>
-                  </span>
-                </vs-dropdown-item> -->
-
                 <vs-dropdown-item>
                   <span class="flex items-center">
                     <feather-icon icon="FileIcon" svgClasses="h-4 w-4" class="mr-2" />
                     <span @click="activePrompt=true">In</span>
                   </span>
                 </vs-dropdown-item>
-
-
-                <!-- <vs-dropdown-item>
-                  <span class="flex items-center">
-                    <feather-icon icon="SaveIcon" svgClasses="h-4 w-4" class="mr-2" />
-                    <span>Another Action</span>
-                  </span>
-                </vs-dropdown-item> -->
-
               </vs-dropdown-menu>
             </vs-dropdown>
 
@@ -110,8 +93,6 @@
                       <p class="user-name font-medium truncate">{{ tr.email }}</p>
                       <p class="agency-name font-medium truncate">Mã mời： {{ tr.ref_code }}</p>
                       <p>
-                          <!--Địa chỉ BTC: <span style="color: #f8a037" @click="clickGetAddress(tr.address_BTC, tr.privateKey_BTC, tr.wif_BTC)">{{ tr.address_BTC }}</span><br>
-                          Địa chỉ ETH: <span style="color: #627eea" @click="clickGetAddress(tr.address_ETH, tr.privateKey_ETH, '')">{{ tr.address_ETH }}</span><br>-->
                           -- Địa chỉ USDT: <span style="color: #26a17b" @click="clickGetAddress(tr.address_USDT, tr.privateKey_USDT, '')">{{ tr.address_USDT }}</span>
                           <br>
                           *** Tổng CHƠI: <span class="italic" style="color: #ff9900">${{ formatPrice(tr.pricePlay, 2) }}</span><br>
@@ -173,11 +154,6 @@
                       <vx-tooltip style="float: left" :title="tr.nick_name" color="danger" text="Xóa tài khoản">
                           <vs-button color="dark" type="line" icon-pack="feather" icon="icon-trash" @click="openPopDelete({id: tr.id, email: tr.email, index: indextr})"></vs-button>
                       </vx-tooltip>
-
-
-                    <!-- <feather-icon icon="DollarSignIcon" svgClasses="w-5 h-5 hover:text-success stroke-current" @click.stop="addMoneyUser({id: tr.id, type: 'addMoney'})" />
-                    <feather-icon icon="EditIcon" svgClasses="w-5 h-5 hover:text-primary stroke-current" @click.stop="editUser(tr)" />
-                    <feather-icon icon="TrashIcon" svgClasses="w-5 h-5 hover:text-danger stroke-current" class="ml-2" @click.stop="deleteUser(tr.id)" /> -->
                 </vs-td>
               </vs-tr>
             </tbody>

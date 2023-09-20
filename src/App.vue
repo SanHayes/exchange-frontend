@@ -5,8 +5,7 @@
 </template>
 
 <script>
-import themeConfig from '@/../themeConfig.js'
-import jwt         from "@/http/requests/auth/jwt/index.js"
+import jwt from "@/http/requests/auth/jwt/index.js";
 
 export default {
   data() {
@@ -55,7 +54,6 @@ export default {
     this.$store.commit('UPDATE_WINDOW_WIDTH', window.innerWidth)
 
     let vh = window.innerHeight * 0.01;
-    // Then we set the value in the --vh custom property to the root of the document
     document.documentElement.style.setProperty('--vh', `${vh}px`);
   },
   async created() {

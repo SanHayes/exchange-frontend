@@ -584,6 +584,9 @@ export default {
     getLuckyDrawAdmin() {
         return ApiAdmin().get('api/game1/lucky-draws-admin')
     },
+    getTradeNoWithDrawal(){
+        return ApiAdmin().get('api/trades/getTradeNoWithDrawal');
+    },
     getLuckyDraw() {
         return Api().get('api/game1/lucky-draws')
     },
