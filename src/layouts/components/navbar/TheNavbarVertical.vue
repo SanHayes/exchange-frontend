@@ -79,26 +79,26 @@ export default {
       this.play();
     },
     play(){
-      AuthenticationService.getWithdrawalListHistory().then(res => {
-        if(res.data.success === 1){
-          let data = res.data.data.filter(v => v.status === 0);
-          if(data.length){
-            var synth = window.speechSynthesis;
-            var voices = new window.SpeechSynthesisUtterance();
-            voices.lang = "zh-CN";
-            voices.text = `您有${data.length}条未处理的提现申请`;
-            voices.onend = (event) => {
-                synth.cancel(voices);
-            };
-            window.speechSynthesis.speak(voices);
+      if(this.showAudio){
+        AuthenticationService.getWithdrawalListHistory().then(res => {
+          if(res.data.success === 1){
+            let data = res.data.data.filter(v => v.status === 0);
+            if(data.length){
+              var synth = window.speechSynthesis;
+              var voices = new window.SpeechSynthesisUtterance();
+              voices.lang = "zh-CN";
+              voices.text = `您有${data.length}条未处理的提现申请`;
+              voices.onend = (event) => {
+                  synth.cancel(voices);
+              };
+              window.speechSynthesis.speak(voices);
+            }
           }
-        }
-        setTimeout(() => {
-          this.play();
-        },10000)
-      })
-
-
+          setTimeout(() => {
+            this.play();
+          },10000)
+        })
+      }
     },
   }
 };
