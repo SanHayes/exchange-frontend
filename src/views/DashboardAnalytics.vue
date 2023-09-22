@@ -250,7 +250,7 @@
               <p>
                 Số tiền nạp:<br />
                 <span class="font-bold">
-                  ${{ formatPrice(0, 0) }}
+                  ${{ formatPrice(dataGet.tsUSDT, 0) }}
                 </span>
               </p>
             </div>
