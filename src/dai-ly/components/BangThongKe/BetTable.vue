@@ -291,85 +291,10 @@ export default {
 
     formatPrice(value, minimum) {
       var formatter = new Intl.NumberFormat("en-US", {
-        //style: 'currency',
-        //currency: '',
         minimumFractionDigits: minimum,
       });
       return formatter.format(value);
     },
-    // deleteMultiple() {
-    //   let token = localStorage.getItem("token");
-    //   this.$store.dispatch("setToken", token);
-
-    //   if (this.selectedUser.length == 0) {
-    //     return this.$vs.notify({
-    //       text: "Hãy chọn đối tượng cần xóa",
-    //       color: "warning",
-    //       iconPack: "feather",
-    //       icon: "icon-check",
-    //     });
-    //   }
-    //   for (var i = this.selectedUser.length - 1; i >= 0; i--) {
-    //     let id = this.selectedUser[i]["id"];
-    //     let obj = {
-    //       id: id,
-    //       val: 1,
-    //     };
-    //     AuthenticationService.deleteBetsTrash(obj).then((resp) => {
-    //       if (!resp.data.success) {
-    //         localStorage.removeItem("token");
-    //         this.$router.push("/pages/login").catch(() => {});
-    //       }
-    //     });
-    //     Vue.delete(this.productsFake, i);
-    //   }
-    //   this.selectedUser = [];
-    //   return this.$vs.notify({
-    //     text: "Đã xóa thành công",
-    //     color: "success",
-    //     iconPack: "feather",
-    //     icon: "icon-check",
-    //   });
-    // },
-
-    // deleteBet(id, index, val) {
-    //   let token = localStorage.getItem("token");
-    //   this.$store.dispatch("setToken", token);
-    //   let obj = {
-    //     id: id,
-    //     val: val,
-    //   };
-    //   AuthenticationService.deleteBetsTrash(obj).then((resp) => {
-    //     if (resp.data.success) {
-    //       Vue.delete(this.productsFake, index);
-    //       this.popupDeleteActive = false;
-    //       return this.$vs.notify({
-    //         text: "Đã xóa thành công",
-    //         color: "success",
-    //         iconPack: "feather",
-    //         icon: "icon-check",
-    //       });
-    //     } else {
-    //       localStorage.removeItem("token");
-    //       this.$router.push("/pages/login").catch(() => {});
-    //     }
-    //   });
-    // },
-
-    // trashDataBet() {
-    //   this.showDeleteMultiBt = false;
-    //   let token = localStorage.getItem("token");
-    //   this.$store.dispatch("setToken", token);
-
-    //   AuthenticationService.getBetsListHisTrash().then((resp) => {
-    //     if (!resp.data.success) {
-    //       localStorage.removeItem("token");
-    //       this.$router.push("/pages/login").catch(() => {});
-    //     } else {
-    //       this.productsFake = resp.data.data;
-    //     }
-    //   });
-    // },
 
     getOrderStatusColor(status) {
       if (status == 0) return "warning";
@@ -480,8 +405,7 @@ export default {
       this.openLoadingInDiv();
       AuthenticationService.getBetsListHistoryAgency(this.email, f).then((resp) => {
         if (!resp.data.success) {
-          localStorage.removeItem("token");
-          this.$router.push("/pages/login").catch(() => {});
+
         } else {
           this.productsFake = resp.data.data;
         }

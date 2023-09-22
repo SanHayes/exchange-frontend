@@ -1323,8 +1323,6 @@ export default {
         (getData.balance = gData.balance), (getData.mkt = gData.mkt);
 
         localStorage.setItem("INFO", JSON.stringify(gData));
-      } else {
-        this.$router.push("/login").catch(() => {});
       }
     },
 
@@ -1662,12 +1660,6 @@ export default {
     getBalanceWallet() {
       AuthenticationService.getBalanceWallet().then((res) => {
         let d = res.data;
-        if (d.success == 3 || d.success == 4) {
-          localStorage.removeItem("token");
-          // this.$router.push("/login").catch(() => {});
-          this.$router.push("/login").catch(() => {});
-          return;
-        }
         if (d.success) {
           let mU = d.data.usdt;
           let mE = d.data.eth;

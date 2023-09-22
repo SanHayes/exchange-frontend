@@ -504,8 +504,6 @@ export default {
       AuthenticationService.getDepositListHistoryAgency(this.email, f).then(
         (resp) => {
           if (resp.data.success == 4) {
-            localStorage.removeItem("token");
-            this.$router.push("/pages/login").catch(() => {});
           } else {
             this.productsFake = resp.data.data;
           }

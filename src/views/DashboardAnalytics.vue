@@ -67,26 +67,11 @@
         >
           <vx-card>
             <div
-              class="
-                vx-row
-                flex-col-reverse
-                md:flex-col-reverse
-                sm:flex-row
-                lg:flex-row
-              "
+              class="vx-row flex-col-reverse md:flex-col-reverse sm:flex-row lg:flex-row"
             >
               <!-- LEFT COL -->
               <div
-                class="
-                  vx-col
-                  w-full
-                  md:w-full
-                  sm:w-1/2
-                  lg:w-1/2
-                  xl:w-1/2
-                  flex flex-col
-                  justify-between
-                "
+                class="vx-col w-full md:w-full sm:w-1/2 lg:w-1/2 xl:w-1/2 flex flex-col justify-between"
                 v-if="salesBarSession.analyticsData"
               >
                 <div>
@@ -261,6 +246,14 @@
                 >
               </p>
             </div>
+            <div class="vx-col w-1/2 mb-3">
+              <p>
+                Số tiền nạp:<br />
+                <span class="font-bold">
+                  ${{ formatPrice(0, 0) }}
+                </span>
+              </p>
+            </div>
           </div>
         </vx-card>
       </div>
@@ -297,12 +290,14 @@
                 <p>
                   Hệ thống lãi USD:<br />
                   <span class="font-bold"
-                    >${{
+                    >
+                    ${{
                       formatPrice(
                         dataGet.tsLose - dataGet.tsWin - dataGet.tsHHong,
                         4
                       )
-                    }}</span
+                    }}
+                    </span
                   >
                 </p>
               </div>

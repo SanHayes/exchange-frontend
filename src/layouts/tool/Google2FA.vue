@@ -274,11 +274,6 @@ export default {
             position: "top-right",
             color: "danger",
           });
-        } else if (res.data.success == 4) {
-          localStorage.removeItem("INFO");
-          localStorage.removeItem("token");
-          this.$router.push({ name: "page-login" });
-          //   window.location.href = window.location.origin + "/";
         }
       });
     },
@@ -335,12 +330,7 @@ export default {
             position: "top-right",
             color: "danger",
           });
-        } else if (res.data.success == 4) {
-          localStorage.removeItem("INFO");
-          localStorage.removeItem("token");
-          this.$router.push({ name: "page-login" });
-          //    this.$router.push("/login").catch(() => {});
-        }
+        } 
       });
     },
 
@@ -349,12 +339,6 @@ export default {
         if (res.data.success) {
           this.MSLuu = res.data.s;
           this.linkBase64Img = res.data.qr;
-        }
-        if (res.data.success == 4) {
-          localStorage.removeItem("INFO");
-          localStorage.removeItem("token");
-          this.$router.push({ name: "page-login" });
-          //    this.$router.push("/login").catch(() => {});
         }
       });
     },

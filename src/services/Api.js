@@ -1,6 +1,7 @@
 // axios
 import axios from 'axios';
 import config from '@/config';
+import router from '@/router';
 
 const request = axios.create({
   baseURL: `${config.domain}`,
@@ -25,7 +26,8 @@ request.interceptors.response.use(
     const data = response?.data;
     if (data?.success === 4) {
       localStorage.removeItem('tokenUser');
-      this.$router.push('/login').catch(() => {});
+      this.$router.push('/login');
+      window.location.reload();
       return;
     }
     return response;

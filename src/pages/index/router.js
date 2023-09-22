@@ -240,35 +240,6 @@ router.beforeEach((to, from, next) => {
   ) {
     return next({ name: 'client-index' });
   }
-  // firebase.auth().onAuthStateChanged(() => {
-
-  //     if (to.matched.some(record => record.meta.requiresAuth)) {
-  //         // const token = localStorage.getItem('tokenUser');
-
-  //         // if (!token){
-  //         //     //next({ name: 'login-index' })
-  //         //     window.location.href = window.location.origin + '/login'
-  //         // } else {
-  //         //     next()
-  //         // }
-
-  //     } else {
-  //         next() // does not require auth, make sure to always call next()!
-  //     }
-
-  //     // if (to.matched.some(record => record.meta.hideForAuth)) {
-  //     //     const token = localStorage.getItem('tokenUser');
-
-  //     //     if (token){
-  //     //         next({ name: 'client-index' })
-  //     //     } else {
-  //     //         next()
-  //     //     }
-  //     // } else {
-  //     //     next() // does not require auth, make sure to always call next()!
-  //     // }
-
-  // })
 
   return next();
 });

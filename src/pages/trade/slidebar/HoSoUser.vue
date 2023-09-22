@@ -238,9 +238,6 @@
         </VuePerfectScrollbar>
       </vs-prompt>
     </VuePerfectScrollbar>
-    <!--<div class="flex flex-wrap items-center p-6" slot="footer">
-        <vs-button class="mt-5 w-full" color="danger" type="border" icon-pack="feather" icon="icon-log-out" @click="logOutUser">Đăng xuất</vs-button>
-    </div>-->
   </vs-sidebar>
 </template>
 
@@ -350,15 +347,6 @@ export default {
 
     toggleDataSidebar(val = false) {
       this.SidebarHSSetting = val;
-    },
-
-    logOutUser() {
-      localStorage.removeItem("tokenUser");
-      localStorage.removeItem("INFO");
-      getData.Notify = 0;
-      localStorage.removeItem("stateOpen");
-
-      this.$router.push("/login").catch(() => {});
     },
 
     ChangeNewPass() {

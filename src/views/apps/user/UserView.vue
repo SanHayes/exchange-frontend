@@ -201,14 +201,8 @@ export default {
       })
     },
     deleteRecord() {
-      /* Below two lines are just for demo purpose */
       this.$router.push({name:'app-user-list'});
       this.showDeleteSuccess()
-
-      /* UnComment below lines for enabling true flow if deleting user */
-      // this.$store.dispatch("userManagement/removeRecord", this.user_data.id)
-      //   .then(()   => { this.$router.push({name:'app-user-list'}); this.showDeleteSuccess() })
-      //   .catch(err => { console.error(err)       })
     },
     showDeleteSuccess() {
       this.$vs.notify({

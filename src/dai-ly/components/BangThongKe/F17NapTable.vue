@@ -247,55 +247,15 @@ export default {
       this.reloadList(timeQuery);
     },
 
-    // deleteDeposit(id, index, val) {
-    //   let token = localStorage.getItem("token");
-    //   this.$store.dispatch("setToken", token);
-    //   let obj = {
-    //     id: id,
-    //     val: val,
-    //   };
-    //   AuthenticationService.deleteTrashByID(obj).then((resp) => {
-    //     if (resp.data.success) {
-    //       Vue.delete(this.productsFake, index);
-    //       this.popupDeleteActive = false;
-    //       return this.$vs.notify({
-    //         text: "Đã xóa thành công",
-    //         color: "success",
-    //         iconPack: "feather",
-    //         icon: "icon-check",
-    //       });
-    //     } else {
-    //       localStorage.removeItem("token");
-    //       this.$router.push("/pages/login").catch(() => {});
-    //     }
-    //   });
-    // },
-
-    // trashDataDeposit() {
-    //   let token = localStorage.getItem("token");
-    //   this.$store.dispatch("setToken", token);
-
-    //   AuthenticationService.getDepositAllTrash().then((resp) => {
-    //     if (!resp.data.success) {
-    //       localStorage.removeItem("token");
-    //       this.$router.push("/pages/login").catch(() => {});
-    //     } else {
-    //       this.productsFake = resp.data.data;
-    //     }
-    //   });
-    // },
-
     getOrderStatusColor(status) {
       if (status == 0) return "orange";
       if (status == 1) return "green";
-      //if(status == 2) return "danger"
       return "orange";
     },
     getOrderStatusColorText(status) {
       if (status == 0) return "Đang xử lý";
       if (status == 1) return "Hoàn thành";
       if (status == -1) return "Từ chối";
-      //if(status == 2) return "danger"
       return "Đang xử lý";
     },
 

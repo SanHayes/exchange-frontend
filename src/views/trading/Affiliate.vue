@@ -2309,10 +2309,6 @@ export default {
         getData.balance = dt.balance;
 
         localStorage.setItem("INFO", JSON.stringify(dt));
-      } else if (res.data.success == 4) {
-        localStorage.removeItem("INFO");
-        localStorage.removeItem("tokenUser");
-        this.$router.push("/login").catch(() => {});
       }
     }
 

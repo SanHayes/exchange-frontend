@@ -591,22 +591,6 @@
       </div>
     </div>
 
-    <!-- <div class="menuMobileTopMobile">
-        <div class="icon" @click="isMenuMobie = !isMenuMobie">
-          <feather-icon icon="ListIcon" svgClasses="w-8 h-8"/>
-        </div>
-    </div>
-    <div class="tabMenuMobileTOP flex items-center justify-center" :class="{'open': isMenuMobie}">
-      <div class="con-img ml-3 mr-3 cursor-pointer" @click="popupActiveCaiDat = true">
-        <feather-icon icon="SettingsIcon" svgClasses="w-5 h-5" class="block text-center h-5"/>
-        <span>Cài Đặt</span>
-      </div>
-      <div class="con-img ml-3 mr-3 cursor-pointer" @click.stop="viewHoSo()">
-        <feather-icon icon="UserIcon" svgClasses="w-5 h-5" class="block text-center h-5"/>
-        <span>Hồ Sơ</span>
-      </div>
-    </div> -->
-
     <ho-so-user-info
       :isSidebarActive="addNewDataSidebar"
       @closeSidebar="toggleDataSidebar"
@@ -621,130 +605,12 @@
       :isSidebarActive="$store.state.isOpenSideBar"
       @closeSidebar="toggleDataSidebarHisOrder"
     />
-
-    <!-- <vs-dropdown vs-custom-content vs-trigger-click class="cursor-pointer">
-
-      <div class="con-img ml-3">
-        <feather-icon icon="UserIcon" svgClasses="w-8 h-8" />
-        <img v-if="activeUserInfo.photoURL" key="onlineImg" :src="activeUserInfo.photoURL" alt="user-img" width="40" height="40" class="rounded-full shadow-md cursor-pointer block" />
-      </div>
-
-      <vs-dropdown-menu class="vx-navbar-dropdown">
-        <ul style="min-width: 9rem">
-
-          <li
-            class="flex py-2 px-4 cursor-pointer hover:bg-primary hover:text-white"
-            @click="$router.push('/pages/profile').catch(() => {})">
-            <feather-icon icon="UserIcon" svgClasses="w-4 h-4" />
-            <span class="ml-2">Profile</span>
-          </li>
-
-          <li
-            class="flex py-2 px-4 cursor-pointer hover:bg-primary hover:text-white"
-            @click="$router.push('/apps/email').catch(() => {})">
-            <feather-icon icon="MailIcon" svgClasses="w-4 h-4" />
-            <span class="ml-2">Inbox</span>
-          </li>
-
-          <li
-            class="flex py-2 px-4 cursor-pointer hover:bg-primary hover:text-white"
-            @click="$router.push('/apps/todo').catch(() => {})">
-            <feather-icon icon="CheckSquareIcon" svgClasses="w-4 h-4" />
-            <span class="ml-2">Tasks</span>
-          </li>
-
-          <li
-            class="flex py-2 px-4 cursor-pointer hover:bg-primary hover:text-white"
-            @click="$router.push('/apps/chat').catch(() => {})">
-            <feather-icon icon="MessageSquareIcon" svgClasses="w-4 h-4" />
-            <span class="ml-2">Chat</span>
-          </li>
-
-          <li
-            class="flex py-2 px-4 cursor-pointer hover:bg-primary hover:text-white"
-            @click="$router.push('/apps/eCommerce/wish-list').catch(() => {})">
-            <feather-icon icon="HeartIcon" svgClasses="w-4 h-4" />
-            <span class="ml-2">Wish List</span>
-          </li>
-
-          <vs-divider class="m-1" />
-
-          <li
-            class="flex py-2 px-4 cursor-pointer hover:bg-primary hover:text-white"
-            @click="logout">
-            <feather-icon icon="LogOutIcon" svgClasses="w-4 h-4" />
-            <span class="ml-2">Đăng xuất</span>
-          </li>
-        </ul>
-      </vs-dropdown-menu>
-    </vs-dropdown>-->
     <vs-prompt
       class="qDeposit"
       title=""
       :buttons-hidden="true"
       :active.sync="popupActiveNapNhanh"
     >
-      <!--<div class="relative">
-        <vs-button
-          color="#38495d"
-          type="filled"
-          class="w-full text-left"
-          @click="showPopWalSL = !showPopWalSL"
-        >
-          <span class="icon USDT"></span>
-          <span class="white">{{ balanceUSDT }}</span>
-          <feather-icon
-            class="material-icons right-0"
-            icon="ChevronDownIcon"
-            svgClasses="w-4 h-4"
-            style="top: -3px; position: absolute !important"
-          />
-        </vs-button>
-        <div class="listWallShow w-full" :class="{ block: showPopWalSL }">
-          <span
-            class="drop cursor-pointer w-full block"
-            @click="selectWallet('usdt')"
-          >
-            <span class="icon USDT"></span>
-            <span class="white">{{ balanceUSDT }}</span>
-          </span>
-        </div>
-        <p class="white mt-4 mb-2 text-xs">Tiền Nạp</p>
-        <div class="relative">
-          <vs-input
-            class="w-full"
-            placeholder="Vui lòng nhập tiền nạp"
-            @keyup="ttThucNhan"
-            v-model="enterMoneyDeposit"
-          />
-          <span class="allIn cursor-pointer" @click="allEnterWallet()">
-            <span class="uppercase">Tất cả</span>
-          </span>
-        </div>
-
-        <p class="noticeDeposit mt-4 mb-4 text-right">
-          <small>Giá trị nạp tối thiểu là $11</small>
-        </p>
-        <div class="sizeLarge">
-          <p class="white mb-2 title">*Tổng sẽ nhận</p>
-          <p title="0.00" class="receiveAmount white mb-2 text-3xl">
-            ${{ ttNhan }}
-          </p>
-        </div>
-
-        <vs-button
-          class="w-full"
-          color="success"
-          icon-pack="feather"
-          type="relief"
-          @click="(popupActiveNapNhanh = false), submitDeposit()"
-          >Nạp tiền ngay</vs-button
-        >
-
-        <p class="noticeDeposit text-center mt-2">
-          <small>*Giá báo có thể thay đổi</small>
-        </p>
-      </div>-->
       <nap-rut-tien :active.sync="popupActiveNapNhanh" money-type="VND" />
     </vs-prompt>
     <vs-popup
@@ -1366,33 +1232,6 @@ export default {
     toggleDataSidebar(val = false) {
       this.addNewDataSidebar = val;
     },
-
-    logout() {
-      // // if user is logged in via auth0
-      // if (this.$auth.profile) this.$auth.logOut();
-
-      // // if user is logged in via firebase
-      // const firebaseCurrentUser = firebase.auth().currentUser
-
-      // if (firebaseCurrentUser) {
-      //     firebase.auth().signOut().then(() => {
-      //         this.$router.push('/pages/login').catch(() => {})
-      //     })
-      // }
-      // // If JWT login
-      // if(localStorage.getItem("accessToken")) {
-      //   localStorage.removeItem("accessToken")
-      //   this.$router.push('/pages/login').catch(() => {})
-      // }
-
-      // // Change role on logout. Same value as initialRole of acj.js
-      // this.$acl.change('admin')
-      // localStorage.removeItem('userInfo')
-      localStorage.removeItem("tokenUser");
-
-      // This is just for demo Purpose. If user clicks on logout -> redirect
-      this.$router.push("/login").catch(() => {});
-    },
   },
   created() {
     let checkSound = localStorage.hasOwnProperty("SOUND");
@@ -1414,9 +1253,6 @@ export default {
     } else {
       this.isAcc = getData.isAccount = 0;
       this.$store.commit("SET_ACCOUNT_TYPE", 0);
-      // localStorage.setItem("BO_BALANCE_TYPE", "LIVE");
-      // this.isAcc = getData.isAccount = 1;
-      // this.$store.commit("SET_ACCOUNT_TYPE", 1);
     }
 
     AuthenticationService.getPrizeUser().then((resp) => {

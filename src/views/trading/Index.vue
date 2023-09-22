@@ -2472,7 +2472,6 @@ export default {
         }
 
         if (dl.type === 'disAccount') {
-          // đăng xuất tài khoản
           setTimeout(() => {
             localStorage.removeItem('tokenUser');
             localStorage.removeItem('INFO');

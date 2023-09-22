@@ -395,12 +395,6 @@ export default {
       };
       AuthenticationService.transWallet(obj).then((res) => {
         let d = res.data;
-        if (d.success == 3 || d.success == 4) {
-          localStorage.removeItem("token");
-          // this.$router.push('/login').catch(() => {})
-          this.$router.push("/login").catch(() => {});
-          return;
-        }
 
         if (d.success == 1) {
           this.balanceOne = this.formatPrice(dfBalance - am, 2);
@@ -420,12 +414,6 @@ export default {
     getBalanceWallet() {
       AuthenticationService.getBalanceWallet().then((res) => {
         let d = res.data;
-        if (d.success == 3 || d.success == 4) {
-          localStorage.removeItem("token");
-          // this.$router.push('/login').catch(() => {})
-          this.$router.push("/login").catch(() => {});
-          return;
-        }
         if (d.success) {
           //let mU = d.data.usdt
           //let mE = d.data.eth
@@ -445,12 +433,6 @@ export default {
     getExChange() {
       AuthenticationService.getExChangeUser().then((res) => {
         let d = res.data;
-        if (d.success == 3 || d.success == 4) {
-          localStorage.removeItem("token");
-          // this.$router.push('/login').catch(() => {})
-          this.$router.push("/login").catch(() => {});
-          return;
-        }
         if (d.success) {
           let c = (d.count / 10).toString();
           this.totalExH = Number(c.split(".")[0]);

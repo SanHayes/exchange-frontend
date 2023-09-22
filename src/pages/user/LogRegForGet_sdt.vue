@@ -1483,9 +1483,6 @@ export default {
           this.activeLogin = false;
 
           this.getInfoLogin();
-
-          //this.$router.push('/user/affiliate/general').catch(() => {})
-          //window.location.href = window.location.origin + '/user/affiliate/general';
         } else if (res.data.success == 0) {
           this.$vs.notify({
             text: "Email hoặc mật khẩu không đúng. Vui lòng nhập lại",
@@ -1516,9 +1513,6 @@ export default {
           this.activeLogin = false;
 
           this.getInfoLogin();
-          //this.$router.push('/trading').catch(() => {})
-          //this.$router.push('/user/affiliate/general').catch(() => {})
-          //window.location.href = window.location.origin + '/user/affiliate/general';
         } else if (res.data.success == 6) {
           return this.$vs.notify({
             text: "Mã đăng nhập không hợp lệ hoặc đã hết hạn.",

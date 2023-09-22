@@ -21,34 +21,6 @@
             <feather-icon icon="LockIcon" svgClasses="w-4 h-4" />
             <span class="ml-2">Đổi mật khẩu</span>
           </li>
-          <!-- @click="$router.push('/pages/profile').catch(() => {})"
-          <li
-            class="flex py-2 px-4 cursor-pointer hover:bg-primary hover:text-white"
-            @click="$router.push('/apps/email').catch(() => {})">
-            <feather-icon icon="MailIcon" svgClasses="w-4 h-4" />
-            <span class="ml-2">Inbox</span>
-          </li>
-
-          <li
-            class="flex py-2 px-4 cursor-pointer hover:bg-primary hover:text-white"
-            @click="$router.push('/apps/todo').catch(() => {})">
-            <feather-icon icon="CheckSquareIcon" svgClasses="w-4 h-4" />
-            <span class="ml-2">Tasks</span>
-          </li>
-
-          <li
-            class="flex py-2 px-4 cursor-pointer hover:bg-primary hover:text-white"
-            @click="$router.push('/apps/chat').catch(() => {})">
-            <feather-icon icon="MessageSquareIcon" svgClasses="w-4 h-4" />
-            <span class="ml-2">Chat</span>
-          </li>
-
-          <li
-            class="flex py-2 px-4 cursor-pointer hover:bg-primary hover:text-white"
-            @click="$router.push('/apps/eCommerce/wish-list').catch(() => {})">
-            <feather-icon icon="HeartIcon" svgClasses="w-4 h-4" />
-            <span class="ml-2">Wish List</span>
-          </li>-->
 
           <vs-divider class="m-1" />
 
@@ -56,7 +28,7 @@
             class="flex py-2 px-4 cursor-pointer hover:bg-primary hover:text-white"
             @click="logout">
             <feather-icon icon="LogOutIcon" svgClasses="w-4 h-4" />
-            <span class="ml-2">Đăng xuất</span>
+            <span class="ml-2">Đăng xuất11</span>
           </li>
         </ul>
       </vs-dropdown-menu>
@@ -146,30 +118,7 @@ export default {
     },
 
     logout() {
-
-        // // if user is logged in via auth0
-        // if (this.$auth.profile) this.$auth.logOut();
-
-        // // if user is logged in via firebase
-        // const firebaseCurrentUser = firebase.auth().currentUser
-
-        // if (firebaseCurrentUser) {
-        //     firebase.auth().signOut().then(() => {
-        //         this.$router.push('/pages/login').catch(() => {})
-        //     })
-        // }
-        // // If JWT login
-        // if(localStorage.getItem("accessToken")) {
-        //   localStorage.removeItem("accessToken")
-        //   this.$router.push('/pages/login').catch(() => {})
-        // }
-
-        // // Change role on logout. Same value as initialRole of acj.js
-        // this.$acl.change('admin')
-        // localStorage.removeItem('userInfo')
-        localStorage.removeItem('token')
-
-        // This is just for demo Purpose. If user clicks on logout -> redirect
+        localStorage.removeItem('token');
         this.$router.push('/pages/login').catch(() => {})
     },
   }

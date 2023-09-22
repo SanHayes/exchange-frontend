@@ -747,12 +747,6 @@ export default {
     getBankInfo() {
       AuthenticationService.getBankInfo().then((res) => {
         let d = res.data;
-        if (d.success == 3 || d.success == 4) {
-          localStorage.removeItem("token");
-          // this.$router.push('/login').catch(() => {})
-          this.$router.push("/login").catch(() => {});
-          return;
-        }
         if (d.success) {
           this.bankInfo = d.data;
         }
@@ -779,13 +773,6 @@ export default {
 
       AuthenticationService.depositVND(obj).then((res) => {
         let d = res.data;
-
-        if (d.success == 3 || d.success == 4) {
-          localStorage.removeItem("token");
-          // this.$router.push('/login').catch(() => {})
-          this.$router.push("/login").catch(() => {});
-          return;
-        }
 
         if (d.success) {
           this.isNap = false;
@@ -822,14 +809,6 @@ export default {
 
       AuthenticationService.depositPaypal(obj).then((res) => {
         let d = res.data;
-
-        if (d.success == 3 || d.success == 4) {
-          localStorage.removeItem("token");
-          // this.$router.push('/login').catch(() => {})
-          this.$router.push("/login").catch(() => {});
-          return;
-        }
-
         if (d.success) {
           this.$vs.notify({
             text: "Vui lòng hoàn thành các bước để nạp tiền.",
@@ -911,14 +890,6 @@ export default {
 
         AuthenticationService.withdrawalPaypalNoiBo(obj).then((res) => {
           let d = res.data;
-
-          if (d.success == 3 || d.success == 4) {
-            localStorage.removeItem("token");
-            // this.$router.push('/login').catch(() => {})
-            this.$router.push("/login").catch(() => {});
-            return;
-          }
-
           if (res.data.success) {
             return this.$vs.notify({
               text: "Rút tiền thành công.",
@@ -954,13 +925,6 @@ export default {
 
         AuthenticationService.withdrawalPaypalAccount(obj).then((res) => {
           let d = res.data;
-
-          if (d.success == 3 || d.success == 4) {
-            localStorage.removeItem("token");
-            // this.$router.push('/login').catch(() => {})
-            this.$router.push("/login").catch(() => {});
-            return;
-          }
 
           if (res.data.success) {
             return this.$vs.notify({
@@ -1184,13 +1148,6 @@ export default {
         AuthenticationService.withdrawalUsdtVND(obj).then((res) => {
           let d = res.data;
 
-          if (d.success == 3 || d.success == 4) {
-            localStorage.removeItem("token");
-            // this.$router.push('/login').catch(() => {})
-            this.$router.push("/login").catch(() => {});
-            return;
-          }
-
           // cập nhật lại tiền ví nếu thành công
           this.balanceUSDT = this.formatPrice(getAmountFormat - amount, 2);
           this.getAmount = this.balanceUSDT;
@@ -1257,12 +1214,6 @@ export default {
 
         AuthenticationService.withdrawalUserNoiBo(obj).then((res) => {
           let d = res.data;
-
-          if (d.success == 3 || d.success == 4) {
-            localStorage.removeItem("token");
-            // return this.$router.push('/login').catch(() => {})
-            this.$router.push("/login").catch(() => {});
-          }
 
           if (d.success == 5) {
             return this.$vs.notify({
@@ -1336,13 +1287,6 @@ export default {
         AuthenticationService.withdrawalUsdtBSC(obj).then((res) => {
           let d = res.data;
 
-          if (d.success == 3 || d.success == 4) {
-            localStorage.removeItem("token");
-            // this.$router.push('/login').catch(() => {})
-            this.$router.push("/login").catch(() => {});
-            return;
-          }
-
           // cập nhật lại tiền ví nếu thành công
           this.balanceUSDT = this.formatPrice(
             Number(this.balanceUSDT) - tongphi,
@@ -1408,13 +1352,6 @@ export default {
 
         AuthenticationService.withdrawalUsdtERC(obj).then((res) => {
           let d = res.data;
-
-          if (d.success == 3 || d.success == 4) {
-            localStorage.removeItem("token");
-            // this.$router.push('/login').catch(() => {})
-            this.$router.push("/login").catch(() => {});
-            return;
-          }
 
           // cập nhật lại tiền ví nếu thành công
           this.balanceUSDT = this.formatPrice(
@@ -1491,12 +1428,6 @@ export default {
       AuthenticationService.getAddressCoin(coint).then((res) => {
         this.isLoading = false;
         let d = res.data;
-        if (d.success == 3 || d.success == 4) {
-          localStorage.removeItem("token");
-          // this.$router.push('/login').catch(() => {})
-          this.$router.push("/login").catch(() => {});
-          return;
-        }
         this.textAddress = d.a;
 
         var canvas = document.querySelector("canvas");
@@ -1521,12 +1452,6 @@ export default {
     getBalanceWallet() {
       AuthenticationService.getBalanceWallet().then((res) => {
         let d = res.data;
-        if (d.success == 3 || d.success == 4) {
-          localStorage.removeItem("token");
-          // this.$router.push('/login').catch(() => {})
-          this.$router.push("/login").catch(() => {});
-          return;
-        }
         if (d.success) {
           let mU = d.data.usdt;
           let mE = d.data.eth;

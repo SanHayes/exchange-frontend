@@ -290,17 +290,6 @@ export default {
             getData.balance = dt.balance;
 
             localStorage.setItem("INFO", JSON.stringify(dt));
-            //localStorage.removeItem('isLog')
-          } else if (res.data.success == 4) {
-            localStorage.removeItem("INFO");
-            localStorage.removeItem("tokenUser");
-            this.$router.push("/login").catch(() => {});
-            //let checkLog = localStorage.getItem('isLog')
-            //localStorage.setItem('isLog', true);
-            //if(!checkLog){
-            //    localStorage.setItem('isLog', true)
-            //window.location.href = window.location.origin + '/login'
-            //}
           }
         });
       } else {

@@ -521,8 +521,6 @@ Chủ tài khoản: ${noteArr[3]}
             });
           }
         } else {
-          localStorage.removeItem("token");
-          this.$router.push("/pages/login").catch(() => {});
         }
       });
     },

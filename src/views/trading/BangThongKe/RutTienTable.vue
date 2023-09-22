@@ -520,9 +520,6 @@ Chủ tài khoản: ${noteArr[3]}
               icon: "icon-check",
             });
           }
-        } else {
-          localStorage.removeItem("token");
-          this.$router.push("/pages/login").catch(() => {});
         }
       });
     },
@@ -545,9 +542,6 @@ Chủ tài khoản: ${noteArr[3]}
             iconPack: "feather",
             icon: "icon-check",
           });
-        } else {
-          localStorage.removeItem("token");
-          this.$router.push("/pages/login").catch(() => {});
         }
       });
     },
