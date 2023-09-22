@@ -22,74 +22,49 @@
         <div slot="header" class="flex flex-wrap-reverse items-center flex-grow justify-between">
 
           <div class="flex flex-wrap-reverse items-center data-list-btn-container">
-
-            <!-- ACTION - DROPDOWN -->
             <vs-dropdown vs-trigger-click class="dd-actions cursor-pointer mr-4 mb-4">
-
               <div class="p-4 shadow-drop rounded-lg d-theme-dark-bg cursor-pointer flex items-center justify-center text-lg font-medium w-32 w-full">
                 <span class="mr-2">Tác vụ</span>
                 <feather-icon icon="ChevronDownIcon" svgClasses="h-4 w-4" />
               </div>
 
               <vs-dropdown-menu>
-
                 <vs-dropdown-item>
                   <span v-if="showDeleteMultiBt" class="flex items-center" @click="deleteMultiple">
                     <feather-icon icon="TrashIcon" svgClasses="h-4 w-4" class="mr-2" />
                     <span>Xóa</span>
                   </span>
                 </vs-dropdown-item>
-
-                <!-- <vs-dropdown-item>
-                  <span class="flex items-center">
-                    <feather-icon icon="ArchiveIcon" svgClasses="h-4 w-4" class="mr-2" />
-                    <span>Archive</span>
-                  </span>
-                </vs-dropdown-item> -->
-
                 <vs-dropdown-item>
                   <span class="flex items-center" @click="activePrompt=true">
                     <feather-icon icon="FileIcon" svgClasses="h-4 w-4" class="mr-2" />
                     <span>In</span>
                   </span>
                 </vs-dropdown-item>
-                
-
-                <!-- <vs-dropdown-item>
-                  <span class="flex items-center">
-                    <feather-icon icon="SaveIcon" svgClasses="h-4 w-4" class="mr-2" />
-                    <span>Another Action</span>
-                  </span>
-                </vs-dropdown-item> -->
-
               </vs-dropdown-menu>
             </vs-dropdown>
-
-
-            <!-- TRASH -->
-            <!--<div class="btn-add-new p-3 mb-4 mr-4 rounded-lg cursor-pointer flex items-center justify-center text-lg font-medium text-base text-danger border border-solid border-danger" @click.stop="trashDataDeposit">
-                <feather-icon icon="TrashIcon" svgClasses="h-4 w-4" />
-                <span class="ml-2 text-base text-danger">Thùng rác</span>
-            </div>-->
-
-            <!-- RELOAD -->
-            <!-- <div class="btn-add-new p-3 mb-4 mr-4 rounded-lg cursor-pointer flex items-center justify-center text-lg font-medium text-base text-success border border-solid border-success" @click="reloadList">
-                <feather-icon icon="ArrowLeftIcon" svgClasses="h-4 w-4" />
-                <span class="ml-2 text-base text-sucess">Trở về</span>
-            </div>-->
-
-
           </div>
-
+          <vs-dropdown vs-trigger-click class="dd-actions cursor-pointer mr-4 mb-4">
+                  <span class="mr-2">Tác vụ</span>
+            <vs-dropdown-menu>
+              <vs-dropdown-item>
+                Tất cả
+              </vs-dropdown-item>
+              <vs-dropdown-item>
+                Chưa xử lý
+              </vs-dropdown-item>
+              <vs-dropdown-item>
+                Đã xử lý
+              </vs-dropdown-item>
+            </vs-dropdown-menu>
+          </vs-dropdown>
           <!-- ITEMS PER PAGE -->
           <vs-dropdown vs-trigger-click class="cursor-pointer mb-4 mr-4 items-per-page-handler">
             <div class="p-4 border border-solid d-theme-border-grey-light rounded-full d-theme-dark-bg cursor-pointer flex items-center justify-between font-medium">
               <span class="mr-2">{{ currentPage * itemsPerPage - (itemsPerPage - 1) }} - {{ products.length - currentPage * itemsPerPage > 0 ? currentPage * itemsPerPage : products.length }} of {{ queriedItems }}</span>
               <feather-icon icon="ChevronDownIcon" svgClasses="h-4 w-4" />
             </div>
-            <!-- <vs-button class="btn-drop" type="line" color="primary" icon-pack="feather" icon="icon-chevron-down"></vs-button> -->
             <vs-dropdown-menu>
-
               <vs-dropdown-item @click="itemsPerPage=4">
                 <span>4</span>
               </vs-dropdown-item>
@@ -165,12 +140,6 @@
                         <span v-else-if="tr.status == 1" style="color: #00ff37;">Đã duyệt</span>
                         <span v-else style="color: #ff6f6f;">Từ chối</span>
                       </template>
-                      <!--<vx-tooltip v-if="tr.delete_status == 0" style="float: left" color="danger" text="Xóa">
-                          <vs-button color="dark" type="line" icon-pack="feather" icon="icon-trash" @click.stop="deleteWithdra(tr.id, indextr, 1)"></vs-button>
-                      </vx-tooltip>
-                      <vx-tooltip v-else style="float: left" color="warning" text="Thu hồi">
-                          <vs-button color="dark" type="line" icon-pack="feather" icon="icon-arrow-up-left" @click.stop="deleteWithdra(tr.id, indextr, 0)"></vs-button>
-                      </vx-tooltip>-->
                 </vs-td>
               </vs-tr>
             </tbody>

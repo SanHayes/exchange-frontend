@@ -368,7 +368,7 @@ export default {
     //================
     //================
 
-    getAddMoneyListHistory() {
+    getAddMoneyListHistory(email = '') {
         return ApiAdmin().get('api/trades/historyAllAddMoney');
     },
 
