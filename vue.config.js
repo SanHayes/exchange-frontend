@@ -27,7 +27,7 @@ module.exports = {
     //后台
     portal: {
       entry: 'src/main.js',
-      template: 'public/index.html',
+      template: 'public/portal.html',
       title: 'Admin',
       chunks: ['chunk-vendors', 'chunk-common', 'portal']
     },
