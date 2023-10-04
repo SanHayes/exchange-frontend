@@ -27,7 +27,9 @@ request.interceptors.response.use(
     if (data?.success === 4) {
       localStorage.removeItem('tokenUser');
       this.$router.push('/login');
-      window.location.reload();
+      setTimeout(() => {
+        window.location.reload();
+      },500)
       return;
     }
     return response;
