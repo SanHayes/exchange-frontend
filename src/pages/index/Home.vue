@@ -12,7 +12,7 @@
           <div class="header--btn_register" @click="LoginUrl">Đăng nhập</div>
         </div>
       </header>
-      <a class="download-app" href="http://app.mastertrader.vip/">
+      <a class="download-app" href="https://app.mtraderbo.com/">
         <vs-button warn gradient :active="true"> Tải app </vs-button>
       </a>
 
