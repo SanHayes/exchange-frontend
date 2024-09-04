@@ -371,6 +371,7 @@
                     <vs-select-item value="Vietinbank" text="Vietinbank" />
                     <vs-select-item value="Techcombank" text="Techcombank" />
                     <vs-select-item value="BIDV" text="BIDV" />
+                    <vs-select-item value="OCB" text="OCB" />
                     <vs-select-item value="VPBank" text="VPBank" />
                     <vs-select-item value="MBBank" text="MBBank" />
                     <vs-select-item value="ACB" text="ACB" />
