@@ -75,7 +75,7 @@
               </div> -->
               <div class="titleChartCandle items-center">
                 <span class="iconBTC"></span>
-                <span class="textPrice">BTC/USDT</span>
+                <span class="textPrice">XAU/USDT</span>
               </div>
             </div>
             <div class="slider sidebarMobile">
