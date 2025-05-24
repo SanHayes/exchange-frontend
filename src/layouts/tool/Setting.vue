@@ -364,14 +364,14 @@
                 style="display: inline-block"
                 class="m-2 mb-4 w-full"
                 v-model="settingJson.support.zalo"
-                label-placeholder="Zalo"
+                label-placeholder="Signal"
               />
 
               <vs-input
                 style="display: inline-block"
                 class="m-2 mb-4 w-full"
                 v-model="settingJson.support.mail"
-                label-placeholder="Email"
+                label-placeholder="WhatsApp"
               />
             </div>
             <!-- END HỖ TRỢ -->
