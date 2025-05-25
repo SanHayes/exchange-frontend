@@ -180,6 +180,12 @@
         <img :src="require('@/assets/images/sky/bot.svg')" alt="">
       </a>
     </div>
+     <div class="tele-support">
+      <a :href="`${config.support.zalo}`" target="_blank" title="Signal">
+        <img :src="require('@/assets/images/profile/signal.png')" alt="">
+      </a>
+    </div>
+
 <!--    <div class="con-img ml-3">
       <vs-button type="line" icon-pack="feather" :color="colorRT" icon="icon-dollar-sign" @click.stop="viewRutTien()">Rút tiền</vs-button>
     </div>-->
@@ -1541,6 +1547,7 @@ export default {
   -webkit-clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
   clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
   padding: 3px;
+  margin-right: 8px;
 }
 
 .mhelper span {
