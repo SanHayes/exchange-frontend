@@ -180,8 +180,8 @@
         <img :src="require('@/assets/images/sky/bot.svg')" alt="">
       </a>
     </div>
-     <div class="tele-support">
-      <a :href="`${config.support.zalo}`" target="_blank" title="Signal">
+     <div class="tele-support" v-if="config.support.zalo">
+      <a :href="`https://signal.me/#${config.support.zalo}`" target="_blank" title="Signal">
         <img :src="require('@/assets/images/profile/signal.png')" alt="">
       </a>
     </div>

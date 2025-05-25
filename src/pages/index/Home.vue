@@ -269,6 +269,15 @@
                   >@{{ telegram }}</a
                 >
               </p>
+              <p v-if="zalo">
+                Signal:
+                <a
+                    :href="`https://signal.me/#${zalo}`"
+                    class="emailLink"
+                    target="_blank"
+                >{{ zalo }}</a
+                >
+              </p>
             </div>
             <div class="block md:pl-6">
               <h4>Về chúng tôi</h4>
@@ -760,6 +769,7 @@
 
       .emailLink {
         color: #f1dd48;
+        word-break: break-word;
       }
     }
 
@@ -1210,6 +1220,7 @@ export default {
       domain: config.domainRealName,
       mail: config.support.mail,
       telegram: config.support.telegram,
+      zalo: config.support.zalo,
     };
   },
   methods: {
@@ -1247,6 +1258,9 @@ export default {
         this.telegram = res.data.data.telegram;
       } else {
         this.telegram = config.support.telegram;
+      }
+      if (res.data.data.zalo){
+        this.zalo = res.data.data.zalo;
       }
     });
     window.addEventListener("load", this.onWindowLoad);
